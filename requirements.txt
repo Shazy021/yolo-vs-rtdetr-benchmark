@@ -1,0 +1,23 @@
+# Core ML frameworks
+torch>=2.0.0,<3.0.0
+torchvision>=0.15.0
+ultralytics>=8.0.0
+
+# Computer vision
+opencv-python-headless>=4.5.0  # Headless version for Docker (no GUI)
+pillow>=9.0.0
+
+# ONNX Runtime with GPU
+onnxruntime-gpu>=1.15.0,<2.0.0
+onnx>=1.14.0
+
+# TensorRT (optional - requires NVIDIA base image)
+# tensorrt>=8.5.0
+
+# Utilities
+numpy>=1.21.0,<2.0.0
+PyYAML>=6.0
+requests>=2.25.0
+
+# Visualization (optional)
+matplotlib>=3.5.0

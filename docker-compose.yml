@@ -1,0 +1,28 @@
+services:
+  crowd-detection:
+    build: . 
+    image: crowd-detection:latest
+    container_name: crowd-detection
+    
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    
+    volumes:
+      - ./data:/app/data
+      - ./outputs:/app/outputs
+      - ./metrics:/app/metrics
+      - ./plots:/app/plots
+      - ./weights:/app/weights
+      - ./config.yaml:/app/config.yaml
+    
+    environment:
+      - CUDA_VISIBLE_DEVICES=0
+      - TORCH_HOME=/app/weights
+    
+    stdin_open: true
+    tty: true

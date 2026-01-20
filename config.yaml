@@ -1,0 +1,77 @@
+# Detection Pipeline Configuration
+# All paths are relative to project root
+
+# Model weights configuration
+models:
+  yolo:
+    pytorch: "weights/yolov8l.pt"
+    onnx: "weights/yolov8l.onnx"
+    tensorrt: "weights/yolov8l.engine"
+
+  rtdetr:
+    pytorch: "weights/rtdetr-l.pt"
+    onnx: "weights/rtdetr-l.onnx"
+    tensorrt: "weights/rtdetr-l.engine"
+
+# Inference parameters
+inference:
+  conf_threshold: 0.25      # Confidence threshold (0.0-1.0)
+  nms_threshold: 0.45       # NMS IoU threshold for ONNX/TensorRT
+
+  # Input size strategy
+  input_size:
+    mode: "adaptive"        # "adaptive" or "fixed"
+    fixed_size: [640, 640]  # Used when mode is "fixed"
+
+  # Device configuration
+  device:
+    use_gpu: true
+    cuda_device: 0          # CUDA device ID
+
+# Video processing
+video:
+  max_frames: null          # Process all frames (null) or limit to N
+  show_preview: false       # Display real-time preview window
+  display_info: true        # Show FPS/detections overlay
+
+  # Output settings
+  output:
+    codec: "auto"           # "auto", "h264", "h265", "mp4v"
+    compression_quality: "high"  # "low", "medium", "high"
+    save_dir: "output"
+
+  # Performance
+  batch_size: 1             # Batch processing (experimental)
+
+# Model export settings
+export:
+  output_dir: "weights"
+
+  onnx:
+    opset: 20
+    simplify: true
+    dynamic: false
+
+  tensorrt:
+    fp16: true              # Use FP16 precision (2x faster)
+    workspace_gb: 4         # GPU workspace size in GB
+    int8: false             # INT8 quantization (requires calibration)
+
+# Metrics and logging
+metrics:
+  enabled: true
+  save_to_file: true
+  output_dir: "metrics"
+
+  # Percentiles to calculate
+  percentiles: [50, 75, 90, 95, 99]
+
+# Comparison mode
+comparison:
+  fair_mode: true           # Use same input size for both models
+  reference_size: [640, 640]
+
+# Auto-download settings
+auto_download:
+  enabled: true
+  base_url: "https://github.com/ultralytics/assets/releases/download/v8.2.0"

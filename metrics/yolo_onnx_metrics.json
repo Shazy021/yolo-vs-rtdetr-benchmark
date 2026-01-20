@@ -1,0 +1,4959 @@
+{
+  "name": "yolo_onnx",
+  "summary": {
+    "name": "yolo_onnx",
+    "frame_count": 705,
+    "avg_latency_ms": 22.312415576150233,
+    "median_latency_ms": 21.106243133544922,
+    "std_latency_ms": 27.194856393756535,
+    "p95_latency_ms": 23.64964485168457,
+    "p99_latency_ms": 24.60779190063477,
+    "min_latency_ms": 19.32978630065918,
+    "max_latency_ms": 743.4031963348389,
+    "avg_fps": 44.81809674918843,
+    "avg_detections": 13.086524822695035,
+    "total_detections": 9226,
+    "processing_time": 54.620687
+  },
+  "frames": [
+    {
+      "frame_num": 1,
+      "latency_ms": 743.4031963348389,
+      "fps": 1.345165053002525,
+      "detections": 12,
+      "timestamp": 2.269487
+    },
+    {
+      "frame_num": 2,
+      "latency_ms": 24.51944351196289,
+      "fps": 40.78395986075728,
+      "detections": 12,
+      "timestamp": 2.34386
+    },
+    {
+      "frame_num": 3,
+      "latency_ms": 20.92289924621582,
+      "fps": 47.79452351379377,
+      "detections": 12,
+      "timestamp": 2.412873
+    },
+    {
+      "frame_num": 4,
+      "latency_ms": 21.248340606689453,
+      "fps": 47.062498597428245,
+      "detections": 12,
+      "timestamp": 2.482447
+    },
+    {
+      "frame_num": 5,
+      "latency_ms": 21.132230758666992,
+      "fps": 47.32108083714108,
+      "detections": 11,
+      "timestamp": 2.548911
+    },
+    {
+      "frame_num": 6,
+      "latency_ms": 19.70195770263672,
+      "fps": 50.756377365796986,
+      "detections": 11,
+      "timestamp": 2.613889
+    },
+    {
+      "frame_num": 7,
+      "latency_ms": 21.76666259765625,
+      "fps": 45.94181563266737,
+      "detections": 11,
+      "timestamp": 2.681182
+    },
+    {
+      "frame_num": 8,
+      "latency_ms": 20.08509635925293,
+      "fps": 49.78816044063008,
+      "detections": 11,
+      "timestamp": 2.747347
+    },
+    {
+      "frame_num": 9,
+      "latency_ms": 20.44844627380371,
+      "fps": 48.903471031982,
+      "detections": 11,
+      "timestamp": 2.812934
+    },
+    {
+      "frame_num": 10,
+      "latency_ms": 21.24786376953125,
+      "fps": 47.063554757630165,
+      "detections": 12,
+      "timestamp": 2.882443
+    },
+    {
+      "frame_num": 11,
+      "latency_ms": 23.130178451538086,
+      "fps": 43.23356182033706,
+      "detections": 11,
+      "timestamp": 2.95011
+    },
+    {
+      "frame_num": 12,
+      "latency_ms": 20.71404457092285,
+      "fps": 48.27642407430854,
+      "detections": 12,
+      "timestamp": 3.023264
+    },
+    {
+      "frame_num": 13,
+      "latency_ms": 20.804643630981445,
+      "fps": 48.06619222791396,
+      "detections": 11,
+      "timestamp": 3.088908
+    },
+    {
+      "frame_num": 14,
+      "latency_ms": 20.760059356689453,
+      "fps": 48.16941911477594,
+      "detections": 11,
+      "timestamp": 3.153581
+    },
+    {
+      "frame_num": 15,
+      "latency_ms": 21.36850357055664,
+      "fps": 46.79784883850668,
+      "detections": 10,
+      "timestamp": 3.217566
+    },
+    {
+      "frame_num": 16,
+      "latency_ms": 23.090124130249023,
+      "fps": 43.308558860883664,
+      "detections": 10,
+      "timestamp": 3.290413
+    },
+    {
+      "frame_num": 17,
+      "latency_ms": 20.084142684936523,
+      "fps": 49.79052457887677,
+      "detections": 11,
+      "timestamp": 3.35561
+    },
+    {
+      "frame_num": 18,
+      "latency_ms": 21.22330665588379,
+      "fps": 47.11801116640642,
+      "detections": 12,
+      "timestamp": 3.427518
+    },
+    {
+      "frame_num": 19,
+      "latency_ms": 21.285057067871094,
+      "fps": 46.98131636722076,
+      "detections": 12,
+      "timestamp": 3.497503
+    },
+    {
+      "frame_num": 20,
+      "latency_ms": 23.339271545410156,
+      "fps": 42.84623871205002,
+      "detections": 13,
+      "timestamp": 3.575204
+    },
+    {
+      "frame_num": 21,
+      "latency_ms": 21.778345108032227,
+      "fps": 45.91717116426734,
+      "detections": 13,
+      "timestamp": 3.651409
+    },
+    {
+      "frame_num": 22,
+      "latency_ms": 21.48914337158203,
+      "fps": 46.53512625926419,
+      "detections": 12,
+      "timestamp": 3.723508
+    },
+    {
+      "frame_num": 23,
+      "latency_ms": 21.31485939025879,
+      "fps": 46.91562734197604,
+      "detections": 12,
+      "timestamp": 3.79457
+    },
+    {
+      "frame_num": 24,
+      "latency_ms": 20.776987075805664,
+      "fps": 48.130173848184064,
+      "detections": 12,
+      "timestamp": 3.865327
+    },
+    {
+      "frame_num": 25,
+      "latency_ms": 21.724462509155273,
+      "fps": 46.031058286416666,
+      "detections": 11,
+      "timestamp": 3.932897
+    },
+    {
+      "frame_num": 26,
+      "latency_ms": 20.81131935119629,
+      "fps": 48.05077386612288,
+      "detections": 10,
+      "timestamp": 3.997847
+    },
+    {
+      "frame_num": 27,
+      "latency_ms": 21.04496955871582,
+      "fps": 47.51729372712957,
+      "detections": 10,
+      "timestamp": 4.065509
+    },
+    {
+      "frame_num": 28,
+      "latency_ms": 21.132946014404297,
+      "fps": 47.31947923012704,
+      "detections": 11,
+      "timestamp": 4.132742
+    },
+    {
+      "frame_num": 29,
+      "latency_ms": 21.742582321166992,
+      "fps": 45.99269696803553,
+      "detections": 11,
+      "timestamp": 4.201899
+    },
+    {
+      "frame_num": 30,
+      "latency_ms": 20.085811614990234,
+      "fps": 49.786387484272254,
+      "detections": 10,
+      "timestamp": 4.271298
+    },
+    {
+      "frame_num": 31,
+      "latency_ms": 20.432472229003906,
+      "fps": 48.941703617269546,
+      "detections": 10,
+      "timestamp": 4.335591
+    },
+    {
+      "frame_num": 32,
+      "latency_ms": 20.574092864990234,
+      "fps": 48.604816093818805,
+      "detections": 10,
+      "timestamp": 4.400132
+    },
+    {
+      "frame_num": 33,
+      "latency_ms": 20.23029327392578,
+      "fps": 49.43082072314147,
+      "detections": 9,
+      "timestamp": 4.459382
+    },
+    {
+      "frame_num": 34,
+      "latency_ms": 21.46172523498535,
+      "fps": 46.59457657997934,
+      "detections": 10,
+      "timestamp": 4.522799
+    },
+    {
+      "frame_num": 35,
+      "latency_ms": 20.993471145629883,
+      "fps": 47.63385688165082,
+      "detections": 10,
+      "timestamp": 4.586347
+    },
+    {
+      "frame_num": 36,
+      "latency_ms": 20.183086395263672,
+      "fps": 49.54643608098849,
+      "detections": 11,
+      "timestamp": 4.653237
+    },
+    {
+      "frame_num": 37,
+      "latency_ms": 20.22862434387207,
+      "fps": 49.43489893334905,
+      "detections": 11,
+      "timestamp": 4.719263
+    },
+    {
+      "frame_num": 38,
+      "latency_ms": 20.143985748291016,
+      "fps": 49.64260859273287,
+      "detections": 10,
+      "timestamp": 4.781889
+    },
+    {
+      "frame_num": 39,
+      "latency_ms": 20.335674285888672,
+      "fps": 49.17466644781579,
+      "detections": 10,
+      "timestamp": 4.846136
+    },
+    {
+      "frame_num": 40,
+      "latency_ms": 19.629716873168945,
+      "fps": 50.94316981040409,
+      "detections": 10,
+      "timestamp": 4.90753
+    },
+    {
+      "frame_num": 41,
+      "latency_ms": 20.938873291015625,
+      "fps": 47.75806157770086,
+      "detections": 11,
+      "timestamp": 4.973757
+    },
+    {
+      "frame_num": 42,
+      "latency_ms": 19.997358322143555,
+      "fps": 50.006605067064086,
+      "detections": 9,
+      "timestamp": 5.034944
+    },
+    {
+      "frame_num": 43,
+      "latency_ms": 19.32978630065918,
+      "fps": 51.733629355535,
+      "detections": 10,
+      "timestamp": 5.098616
+    },
+    {
+      "frame_num": 44,
+      "latency_ms": 20.034074783325195,
+      "fps": 49.91495793119042,
+      "detections": 11,
+      "timestamp": 5.164369
+    },
+    {
+      "frame_num": 45,
+      "latency_ms": 20.90907096862793,
+      "fps": 47.82613256707602,
+      "detections": 12,
+      "timestamp": 5.231848
+    },
+    {
+      "frame_num": 46,
+      "latency_ms": 23.589372634887695,
+      "fps": 42.39197097259983,
+      "detections": 12,
+      "timestamp": 5.303872
+    },
+    {
+      "frame_num": 47,
+      "latency_ms": 20.01953125,
+      "fps": 49.951219512195124,
+      "detections": 11,
+      "timestamp": 5.369587
+    },
+    {
+      "frame_num": 48,
+      "latency_ms": 20.657062530517578,
+      "fps": 48.40959349968837,
+      "detections": 10,
+      "timestamp": 5.433367
+    },
+    {
+      "frame_num": 49,
+      "latency_ms": 19.68860626220703,
+      "fps": 50.79079680310002,
+      "detections": 11,
+      "timestamp": 5.498296
+    },
+    {
+      "frame_num": 50,
+      "latency_ms": 22.397518157958984,
+      "fps": 44.64780396414809,
+      "detections": 11,
+      "timestamp": 5.567261
+    },
+    {
+      "frame_num": 51,
+      "latency_ms": 20.922422409057617,
+      "fps": 47.79561278559626,
+      "detections": 10,
+      "timestamp": 5.630279
+    },
+    {
+      "frame_num": 52,
+      "latency_ms": 19.638538360595703,
+      "fps": 50.92028651207964,
+      "detections": 11,
+      "timestamp": 5.695429
+    },
+    {
+      "frame_num": 53,
+      "latency_ms": 21.005630493164062,
+      "fps": 47.60628348315627,
+      "detections": 12,
+      "timestamp": 5.763471
+    },
+    {
+      "frame_num": 54,
+      "latency_ms": 20.584583282470703,
+      "fps": 48.580045866246614,
+      "detections": 11,
+      "timestamp": 5.828067
+    },
+    {
+      "frame_num": 55,
+      "latency_ms": 20.0347900390625,
+      "fps": 49.913175932977914,
+      "detections": 12,
+      "timestamp": 5.896474
+    },
+    {
+      "frame_num": 56,
+      "latency_ms": 20.046472549438477,
+      "fps": 49.88408796279778,
+      "detections": 11,
+      "timestamp": 5.962742
+    },
+    {
+      "frame_num": 57,
+      "latency_ms": 21.040916442871094,
+      "fps": 47.526446992702716,
+      "detections": 10,
+      "timestamp": 6.026905
+    },
+    {
+      "frame_num": 58,
+      "latency_ms": 20.531654357910156,
+      "fps": 48.70528124854847,
+      "detections": 10,
+      "timestamp": 6.089434
+    },
+    {
+      "frame_num": 59,
+      "latency_ms": 20.0655460357666,
+      "fps": 49.83667019165647,
+      "detections": 12,
+      "timestamp": 6.157327
+    },
+    {
+      "frame_num": 60,
+      "latency_ms": 20.172834396362305,
+      "fps": 49.57161598373734,
+      "detections": 12,
+      "timestamp": 6.225876
+    },
+    {
+      "frame_num": 61,
+      "latency_ms": 23.996353149414062,
+      "fps": 41.67299896669581,
+      "detections": 10,
+      "timestamp": 6.299443
+    },
+    {
+      "frame_num": 62,
+      "latency_ms": 22.019386291503906,
+      "fps": 45.41452639785179,
+      "detections": 11,
+      "timestamp": 6.368041
+    },
+    {
+      "frame_num": 63,
+      "latency_ms": 19.771337509155273,
+      "fps": 50.5782676329784,
+      "detections": 13,
+      "timestamp": 6.441579
+    },
+    {
+      "frame_num": 64,
+      "latency_ms": 20.267009735107422,
+      "fps": 49.34127002799802,
+      "detections": 12,
+      "timestamp": 6.512902
+    },
+    {
+      "frame_num": 65,
+      "latency_ms": 21.082162857055664,
+      "fps": 47.43346338705118,
+      "detections": 13,
+      "timestamp": 6.586328
+    },
+    {
+      "frame_num": 66,
+      "latency_ms": 21.7742919921875,
+      "fps": 45.92571829011913,
+      "detections": 13,
+      "timestamp": 6.660791
+    },
+    {
+      "frame_num": 67,
+      "latency_ms": 21.866321563720703,
+      "fps": 45.73242907298776,
+      "detections": 13,
+      "timestamp": 6.733877
+    },
+    {
+      "frame_num": 68,
+      "latency_ms": 20.937442779541016,
+      "fps": 47.76132455760778,
+      "detections": 13,
+      "timestamp": 6.806855
+    },
+    {
+      "frame_num": 69,
+      "latency_ms": 21.05712890625,
+      "fps": 47.48985507246377,
+      "detections": 13,
+      "timestamp": 6.879081
+    },
+    {
+      "frame_num": 70,
+      "latency_ms": 20.74718475341797,
+      "fps": 48.19931050333257,
+      "detections": 13,
+      "timestamp": 6.953566
+    },
+    {
+      "frame_num": 71,
+      "latency_ms": 21.26145362854004,
+      "fps": 47.033472756428225,
+      "detections": 13,
+      "timestamp": 7.027951
+    },
+    {
+      "frame_num": 72,
+      "latency_ms": 21.403789520263672,
+      "fps": 46.720698643259745,
+      "detections": 12,
+      "timestamp": 7.098884
+    },
+    {
+      "frame_num": 73,
+      "latency_ms": 21.633625030517578,
+      "fps": 46.22433820450087,
+      "detections": 13,
+      "timestamp": 7.172373
+    },
+    {
+      "frame_num": 74,
+      "latency_ms": 22.772550582885742,
+      "fps": 43.912516358687114,
+      "detections": 12,
+      "timestamp": 7.247135
+    },
+    {
+      "frame_num": 75,
+      "latency_ms": 24.365663528442383,
+      "fps": 41.041361292405846,
+      "detections": 13,
+      "timestamp": 7.324788
+    },
+    {
+      "frame_num": 76,
+      "latency_ms": 21.19922637939453,
+      "fps": 47.171532682531826,
+      "detections": 13,
+      "timestamp": 7.399834
+    },
+    {
+      "frame_num": 77,
+      "latency_ms": 20.93219757080078,
+      "fps": 47.77329263292177,
+      "detections": 13,
+      "timestamp": 7.473835
+    },
+    {
+      "frame_num": 78,
+      "latency_ms": 21.296024322509766,
+      "fps": 46.957121425852534,
+      "detections": 13,
+      "timestamp": 7.550355
+    },
+    {
+      "frame_num": 79,
+      "latency_ms": 24.039745330810547,
+      "fps": 41.59777843895666,
+      "detections": 13,
+      "timestamp": 7.628896
+    },
+    {
+      "frame_num": 80,
+      "latency_ms": 20.058631896972656,
+      "fps": 49.853848713925736,
+      "detections": 13,
+      "timestamp": 7.702092
+    },
+    {
+      "frame_num": 81,
+      "latency_ms": 20.36881446838379,
+      "fps": 49.09465897252818,
+      "detections": 12,
+      "timestamp": 7.773313
+    },
+    {
+      "frame_num": 82,
+      "latency_ms": 21.23713493347168,
+      "fps": 47.08733090092618,
+      "detections": 12,
+      "timestamp": 7.84554
+    },
+    {
+      "frame_num": 83,
+      "latency_ms": 21.67963981628418,
+      "fps": 46.12622757915342,
+      "detections": 11,
+      "timestamp": 7.914544
+    },
+    {
+      "frame_num": 84,
+      "latency_ms": 22.342920303344727,
+      "fps": 44.75690672585447,
+      "detections": 10,
+      "timestamp": 7.979039
+    },
+    {
+      "frame_num": 85,
+      "latency_ms": 22.02892303466797,
+      "fps": 45.39486557859647,
+      "detections": 10,
+      "timestamp": 8.044886
+    },
+    {
+      "frame_num": 86,
+      "latency_ms": 20.617008209228516,
+      "fps": 48.50364271341675,
+      "detections": 10,
+      "timestamp": 8.109502
+    },
+    {
+      "frame_num": 87,
+      "latency_ms": 21.053075790405273,
+      "fps": 47.49899776904522,
+      "detections": 10,
+      "timestamp": 8.174008
+    },
+    {
+      "frame_num": 88,
+      "latency_ms": 21.250247955322266,
+      "fps": 47.05827443060698,
+      "detections": 10,
+      "timestamp": 8.240188
+    },
+    {
+      "frame_num": 89,
+      "latency_ms": 23.900508880615234,
+      "fps": 41.84011332122977,
+      "detections": 10,
+      "timestamp": 8.313435
+    },
+    {
+      "frame_num": 90,
+      "latency_ms": 21.40951156616211,
+      "fps": 46.70821176418183,
+      "detections": 10,
+      "timestamp": 8.375931
+    },
+    {
+      "frame_num": 91,
+      "latency_ms": 21.181106567382812,
+      "fps": 47.211886537595674,
+      "detections": 10,
+      "timestamp": 8.441105
+    },
+    {
+      "frame_num": 92,
+      "latency_ms": 21.114110946655273,
+      "fps": 47.361691076005826,
+      "detections": 11,
+      "timestamp": 8.509636
+    },
+    {
+      "frame_num": 93,
+      "latency_ms": 20.740270614624023,
+      "fps": 48.215378602384156,
+      "detections": 11,
+      "timestamp": 8.576847
+    },
+    {
+      "frame_num": 94,
+      "latency_ms": 21.07524871826172,
+      "fps": 47.44902484275307,
+      "detections": 12,
+      "timestamp": 8.648792
+    },
+    {
+      "frame_num": 95,
+      "latency_ms": 21.174192428588867,
+      "fps": 47.22730292418732,
+      "detections": 11,
+      "timestamp": 8.717389
+    },
+    {
+      "frame_num": 96,
+      "latency_ms": 20.22385597229004,
+      "fps": 49.44655467138226,
+      "detections": 10,
+      "timestamp": 8.782891
+    },
+    {
+      "frame_num": 97,
+      "latency_ms": 20.943641662597656,
+      "fps": 47.74718819725878,
+      "detections": 11,
+      "timestamp": 8.848871
+    },
+    {
+      "frame_num": 98,
+      "latency_ms": 20.263671875,
+      "fps": 49.34939759036145,
+      "detections": 12,
+      "timestamp": 8.919682
+    },
+    {
+      "frame_num": 99,
+      "latency_ms": 21.816015243530273,
+      "fps": 45.8378850966635,
+      "detections": 11,
+      "timestamp": 8.987439
+    },
+    {
+      "frame_num": 100,
+      "latency_ms": 20.607471466064453,
+      "fps": 48.52608927042599,
+      "detections": 10,
+      "timestamp": 9.051802
+    },
+    {
+      "frame_num": 101,
+      "latency_ms": 20.984172821044922,
+      "fps": 47.6549639830027,
+      "detections": 11,
+      "timestamp": 9.118496
+    },
+    {
+      "frame_num": 102,
+      "latency_ms": 21.05402946472168,
+      "fps": 47.49684622963072,
+      "detections": 10,
+      "timestamp": 9.182788
+    },
+    {
+      "frame_num": 103,
+      "latency_ms": 21.26455307006836,
+      "fps": 47.026617333781815,
+      "detections": 10,
+      "timestamp": 9.247845
+    },
+    {
+      "frame_num": 104,
+      "latency_ms": 24.611473083496094,
+      "fps": 40.631456581547646,
+      "detections": 10,
+      "timestamp": 9.320341
+    },
+    {
+      "frame_num": 105,
+      "latency_ms": 21.74830436706543,
+      "fps": 45.98059614773238,
+      "detections": 10,
+      "timestamp": 9.382119
+    },
+    {
+      "frame_num": 106,
+      "latency_ms": 20.04075050354004,
+      "fps": 49.89833089451206,
+      "detections": 9,
+      "timestamp": 9.444427
+    },
+    {
+      "frame_num": 107,
+      "latency_ms": 20.296812057495117,
+      "fps": 49.26882099352762,
+      "detections": 9,
+      "timestamp": 9.504347
+    },
+    {
+      "frame_num": 108,
+      "latency_ms": 21.077632904052734,
+      "fps": 47.443657670293874,
+      "detections": 9,
+      "timestamp": 9.565061
+    },
+    {
+      "frame_num": 109,
+      "latency_ms": 21.2857723236084,
+      "fps": 46.97973767627325,
+      "detections": 10,
+      "timestamp": 9.628932
+    },
+    {
+      "frame_num": 110,
+      "latency_ms": 20.081520080566406,
+      "fps": 49.79702711687325,
+      "detections": 10,
+      "timestamp": 9.69383
+    },
+    {
+      "frame_num": 111,
+      "latency_ms": 21.619796752929688,
+      "fps": 46.25390383767093,
+      "detections": 10,
+      "timestamp": 9.759151
+    },
+    {
+      "frame_num": 112,
+      "latency_ms": 20.618438720703125,
+      "fps": 48.50027752081406,
+      "detections": 12,
+      "timestamp": 9.829627
+    },
+    {
+      "frame_num": 113,
+      "latency_ms": 21.645069122314453,
+      "fps": 46.199898662789415,
+      "detections": 11,
+      "timestamp": 9.89685
+    },
+    {
+      "frame_num": 114,
+      "latency_ms": 20.183086395263672,
+      "fps": 49.54643608098849,
+      "detections": 10,
+      "timestamp": 9.96139
+    },
+    {
+      "frame_num": 115,
+      "latency_ms": 21.086931228637695,
+      "fps": 47.42273729436373,
+      "detections": 11,
+      "timestamp": 10.029183
+    },
+    {
+      "frame_num": 116,
+      "latency_ms": 19.999980926513672,
+      "fps": 50.000047683761295,
+      "detections": 10,
+      "timestamp": 10.094011
+    },
+    {
+      "frame_num": 117,
+      "latency_ms": 21.803855895996094,
+      "fps": 45.86344749158028,
+      "detections": 10,
+      "timestamp": 10.158714
+    },
+    {
+      "frame_num": 118,
+      "latency_ms": 20.760297775268555,
+      "fps": 48.16886592018375,
+      "detections": 11,
+      "timestamp": 10.225702
+    },
+    {
+      "frame_num": 119,
+      "latency_ms": 21.178483963012695,
+      "fps": 47.21773294757343,
+      "detections": 10,
+      "timestamp": 10.294209
+    },
+    {
+      "frame_num": 120,
+      "latency_ms": 23.43916893005371,
+      "fps": 42.6636286885496,
+      "detections": 11,
+      "timestamp": 10.363665
+    },
+    {
+      "frame_num": 121,
+      "latency_ms": 21.906137466430664,
+      "fps": 45.64930725612477,
+      "detections": 11,
+      "timestamp": 10.433231
+    },
+    {
+      "frame_num": 122,
+      "latency_ms": 21.03281021118164,
+      "fps": 47.544764107098324,
+      "detections": 11,
+      "timestamp": 10.500462
+    },
+    {
+      "frame_num": 123,
+      "latency_ms": 21.028518676757812,
+      "fps": 47.55446712018141,
+      "detections": 11,
+      "timestamp": 10.568455
+    },
+    {
+      "frame_num": 124,
+      "latency_ms": 20.992517471313477,
+      "fps": 47.636020852025574,
+      "detections": 11,
+      "timestamp": 10.635524
+    },
+    {
+      "frame_num": 125,
+      "latency_ms": 21.41714096069336,
+      "fps": 46.69157297116776,
+      "detections": 11,
+      "timestamp": 10.702589
+    },
+    {
+      "frame_num": 126,
+      "latency_ms": 21.625518798828125,
+      "fps": 46.24166519668372,
+      "detections": 12,
+      "timestamp": 10.775043
+    },
+    {
+      "frame_num": 127,
+      "latency_ms": 20.55978775024414,
+      "fps": 48.63863441334045,
+      "detections": 11,
+      "timestamp": 10.844368
+    },
+    {
+      "frame_num": 128,
+      "latency_ms": 20.730018615722656,
+      "fps": 48.2392234438975,
+      "detections": 13,
+      "timestamp": 10.919208
+    },
+    {
+      "frame_num": 129,
+      "latency_ms": 20.319223403930664,
+      "fps": 49.21447931944852,
+      "detections": 13,
+      "timestamp": 10.995121
+    },
+    {
+      "frame_num": 130,
+      "latency_ms": 20.606040954589844,
+      "fps": 48.52945804600361,
+      "detections": 12,
+      "timestamp": 11.067523
+    },
+    {
+      "frame_num": 131,
+      "latency_ms": 21.360397338867188,
+      "fps": 46.81560853647647,
+      "detections": 12,
+      "timestamp": 11.139855
+    },
+    {
+      "frame_num": 132,
+      "latency_ms": 20.590543746948242,
+      "fps": 48.565983117770344,
+      "detections": 12,
+      "timestamp": 11.211503
+    },
+    {
+      "frame_num": 133,
+      "latency_ms": 21.155595779418945,
+      "fps": 47.26881768902212,
+      "detections": 12,
+      "timestamp": 11.28722
+    },
+    {
+      "frame_num": 134,
+      "latency_ms": 25.127172470092773,
+      "fps": 39.79755387082388,
+      "detections": 10,
+      "timestamp": 11.356992
+    },
+    {
+      "frame_num": 135,
+      "latency_ms": 21.713733673095703,
+      "fps": 46.05380240244197,
+      "detections": 11,
+      "timestamp": 11.428309
+    },
+    {
+      "frame_num": 136,
+      "latency_ms": 20.642518997192383,
+      "fps": 48.44370011896375,
+      "detections": 10,
+      "timestamp": 11.493711
+    },
+    {
+      "frame_num": 137,
+      "latency_ms": 21.16250991821289,
+      "fps": 47.253374191658594,
+      "detections": 10,
+      "timestamp": 11.558685
+    },
+    {
+      "frame_num": 138,
+      "latency_ms": 20.023584365844727,
+      "fps": 49.94110853128535,
+      "detections": 10,
+      "timestamp": 11.623816
+    },
+    {
+      "frame_num": 139,
+      "latency_ms": 22.07779884338379,
+      "fps": 45.294370471161216,
+      "detections": 10,
+      "timestamp": 11.689435
+    },
+    {
+      "frame_num": 140,
+      "latency_ms": 21.82626724243164,
+      "fps": 45.81635461953553,
+      "detections": 12,
+      "timestamp": 11.761479
+    },
+    {
+      "frame_num": 141,
+      "latency_ms": 21.561861038208008,
+      "fps": 46.37818591947986,
+      "detections": 11,
+      "timestamp": 11.829434
+    },
+    {
+      "frame_num": 142,
+      "latency_ms": 21.037817001342773,
+      "fps": 47.533448928478336,
+      "detections": 11,
+      "timestamp": 11.896691
+    },
+    {
+      "frame_num": 143,
+      "latency_ms": 21.085262298583984,
+      "fps": 47.42649087496325,
+      "detections": 12,
+      "timestamp": 11.968498
+    },
+    {
+      "frame_num": 144,
+      "latency_ms": 21.016836166381836,
+      "fps": 47.580900954044765,
+      "detections": 12,
+      "timestamp": 12.040419
+    },
+    {
+      "frame_num": 145,
+      "latency_ms": 21.647930145263672,
+      "fps": 46.19379281481971,
+      "detections": 12,
+      "timestamp": 12.111157
+    },
+    {
+      "frame_num": 146,
+      "latency_ms": 21.615266799926758,
+      "fps": 46.26359735718776,
+      "detections": 11,
+      "timestamp": 12.179266
+    },
+    {
+      "frame_num": 147,
+      "latency_ms": 21.109819412231445,
+      "fps": 47.37131950169978,
+      "detections": 12,
+      "timestamp": 12.249843
+    },
+    {
+      "frame_num": 148,
+      "latency_ms": 21.033525466918945,
+      "fps": 47.54314732319969,
+      "detections": 12,
+      "timestamp": 12.325929
+    },
+    {
+      "frame_num": 149,
+      "latency_ms": 21.04663848876953,
+      "fps": 47.513525760115996,
+      "detections": 12,
+      "timestamp": 12.397193
+    },
+    {
+      "frame_num": 150,
+      "latency_ms": 21.58665657043457,
+      "fps": 46.32491357506544,
+      "detections": 11,
+      "timestamp": 12.463865
+    },
+    {
+      "frame_num": 151,
+      "latency_ms": 20.99895477294922,
+      "fps": 47.62141786638812,
+      "detections": 11,
+      "timestamp": 12.532865
+    },
+    {
+      "frame_num": 152,
+      "latency_ms": 21.740436553955078,
+      "fps": 45.997236417871164,
+      "detections": 11,
+      "timestamp": 12.599507
+    },
+    {
+      "frame_num": 153,
+      "latency_ms": 21.010160446166992,
+      "fps": 47.596019200435755,
+      "detections": 11,
+      "timestamp": 12.667888
+    },
+    {
+      "frame_num": 154,
+      "latency_ms": 21.392345428466797,
+      "fps": 46.74569244143281,
+      "detections": 12,
+      "timestamp": 12.738523
+    },
+    {
+      "frame_num": 155,
+      "latency_ms": 20.909786224365234,
+      "fps": 47.82449659072769,
+      "detections": 12,
+      "timestamp": 12.809317
+    },
+    {
+      "frame_num": 156,
+      "latency_ms": 20.6296443939209,
+      "fps": 48.473932992014056,
+      "detections": 12,
+      "timestamp": 12.88157
+    },
+    {
+      "frame_num": 157,
+      "latency_ms": 20.10345458984375,
+      "fps": 49.7426944971537,
+      "detections": 14,
+      "timestamp": 12.959504
+    },
+    {
+      "frame_num": 158,
+      "latency_ms": 21.98338508605957,
+      "fps": 45.48889973428773,
+      "detections": 13,
+      "timestamp": 13.036667
+    },
+    {
+      "frame_num": 159,
+      "latency_ms": 21.06642723083496,
+      "fps": 47.46889394402381,
+      "detections": 13,
+      "timestamp": 13.110801
+    },
+    {
+      "frame_num": 160,
+      "latency_ms": 20.894289016723633,
+      "fps": 47.85996782181042,
+      "detections": 13,
+      "timestamp": 13.185867
+    },
+    {
+      "frame_num": 161,
+      "latency_ms": 21.64006233215332,
+      "fps": 46.21058778163389,
+      "detections": 13,
+      "timestamp": 13.25981
+    },
+    {
+      "frame_num": 162,
+      "latency_ms": 22.036314010620117,
+      "fps": 45.379640148441474,
+      "detections": 12,
+      "timestamp": 13.334877
+    },
+    {
+      "frame_num": 163,
+      "latency_ms": 22.325754165649414,
+      "fps": 44.791320041434844,
+      "detections": 13,
+      "timestamp": 13.408872
+    },
+    {
+      "frame_num": 164,
+      "latency_ms": 21.690845489501953,
+      "fps": 46.10239838202642,
+      "detections": 12,
+      "timestamp": 13.480192
+    },
+    {
+      "frame_num": 165,
+      "latency_ms": 22.086143493652344,
+      "fps": 45.277257221814416,
+      "detections": 13,
+      "timestamp": 13.554172
+    },
+    {
+      "frame_num": 166,
+      "latency_ms": 21.721363067626953,
+      "fps": 46.03762650099883,
+      "detections": 12,
+      "timestamp": 13.625231
+    },
+    {
+      "frame_num": 167,
+      "latency_ms": 21.17753028869629,
+      "fps": 47.21985927385308,
+      "detections": 12,
+      "timestamp": 13.696159
+    },
+    {
+      "frame_num": 168,
+      "latency_ms": 21.507740020751953,
+      "fps": 46.4948897018069,
+      "detections": 12,
+      "timestamp": 13.766622
+    },
+    {
+      "frame_num": 169,
+      "latency_ms": 21.669387817382812,
+      "fps": 46.14805034768066,
+      "detections": 13,
+      "timestamp": 13.840848
+    },
+    {
+      "frame_num": 170,
+      "latency_ms": 20.86663246154785,
+      "fps": 47.92340124084505,
+      "detections": 13,
+      "timestamp": 13.914958
+    },
+    {
+      "frame_num": 171,
+      "latency_ms": 21.810293197631836,
+      "fps": 45.849910908514524,
+      "detections": 13,
+      "timestamp": 13.989141
+    },
+    {
+      "frame_num": 172,
+      "latency_ms": 20.60675621032715,
+      "fps": 48.52777359975009,
+      "detections": 13,
+      "timestamp": 14.063592
+    },
+    {
+      "frame_num": 173,
+      "latency_ms": 21.492481231689453,
+      "fps": 46.527899185765314,
+      "detections": 13,
+      "timestamp": 14.137548
+    },
+    {
+      "frame_num": 174,
+      "latency_ms": 21.838665008544922,
+      "fps": 45.790344767353,
+      "detections": 13,
+      "timestamp": 14.21114
+    },
+    {
+      "frame_num": 175,
+      "latency_ms": 20.417451858520508,
+      "fps": 48.97770823359062,
+      "detections": 13,
+      "timestamp": 14.284276
+    },
+    {
+      "frame_num": 176,
+      "latency_ms": 24.004220962524414,
+      "fps": 41.65933989531292,
+      "detections": 13,
+      "timestamp": 14.367686
+    },
+    {
+      "frame_num": 177,
+      "latency_ms": 21.61097526550293,
+      "fps": 46.27278444005604,
+      "detections": 13,
+      "timestamp": 14.440807
+    },
+    {
+      "frame_num": 178,
+      "latency_ms": 21.018505096435547,
+      "fps": 47.57712289298759,
+      "detections": 14,
+      "timestamp": 14.516973
+    },
+    {
+      "frame_num": 179,
+      "latency_ms": 21.018028259277344,
+      "fps": 47.5782022777803,
+      "detections": 15,
+      "timestamp": 14.597209
+    },
+    {
+      "frame_num": 180,
+      "latency_ms": 21.204233169555664,
+      "fps": 47.16039443651124,
+      "detections": 16,
+      "timestamp": 14.679195
+    },
+    {
+      "frame_num": 181,
+      "latency_ms": 20.71237564086914,
+      "fps": 48.28031401800308,
+      "detections": 16,
+      "timestamp": 14.761671
+    },
+    {
+      "frame_num": 182,
+      "latency_ms": 21.158218383789062,
+      "fps": 47.26295862255476,
+      "detections": 16,
+      "timestamp": 14.843654
+    },
+    {
+      "frame_num": 183,
+      "latency_ms": 22.05348014831543,
+      "fps": 45.34431723586201,
+      "detections": 14,
+      "timestamp": 14.920449
+    },
+    {
+      "frame_num": 184,
+      "latency_ms": 20.999431610107422,
+      "fps": 47.620336519902814,
+      "detections": 14,
+      "timestamp": 14.999406
+    },
+    {
+      "frame_num": 185,
+      "latency_ms": 22.040367126464844,
+      "fps": 45.37129505430315,
+      "detections": 15,
+      "timestamp": 15.078495
+    },
+    {
+      "frame_num": 186,
+      "latency_ms": 21.425247192382812,
+      "fps": 46.67390723760349,
+      "detections": 14,
+      "timestamp": 15.156571
+    },
+    {
+      "frame_num": 187,
+      "latency_ms": 21.579504013061523,
+      "fps": 46.34026803371966,
+      "detections": 15,
+      "timestamp": 15.238362
+    },
+    {
+      "frame_num": 188,
+      "latency_ms": 21.00229263305664,
+      "fps": 47.613849472130774,
+      "detections": 15,
+      "timestamp": 15.318727
+    },
+    {
+      "frame_num": 189,
+      "latency_ms": 23.630380630493164,
+      "fps": 42.318404245658996,
+      "detections": 15,
+      "timestamp": 15.402496
+    },
+    {
+      "frame_num": 190,
+      "latency_ms": 21.157026290893555,
+      "fps": 47.26562165451492,
+      "detections": 15,
+      "timestamp": 15.48248
+    },
+    {
+      "frame_num": 191,
+      "latency_ms": 20.953655242919922,
+      "fps": 47.724370206858886,
+      "detections": 15,
+      "timestamp": 15.561736
+    },
+    {
+      "frame_num": 192,
+      "latency_ms": 21.10147476196289,
+      "fps": 47.39005265179762,
+      "detections": 15,
+      "timestamp": 15.641161
+    },
+    {
+      "frame_num": 193,
+      "latency_ms": 20.568370819091797,
+      "fps": 48.618337776747424,
+      "detections": 15,
+      "timestamp": 15.718874
+    },
+    {
+      "frame_num": 194,
+      "latency_ms": 21.402359008789062,
+      "fps": 46.723821406291776,
+      "detections": 15,
+      "timestamp": 15.796546
+    },
+    {
+      "frame_num": 195,
+      "latency_ms": 20.74146270751953,
+      "fps": 48.212607476205804,
+      "detections": 16,
+      "timestamp": 15.878757
+    },
+    {
+      "frame_num": 196,
+      "latency_ms": 21.050453186035156,
+      "fps": 47.50491550763376,
+      "detections": 16,
+      "timestamp": 15.961575
+    },
+    {
+      "frame_num": 197,
+      "latency_ms": 21.05879783630371,
+      "fps": 47.486091455613796,
+      "detections": 13,
+      "timestamp": 16.035526
+    },
+    {
+      "frame_num": 198,
+      "latency_ms": 20.702600479125977,
+      "fps": 48.303110568562644,
+      "detections": 13,
+      "timestamp": 16.108919
+    },
+    {
+      "frame_num": 199,
+      "latency_ms": 20.496606826782227,
+      "fps": 48.78856331933604,
+      "detections": 13,
+      "timestamp": 16.181881
+    },
+    {
+      "frame_num": 200,
+      "latency_ms": 20.574331283569336,
+      "fps": 48.60425285358364,
+      "detections": 14,
+      "timestamp": 16.260035
+    },
+    {
+      "frame_num": 201,
+      "latency_ms": 21.01278305053711,
+      "fps": 47.590078743731134,
+      "detections": 15,
+      "timestamp": 16.34254
+    },
+    {
+      "frame_num": 202,
+      "latency_ms": 23.299694061279297,
+      "fps": 42.91901848024067,
+      "detections": 14,
+      "timestamp": 16.421881
+    },
+    {
+      "frame_num": 203,
+      "latency_ms": 21.93927764892578,
+      "fps": 45.58035209737014,
+      "detections": 14,
+      "timestamp": 16.497662
+    },
+    {
+      "frame_num": 204,
+      "latency_ms": 22.008895874023438,
+      "fps": 45.436172978594335,
+      "detections": 13,
+      "timestamp": 16.570431
+    },
+    {
+      "frame_num": 205,
+      "latency_ms": 20.81298828125,
+      "fps": 48.04692082111437,
+      "detections": 11,
+      "timestamp": 16.637951
+    },
+    {
+      "frame_num": 206,
+      "latency_ms": 20.290613174438477,
+      "fps": 49.283872862934025,
+      "detections": 12,
+      "timestamp": 16.707656
+    },
+    {
+      "frame_num": 207,
+      "latency_ms": 20.52140235900879,
+      "fps": 48.729613235277036,
+      "detections": 12,
+      "timestamp": 16.776546
+    },
+    {
+      "frame_num": 208,
+      "latency_ms": 20.63441276550293,
+      "fps": 48.462731232740595,
+      "detections": 13,
+      "timestamp": 16.84875
+    },
+    {
+      "frame_num": 209,
+      "latency_ms": 20.755767822265625,
+      "fps": 48.17937879066348,
+      "detections": 14,
+      "timestamp": 16.92685
+    },
+    {
+      "frame_num": 210,
+      "latency_ms": 20.56264877319336,
+      "fps": 48.631866985135545,
+      "detections": 14,
+      "timestamp": 17.003894
+    },
+    {
+      "frame_num": 211,
+      "latency_ms": 21.329879760742188,
+      "fps": 46.88258964499687,
+      "detections": 13,
+      "timestamp": 17.078204
+    },
+    {
+      "frame_num": 212,
+      "latency_ms": 20.800352096557617,
+      "fps": 48.07610925804936,
+      "detections": 14,
+      "timestamp": 17.153924
+    },
+    {
+      "frame_num": 213,
+      "latency_ms": 21.71778678894043,
+      "fps": 46.04520753971303,
+      "detections": 14,
+      "timestamp": 17.228917
+    },
+    {
+      "frame_num": 214,
+      "latency_ms": 19.959688186645508,
+      "fps": 50.10098307392764,
+      "detections": 15,
+      "timestamp": 17.3119
+    },
+    {
+      "frame_num": 215,
+      "latency_ms": 23.654460906982422,
+      "fps": 42.2753240470095,
+      "detections": 15,
+      "timestamp": 17.396886
+    },
+    {
+      "frame_num": 216,
+      "latency_ms": 21.155118942260742,
+      "fps": 47.2698831299095,
+      "detections": 16,
+      "timestamp": 17.480378
+    },
+    {
+      "frame_num": 217,
+      "latency_ms": 21.090269088745117,
+      "fps": 47.41523191535062,
+      "detections": 16,
+      "timestamp": 17.564879
+    },
+    {
+      "frame_num": 218,
+      "latency_ms": 20.95818519592285,
+      "fps": 47.71405494568,
+      "detections": 14,
+      "timestamp": 17.641599
+    },
+    {
+      "frame_num": 219,
+      "latency_ms": 22.091150283813477,
+      "fps": 45.26699547794554,
+      "detections": 15,
+      "timestamp": 17.720202
+    },
+    {
+      "frame_num": 220,
+      "latency_ms": 20.571231842041016,
+      "fps": 48.61157599499316,
+      "detections": 15,
+      "timestamp": 17.798016
+    },
+    {
+      "frame_num": 221,
+      "latency_ms": 20.46036720275879,
+      "fps": 48.87497815118217,
+      "detections": 17,
+      "timestamp": 17.884868
+    },
+    {
+      "frame_num": 222,
+      "latency_ms": 21.120786666870117,
+      "fps": 47.346721302222676,
+      "detections": 17,
+      "timestamp": 17.97037
+    },
+    {
+      "frame_num": 223,
+      "latency_ms": 21.042585372924805,
+      "fps": 47.52267757395846,
+      "detections": 17,
+      "timestamp": 18.058395
+    },
+    {
+      "frame_num": 224,
+      "latency_ms": 21.204233169555664,
+      "fps": 47.16039443651124,
+      "detections": 17,
+      "timestamp": 18.143902
+    },
+    {
+      "frame_num": 225,
+      "latency_ms": 20.937204360961914,
+      "fps": 47.76186843094162,
+      "detections": 17,
+      "timestamp": 18.227895
+    },
+    {
+      "frame_num": 226,
+      "latency_ms": 21.601438522338867,
+      "fps": 46.29321324900941,
+      "detections": 14,
+      "timestamp": 18.304151
+    },
+    {
+      "frame_num": 227,
+      "latency_ms": 24.951934814453125,
+      "fps": 40.07705243846507,
+      "detections": 15,
+      "timestamp": 18.390075
+    },
+    {
+      "frame_num": 228,
+      "latency_ms": 21.174907684326172,
+      "fps": 47.225707658702454,
+      "detections": 15,
+      "timestamp": 18.466258
+    },
+    {
+      "frame_num": 229,
+      "latency_ms": 21.05855941772461,
+      "fps": 47.48662907864049,
+      "detections": 15,
+      "timestamp": 18.545362
+    },
+    {
+      "frame_num": 230,
+      "latency_ms": 21.295785903930664,
+      "fps": 46.95764713785112,
+      "detections": 13,
+      "timestamp": 18.618696
+    },
+    {
+      "frame_num": 231,
+      "latency_ms": 20.705223083496094,
+      "fps": 48.29699230804661,
+      "detections": 15,
+      "timestamp": 18.697088
+    },
+    {
+      "frame_num": 232,
+      "latency_ms": 21.182537078857422,
+      "fps": 47.20869819687999,
+      "detections": 16,
+      "timestamp": 18.778914
+    },
+    {
+      "frame_num": 233,
+      "latency_ms": 21.731853485107422,
+      "fps": 46.01540318156884,
+      "detections": 16,
+      "timestamp": 18.861729
+    },
+    {
+      "frame_num": 234,
+      "latency_ms": 20.47562599182129,
+      "fps": 48.83855567587709,
+      "detections": 16,
+      "timestamp": 18.943462
+    },
+    {
+      "frame_num": 235,
+      "latency_ms": 20.810604095458984,
+      "fps": 48.05242536030978,
+      "detections": 15,
+      "timestamp": 19.023472
+    },
+    {
+      "frame_num": 236,
+      "latency_ms": 21.03257179260254,
+      "fps": 47.545303059501,
+      "detections": 15,
+      "timestamp": 19.101832
+    },
+    {
+      "frame_num": 237,
+      "latency_ms": 21.41571044921875,
+      "fps": 46.69469184182401,
+      "detections": 15,
+      "timestamp": 19.179941
+    },
+    {
+      "frame_num": 238,
+      "latency_ms": 21.306514739990234,
+      "fps": 46.934001745630326,
+      "detections": 15,
+      "timestamp": 19.258607
+    },
+    {
+      "frame_num": 239,
+      "latency_ms": 20.8284854888916,
+      "fps": 48.01117203328717,
+      "detections": 17,
+      "timestamp": 19.346206
+    },
+    {
+      "frame_num": 240,
+      "latency_ms": 24.237871170043945,
+      "fps": 41.25774879255565,
+      "detections": 18,
+      "timestamp": 19.436901
+    },
+    {
+      "frame_num": 241,
+      "latency_ms": 21.994590759277344,
+      "fps": 45.46572432033994,
+      "detections": 16,
+      "timestamp": 19.520397
+    },
+    {
+      "frame_num": 242,
+      "latency_ms": 21.8353271484375,
+      "fps": 45.797344514325644,
+      "detections": 15,
+      "timestamp": 19.602944
+    },
+    {
+      "frame_num": 243,
+      "latency_ms": 21.196603775024414,
+      "fps": 47.17736910185029,
+      "detections": 15,
+      "timestamp": 19.683193
+    },
+    {
+      "frame_num": 244,
+      "latency_ms": 20.415067672729492,
+      "fps": 48.983428124306585,
+      "detections": 17,
+      "timestamp": 19.767562
+    },
+    {
+      "frame_num": 245,
+      "latency_ms": 20.784854888916016,
+      "fps": 48.111954850994515,
+      "detections": 15,
+      "timestamp": 19.847066
+    },
+    {
+      "frame_num": 246,
+      "latency_ms": 21.067380905151367,
+      "fps": 47.466745130880575,
+      "detections": 15,
+      "timestamp": 19.925862
+    },
+    {
+      "frame_num": 247,
+      "latency_ms": 21.128416061401367,
+      "fps": 47.32962457260858,
+      "detections": 15,
+      "timestamp": 20.006476
+    },
+    {
+      "frame_num": 248,
+      "latency_ms": 21.1639404296875,
+      "fps": 47.25018024513338,
+      "detections": 15,
+      "timestamp": 20.085818
+    },
+    {
+      "frame_num": 249,
+      "latency_ms": 20.40266990661621,
+      "fps": 49.013193105463046,
+      "detections": 15,
+      "timestamp": 20.164771
+    },
+    {
+      "frame_num": 250,
+      "latency_ms": 21.983623504638672,
+      "fps": 45.488406394377805,
+      "detections": 15,
+      "timestamp": 20.243093
+    },
+    {
+      "frame_num": 251,
+      "latency_ms": 21.134614944458008,
+      "fps": 47.315742568672796,
+      "detections": 15,
+      "timestamp": 20.32704
+    },
+    {
+      "frame_num": 252,
+      "latency_ms": 23.827552795410156,
+      "fps": 41.96822093255953,
+      "detections": 16,
+      "timestamp": 20.414692
+    },
+    {
+      "frame_num": 253,
+      "latency_ms": 21.811723709106445,
+      "fps": 45.84690386402142,
+      "detections": 16,
+      "timestamp": 20.497452
+    },
+    {
+      "frame_num": 254,
+      "latency_ms": 21.013498306274414,
+      "fps": 47.58845887652178,
+      "detections": 14,
+      "timestamp": 20.574474
+    },
+    {
+      "frame_num": 255,
+      "latency_ms": 20.68161964416504,
+      "fps": 48.35211251368955,
+      "detections": 13,
+      "timestamp": 20.649039
+    },
+    {
+      "frame_num": 256,
+      "latency_ms": 21.1637020111084,
+      "fps": 47.25071253956988,
+      "detections": 16,
+      "timestamp": 20.73209
+    },
+    {
+      "frame_num": 257,
+      "latency_ms": 20.651817321777344,
+      "fps": 48.42188870930501,
+      "detections": 14,
+      "timestamp": 20.808305
+    },
+    {
+      "frame_num": 258,
+      "latency_ms": 21.0568904876709,
+      "fps": 47.49039278071536,
+      "detections": 14,
+      "timestamp": 20.883157
+    },
+    {
+      "frame_num": 259,
+      "latency_ms": 21.208524703979492,
+      "fps": 47.150851554156596,
+      "detections": 15,
+      "timestamp": 20.963157
+    },
+    {
+      "frame_num": 260,
+      "latency_ms": 22.048473358154297,
+      "fps": 45.35461407037349,
+      "detections": 15,
+      "timestamp": 21.043433
+    },
+    {
+      "frame_num": 261,
+      "latency_ms": 20.229816436767578,
+      "fps": 49.431985857395404,
+      "detections": 13,
+      "timestamp": 21.11633
+    },
+    {
+      "frame_num": 262,
+      "latency_ms": 21.33965492248535,
+      "fps": 46.86111390425116,
+      "detections": 16,
+      "timestamp": 21.198334
+    },
+    {
+      "frame_num": 263,
+      "latency_ms": 21.11363410949707,
+      "fps": 47.362760707792724,
+      "detections": 15,
+      "timestamp": 21.280655
+    },
+    {
+      "frame_num": 264,
+      "latency_ms": 21.21257781982422,
+      "fps": 47.14184237737715,
+      "detections": 15,
+      "timestamp": 21.36538
+    },
+    {
+      "frame_num": 265,
+      "latency_ms": 23.986101150512695,
+      "fps": 41.69081059589484,
+      "detections": 14,
+      "timestamp": 21.446606
+    },
+    {
+      "frame_num": 266,
+      "latency_ms": 21.612167358398438,
+      "fps": 46.27023210661019,
+      "detections": 14,
+      "timestamp": 21.526609
+    },
+    {
+      "frame_num": 267,
+      "latency_ms": 21.100521087646484,
+      "fps": 47.392194526677365,
+      "detections": 13,
+      "timestamp": 21.602741
+    },
+    {
+      "frame_num": 268,
+      "latency_ms": 21.18086814880371,
+      "fps": 47.21241796958543,
+      "detections": 14,
+      "timestamp": 21.683511
+    },
+    {
+      "frame_num": 269,
+      "latency_ms": 28.574228286743164,
+      "fps": 34.99657068477835,
+      "detections": 14,
+      "timestamp": 21.771847
+    },
+    {
+      "frame_num": 270,
+      "latency_ms": 20.68924903869629,
+      "fps": 48.334282125447984,
+      "detections": 14,
+      "timestamp": 21.848409
+    },
+    {
+      "frame_num": 271,
+      "latency_ms": 20.764827728271484,
+      "fps": 48.158357636576575,
+      "detections": 13,
+      "timestamp": 21.921331
+    },
+    {
+      "frame_num": 272,
+      "latency_ms": 20.38407325744629,
+      "fps": 49.05790846462449,
+      "detections": 13,
+      "timestamp": 21.995013
+    },
+    {
+      "frame_num": 273,
+      "latency_ms": 20.834684371948242,
+      "fps": 47.99688740888233,
+      "detections": 14,
+      "timestamp": 22.071099
+    },
+    {
+      "frame_num": 274,
+      "latency_ms": 21.500587463378906,
+      "fps": 46.510357063650474,
+      "detections": 14,
+      "timestamp": 22.146906
+    },
+    {
+      "frame_num": 275,
+      "latency_ms": 21.611928939819336,
+      "fps": 46.27074255077388,
+      "detections": 14,
+      "timestamp": 22.222398
+    },
+    {
+      "frame_num": 276,
+      "latency_ms": 21.00205421447754,
+      "fps": 47.61438999193997,
+      "detections": 15,
+      "timestamp": 22.301641
+    },
+    {
+      "frame_num": 277,
+      "latency_ms": 21.05402946472168,
+      "fps": 47.49684622963072,
+      "detections": 15,
+      "timestamp": 22.385119
+    },
+    {
+      "frame_num": 278,
+      "latency_ms": 21.21710777282715,
+      "fps": 47.131777370745354,
+      "detections": 16,
+      "timestamp": 22.4663
+    },
+    {
+      "frame_num": 279,
+      "latency_ms": 21.1641788482666,
+      "fps": 47.24964796268968,
+      "detections": 16,
+      "timestamp": 22.548427
+    },
+    {
+      "frame_num": 280,
+      "latency_ms": 20.792484283447266,
+      "fps": 48.09430111225777,
+      "detections": 16,
+      "timestamp": 22.629438
+    },
+    {
+      "frame_num": 281,
+      "latency_ms": 21.13032341003418,
+      "fps": 47.32535231927065,
+      "detections": 15,
+      "timestamp": 22.710682
+    },
+    {
+      "frame_num": 282,
+      "latency_ms": 20.808935165405273,
+      "fps": 48.05627928825949,
+      "detections": 15,
+      "timestamp": 22.789888
+    },
+    {
+      "frame_num": 283,
+      "latency_ms": 20.815610885620117,
+      "fps": 48.04086728441018,
+      "detections": 15,
+      "timestamp": 22.867753
+    },
+    {
+      "frame_num": 284,
+      "latency_ms": 21.107196807861328,
+      "fps": 47.37720546707331,
+      "detections": 14,
+      "timestamp": 22.942395
+    },
+    {
+      "frame_num": 285,
+      "latency_ms": 21.351337432861328,
+      "fps": 46.83547356901981,
+      "detections": 14,
+      "timestamp": 23.019321
+    },
+    {
+      "frame_num": 286,
+      "latency_ms": 21.927356719970703,
+      "fps": 45.60513210829618,
+      "detections": 12,
+      "timestamp": 23.090396
+    },
+    {
+      "frame_num": 287,
+      "latency_ms": 21.091699600219727,
+      "fps": 47.41201605154581,
+      "detections": 14,
+      "timestamp": 23.164924
+    },
+    {
+      "frame_num": 288,
+      "latency_ms": 21.173477172851562,
+      "fps": 47.22889829745068,
+      "detections": 13,
+      "timestamp": 23.237106
+    },
+    {
+      "frame_num": 289,
+      "latency_ms": 21.157503128051758,
+      "fps": 47.264556405720015,
+      "detections": 14,
+      "timestamp": 23.313049
+    },
+    {
+      "frame_num": 290,
+      "latency_ms": 20.699501037597656,
+      "fps": 48.310343238885046,
+      "detections": 13,
+      "timestamp": 23.388761
+    },
+    {
+      "frame_num": 291,
+      "latency_ms": 22.559404373168945,
+      "fps": 44.32741146257173,
+      "detections": 12,
+      "timestamp": 23.465586
+    },
+    {
+      "frame_num": 292,
+      "latency_ms": 22.09925651550293,
+      "fps": 45.25039108435555,
+      "detections": 13,
+      "timestamp": 23.547327
+    },
+    {
+      "frame_num": 293,
+      "latency_ms": 22.002458572387695,
+      "fps": 45.44946632713876,
+      "detections": 10,
+      "timestamp": 23.616899
+    },
+    {
+      "frame_num": 294,
+      "latency_ms": 21.648883819580078,
+      "fps": 46.19175789079536,
+      "detections": 12,
+      "timestamp": 23.694187
+    },
+    {
+      "frame_num": 295,
+      "latency_ms": 22.522926330566406,
+      "fps": 44.39920396324681,
+      "detections": 13,
+      "timestamp": 23.772582
+    },
+    {
+      "frame_num": 296,
+      "latency_ms": 23.00119400024414,
+      "fps": 43.47600389742314,
+      "detections": 13,
+      "timestamp": 23.848582
+    },
+    {
+      "frame_num": 297,
+      "latency_ms": 23.00095558166504,
+      "fps": 43.47645455205083,
+      "detections": 13,
+      "timestamp": 23.92864
+    },
+    {
+      "frame_num": 298,
+      "latency_ms": 23.026704788208008,
+      "fps": 43.42783777347511,
+      "detections": 12,
+      "timestamp": 24.007912
+    },
+    {
+      "frame_num": 299,
+      "latency_ms": 23.316144943237305,
+      "fps": 42.888736642977655,
+      "detections": 11,
+      "timestamp": 24.080555
+    },
+    {
+      "frame_num": 300,
+      "latency_ms": 23.837566375732422,
+      "fps": 41.95059110639915,
+      "detections": 11,
+      "timestamp": 24.15653
+    },
+    {
+      "frame_num": 301,
+      "latency_ms": 20.02239227294922,
+      "fps": 49.944081924267685,
+      "detections": 11,
+      "timestamp": 24.222608
+    },
+    {
+      "frame_num": 302,
+      "latency_ms": 21.10004425048828,
+      "fps": 47.39326553672316,
+      "detections": 10,
+      "timestamp": 24.284823
+    },
+    {
+      "frame_num": 303,
+      "latency_ms": 21.079063415527344,
+      "fps": 47.440437949599605,
+      "detections": 9,
+      "timestamp": 24.345521
+    },
+    {
+      "frame_num": 304,
+      "latency_ms": 23.49233627319336,
+      "fps": 42.567073294497334,
+      "detections": 9,
+      "timestamp": 24.41191
+    },
+    {
+      "frame_num": 305,
+      "latency_ms": 20.55215835571289,
+      "fps": 48.65669009999768,
+      "detections": 10,
+      "timestamp": 24.475783
+    },
+    {
+      "frame_num": 306,
+      "latency_ms": 21.059036254882812,
+      "fps": 47.48555384476044,
+      "detections": 10,
+      "timestamp": 24.53815
+    },
+    {
+      "frame_num": 307,
+      "latency_ms": 20.2791690826416,
+      "fps": 49.31168510528234,
+      "detections": 8,
+      "timestamp": 24.595688
+    },
+    {
+      "frame_num": 308,
+      "latency_ms": 21.20375633239746,
+      "fps": 47.16145499522123,
+      "detections": 10,
+      "timestamp": 24.659502
+    },
+    {
+      "frame_num": 309,
+      "latency_ms": 20.087242126464844,
+      "fps": 49.78284195033946,
+      "detections": 10,
+      "timestamp": 24.723411
+    },
+    {
+      "frame_num": 310,
+      "latency_ms": 20.351648330688477,
+      "fps": 49.136069165075384,
+      "detections": 11,
+      "timestamp": 24.78924
+    },
+    {
+      "frame_num": 311,
+      "latency_ms": 20.135164260864258,
+      "fps": 49.66435769007614,
+      "detections": 11,
+      "timestamp": 24.855481
+    },
+    {
+      "frame_num": 312,
+      "latency_ms": 21.29340171813965,
+      "fps": 46.96290490533081,
+      "detections": 13,
+      "timestamp": 24.926435
+    },
+    {
+      "frame_num": 313,
+      "latency_ms": 20.25890350341797,
+      "fps": 49.36101303958951,
+      "detections": 13,
+      "timestamp": 25.001839
+    },
+    {
+      "frame_num": 314,
+      "latency_ms": 20.128250122070312,
+      "fps": 49.68141760636786,
+      "detections": 13,
+      "timestamp": 25.075004
+    },
+    {
+      "frame_num": 315,
+      "latency_ms": 20.729780197143555,
+      "fps": 48.239778255719,
+      "detections": 14,
+      "timestamp": 25.151296
+    },
+    {
+      "frame_num": 316,
+      "latency_ms": 21.13509178161621,
+      "fps": 47.31467505950568,
+      "detections": 15,
+      "timestamp": 25.229067
+    },
+    {
+      "frame_num": 317,
+      "latency_ms": 20.438671112060547,
+      "fps": 48.92685999580058,
+      "detections": 12,
+      "timestamp": 25.29809
+    },
+    {
+      "frame_num": 318,
+      "latency_ms": 21.137475967407227,
+      "fps": 47.30933823612349,
+      "detections": 13,
+      "timestamp": 25.373877
+    },
+    {
+      "frame_num": 319,
+      "latency_ms": 23.25582504272461,
+      "fps": 42.999979496011974,
+      "detections": 13,
+      "timestamp": 25.44992
+    },
+    {
+      "frame_num": 320,
+      "latency_ms": 21.082639694213867,
+      "fps": 47.432390559444514,
+      "detections": 13,
+      "timestamp": 25.524669
+    },
+    {
+      "frame_num": 321,
+      "latency_ms": 20.684003829956055,
+      "fps": 48.346539104374386,
+      "detections": 12,
+      "timestamp": 25.59457
+    },
+    {
+      "frame_num": 322,
+      "latency_ms": 21.884441375732422,
+      "fps": 45.69456367796056,
+      "detections": 13,
+      "timestamp": 25.668116
+    },
+    {
+      "frame_num": 323,
+      "latency_ms": 20.833253860473633,
+      "fps": 48.00018310616724,
+      "detections": 13,
+      "timestamp": 25.740352
+    },
+    {
+      "frame_num": 324,
+      "latency_ms": 21.318435668945312,
+      "fps": 46.90775700098416,
+      "detections": 14,
+      "timestamp": 25.814862
+    },
+    {
+      "frame_num": 325,
+      "latency_ms": 20.01810073852539,
+      "fps": 49.954789071246516,
+      "detections": 13,
+      "timestamp": 25.887578
+    },
+    {
+      "frame_num": 326,
+      "latency_ms": 21.59738540649414,
+      "fps": 46.30190095599762,
+      "detections": 13,
+      "timestamp": 25.959877
+    },
+    {
+      "frame_num": 327,
+      "latency_ms": 21.061420440673828,
+      "fps": 47.480178405669136,
+      "detections": 12,
+      "timestamp": 26.030912
+    },
+    {
+      "frame_num": 328,
+      "latency_ms": 21.205425262451172,
+      "fps": 47.157743248409076,
+      "detections": 13,
+      "timestamp": 26.104336
+    },
+    {
+      "frame_num": 329,
+      "latency_ms": 21.81720733642578,
+      "fps": 45.835380513179174,
+      "detections": 14,
+      "timestamp": 26.183342
+    },
+    {
+      "frame_num": 330,
+      "latency_ms": 21.245479583740234,
+      "fps": 47.06883626977893,
+      "detections": 14,
+      "timestamp": 26.259492
+    },
+    {
+      "frame_num": 331,
+      "latency_ms": 21.55137062072754,
+      "fps": 46.40076112088325,
+      "detections": 13,
+      "timestamp": 26.330039
+    },
+    {
+      "frame_num": 332,
+      "latency_ms": 20.42698860168457,
+      "fps": 48.95484202294665,
+      "detections": 12,
+      "timestamp": 26.403086
+    },
+    {
+      "frame_num": 333,
+      "latency_ms": 21.471738815307617,
+      "fps": 46.572846689392506,
+      "detections": 13,
+      "timestamp": 26.475266
+    },
+    {
+      "frame_num": 334,
+      "latency_ms": 21.186113357543945,
+      "fps": 47.20072922879554,
+      "detections": 13,
+      "timestamp": 26.547382
+    },
+    {
+      "frame_num": 335,
+      "latency_ms": 21.00348472595215,
+      "fps": 47.611147057154206,
+      "detections": 13,
+      "timestamp": 26.619756
+    },
+    {
+      "frame_num": 336,
+      "latency_ms": 21.265745162963867,
+      "fps": 47.0239811648635,
+      "detections": 13,
+      "timestamp": 26.693532
+    },
+    {
+      "frame_num": 337,
+      "latency_ms": 19.94633674621582,
+      "fps": 50.134519071012775,
+      "detections": 13,
+      "timestamp": 26.766157
+    },
+    {
+      "frame_num": 338,
+      "latency_ms": 21.013975143432617,
+      "fps": 47.587379026310714,
+      "detections": 15,
+      "timestamp": 26.847744
+    },
+    {
+      "frame_num": 339,
+      "latency_ms": 21.471023559570312,
+      "fps": 46.57439815226081,
+      "detections": 12,
+      "timestamp": 26.918706
+    },
+    {
+      "frame_num": 340,
+      "latency_ms": 20.993947982788086,
+      "fps": 47.63277497018909,
+      "detections": 12,
+      "timestamp": 26.990448
+    },
+    {
+      "frame_num": 341,
+      "latency_ms": 21.225929260253906,
+      "fps": 47.11218942355214,
+      "detections": 13,
+      "timestamp": 27.064411
+    },
+    {
+      "frame_num": 342,
+      "latency_ms": 20.90620994567871,
+      "fps": 47.832677591889336,
+      "detections": 15,
+      "timestamp": 27.144634
+    },
+    {
+      "frame_num": 343,
+      "latency_ms": 21.405935287475586,
+      "fps": 46.71601528128933,
+      "detections": 15,
+      "timestamp": 27.224725
+    },
+    {
+      "frame_num": 344,
+      "latency_ms": 21.097183227539062,
+      "fps": 47.39969261368773,
+      "detections": 16,
+      "timestamp": 27.308776
+    },
+    {
+      "frame_num": 345,
+      "latency_ms": 20.704269409179688,
+      "fps": 48.299216950713955,
+      "detections": 16,
+      "timestamp": 27.394543
+    },
+    {
+      "frame_num": 346,
+      "latency_ms": 25.11119842529297,
+      "fps": 39.82287038091983,
+      "detections": 17,
+      "timestamp": 27.484763
+    },
+    {
+      "frame_num": 347,
+      "latency_ms": 21.53635025024414,
+      "fps": 46.433122993468395,
+      "detections": 16,
+      "timestamp": 27.567571
+    },
+    {
+      "frame_num": 348,
+      "latency_ms": 21.132469177246094,
+      "fps": 47.32054695609008,
+      "detections": 16,
+      "timestamp": 27.648994
+    },
+    {
+      "frame_num": 349,
+      "latency_ms": 21.514415740966797,
+      "fps": 46.48046277621401,
+      "detections": 16,
+      "timestamp": 27.732636
+    },
+    {
+      "frame_num": 350,
+      "latency_ms": 21.370649337768555,
+      "fps": 46.79314999721091,
+      "detections": 16,
+      "timestamp": 27.817848
+    },
+    {
+      "frame_num": 351,
+      "latency_ms": 22.403717041015625,
+      "fps": 44.63545036608207,
+      "detections": 15,
+      "timestamp": 27.896749
+    },
+    {
+      "frame_num": 352,
+      "latency_ms": 21.645545959472656,
+      "fps": 46.19888090937128,
+      "detections": 16,
+      "timestamp": 27.980307
+    },
+    {
+      "frame_num": 353,
+      "latency_ms": 21.238327026367188,
+      "fps": 47.08468792096991,
+      "detections": 16,
+      "timestamp": 28.061583
+    },
+    {
+      "frame_num": 354,
+      "latency_ms": 20.772457122802734,
+      "fps": 48.14066983449258,
+      "detections": 16,
+      "timestamp": 28.144426
+    },
+    {
+      "frame_num": 355,
+      "latency_ms": 21.994352340698242,
+      "fps": 45.466217168377575,
+      "detections": 16,
+      "timestamp": 28.228596
+    },
+    {
+      "frame_num": 356,
+      "latency_ms": 21.999120712280273,
+      "fps": 45.45636223732267,
+      "detections": 15,
+      "timestamp": 28.309654
+    },
+    {
+      "frame_num": 357,
+      "latency_ms": 20.81584930419922,
+      "fps": 48.04031703853026,
+      "detections": 15,
+      "timestamp": 28.393574
+    },
+    {
+      "frame_num": 358,
+      "latency_ms": 23.047924041748047,
+      "fps": 43.38785559118651,
+      "detections": 13,
+      "timestamp": 28.468531
+    },
+    {
+      "frame_num": 359,
+      "latency_ms": 21.885156631469727,
+      "fps": 45.69307027769002,
+      "detections": 14,
+      "timestamp": 28.5445
+    },
+    {
+      "frame_num": 360,
+      "latency_ms": 21.439313888549805,
+      "fps": 46.64328369827519,
+      "detections": 14,
+      "timestamp": 28.620541
+    },
+    {
+      "frame_num": 361,
+      "latency_ms": 23.005008697509766,
+      "fps": 43.468794693750645,
+      "detections": 14,
+      "timestamp": 28.698566
+    },
+    {
+      "frame_num": 362,
+      "latency_ms": 20.390987396240234,
+      "fps": 49.041273998550146,
+      "detections": 12,
+      "timestamp": 28.767109
+    },
+    {
+      "frame_num": 363,
+      "latency_ms": 20.266294479370117,
+      "fps": 49.34301142312624,
+      "detections": 13,
+      "timestamp": 28.838917
+    },
+    {
+      "frame_num": 364,
+      "latency_ms": 20.46823501586914,
+      "fps": 48.85619103086779,
+      "detections": 12,
+      "timestamp": 28.907874
+    },
+    {
+      "frame_num": 365,
+      "latency_ms": 20.385026931762695,
+      "fps": 49.055613384638775,
+      "detections": 12,
+      "timestamp": 28.976864
+    },
+    {
+      "frame_num": 366,
+      "latency_ms": 23.956298828125,
+      "fps": 41.74267515923567,
+      "detections": 13,
+      "timestamp": 29.056729
+    },
+    {
+      "frame_num": 367,
+      "latency_ms": 20.442962646484375,
+      "fps": 48.91658891584251,
+      "detections": 12,
+      "timestamp": 29.12565
+    },
+    {
+      "frame_num": 368,
+      "latency_ms": 21.05712890625,
+      "fps": 47.48985507246377,
+      "detections": 14,
+      "timestamp": 29.202833
+    },
+    {
+      "frame_num": 369,
+      "latency_ms": 21.24786376953125,
+      "fps": 47.063554757630165,
+      "detections": 14,
+      "timestamp": 29.278232
+    },
+    {
+      "frame_num": 370,
+      "latency_ms": 20.714521408081055,
+      "fps": 48.275312776952916,
+      "detections": 12,
+      "timestamp": 29.347544
+    },
+    {
+      "frame_num": 371,
+      "latency_ms": 22.65644073486328,
+      "fps": 44.13755945616029,
+      "detections": 12,
+      "timestamp": 29.423685
+    },
+    {
+      "frame_num": 372,
+      "latency_ms": 21.108627319335938,
+      "fps": 47.373994759194,
+      "detections": 12,
+      "timestamp": 29.494188
+    },
+    {
+      "frame_num": 373,
+      "latency_ms": 21.44646644592285,
+      "fps": 46.62772781341367,
+      "detections": 13,
+      "timestamp": 29.56825
+    },
+    {
+      "frame_num": 374,
+      "latency_ms": 20.87235450744629,
+      "fps": 47.91026329316352,
+      "detections": 13,
+      "timestamp": 29.642849
+    },
+    {
+      "frame_num": 375,
+      "latency_ms": 22.1099853515625,
+      "fps": 45.22843340234645,
+      "detections": 13,
+      "timestamp": 29.715143
+    },
+    {
+      "frame_num": 376,
+      "latency_ms": 20.99752426147461,
+      "fps": 47.62466220052231,
+      "detections": 12,
+      "timestamp": 29.785245
+    },
+    {
+      "frame_num": 377,
+      "latency_ms": 21.192550659179688,
+      "fps": 47.18639186391864,
+      "detections": 14,
+      "timestamp": 29.861609
+    },
+    {
+      "frame_num": 378,
+      "latency_ms": 21.000146865844727,
+      "fps": 47.61871459225031,
+      "detections": 11,
+      "timestamp": 29.930349
+    },
+    {
+      "frame_num": 379,
+      "latency_ms": 22.60732650756836,
+      "fps": 44.23344793402375,
+      "detections": 11,
+      "timestamp": 30.000036
+    },
+    {
+      "frame_num": 380,
+      "latency_ms": 21.852970123291016,
+      "fps": 45.7603700713522,
+      "detections": 14,
+      "timestamp": 30.079759
+    },
+    {
+      "frame_num": 381,
+      "latency_ms": 20.662307739257812,
+      "fps": 48.39730453244715,
+      "detections": 13,
+      "timestamp": 30.157282
+    },
+    {
+      "frame_num": 382,
+      "latency_ms": 20.681142807006836,
+      "fps": 48.353227349757326,
+      "detections": 13,
+      "timestamp": 30.229937
+    },
+    {
+      "frame_num": 383,
+      "latency_ms": 21.448612213134766,
+      "fps": 46.623063071074455,
+      "detections": 13,
+      "timestamp": 30.303466
+    },
+    {
+      "frame_num": 384,
+      "latency_ms": 20.936965942382812,
+      "fps": 47.762412316662115,
+      "detections": 13,
+      "timestamp": 30.376898
+    },
+    {
+      "frame_num": 385,
+      "latency_ms": 24.18971061706543,
+      "fps": 41.33989099044934,
+      "detections": 13,
+      "timestamp": 30.455668
+    },
+    {
+      "frame_num": 386,
+      "latency_ms": 21.180152893066406,
+      "fps": 47.21401233734072,
+      "detections": 15,
+      "timestamp": 30.53749
+    },
+    {
+      "frame_num": 387,
+      "latency_ms": 21.001815795898438,
+      "fps": 47.61493052402143,
+      "detections": 15,
+      "timestamp": 30.61714
+    },
+    {
+      "frame_num": 388,
+      "latency_ms": 20.807266235351562,
+      "fps": 48.06013383444862,
+      "detections": 14,
+      "timestamp": 30.694656
+    },
+    {
+      "frame_num": 389,
+      "latency_ms": 21.358013153076172,
+      "fps": 46.82083454265366,
+      "detections": 13,
+      "timestamp": 30.769646
+    },
+    {
+      "frame_num": 390,
+      "latency_ms": 22.211790084838867,
+      "fps": 45.021134999946334,
+      "detections": 13,
+      "timestamp": 30.844886
+    },
+    {
+      "frame_num": 391,
+      "latency_ms": 22.243499755859375,
+      "fps": 44.95695421025553,
+      "detections": 14,
+      "timestamp": 30.922166
+    },
+    {
+      "frame_num": 392,
+      "latency_ms": 20.68495750427246,
+      "fps": 48.344310100393045,
+      "detections": 14,
+      "timestamp": 30.998687
+    },
+    {
+      "frame_num": 393,
+      "latency_ms": 20.640134811401367,
+      "fps": 48.44929595361033,
+      "detections": 13,
+      "timestamp": 31.073087
+    },
+    {
+      "frame_num": 394,
+      "latency_ms": 22.197961807250977,
+      "fps": 45.04918103216798,
+      "detections": 13,
+      "timestamp": 31.147873
+    },
+    {
+      "frame_num": 395,
+      "latency_ms": 21.8503475189209,
+      "fps": 45.765862494135106,
+      "detections": 12,
+      "timestamp": 31.218819
+    },
+    {
+      "frame_num": 396,
+      "latency_ms": 19.98138427734375,
+      "fps": 50.04658266513937,
+      "detections": 11,
+      "timestamp": 31.28669
+    },
+    {
+      "frame_num": 397,
+      "latency_ms": 20.01500129699707,
+      "fps": 49.962524866287865,
+      "detections": 11,
+      "timestamp": 31.353711
+    },
+    {
+      "frame_num": 398,
+      "latency_ms": 19.9739933013916,
+      "fps": 50.06510140014562,
+      "detections": 11,
+      "timestamp": 31.424689
+    },
+    {
+      "frame_num": 399,
+      "latency_ms": 20.961523056030273,
+      "fps": 47.7064570798121,
+      "detections": 11,
+      "timestamp": 31.491595
+    },
+    {
+      "frame_num": 400,
+      "latency_ms": 19.90962028503418,
+      "fps": 50.226974984133065,
+      "detections": 10,
+      "timestamp": 31.556155
+    },
+    {
+      "frame_num": 401,
+      "latency_ms": 19.739389419555664,
+      "fps": 50.660128271713795,
+      "detections": 11,
+      "timestamp": 31.622692
+    },
+    {
+      "frame_num": 402,
+      "latency_ms": 21.856307983398438,
+      "fps": 45.753381621432936,
+      "detections": 12,
+      "timestamp": 31.694816
+    },
+    {
+      "frame_num": 403,
+      "latency_ms": 20.92123031616211,
+      "fps": 47.79833618233618,
+      "detections": 10,
+      "timestamp": 31.761179
+    },
+    {
+      "frame_num": 404,
+      "latency_ms": 21.246910095214844,
+      "fps": 47.06566722025226,
+      "detections": 11,
+      "timestamp": 31.831936
+    },
+    {
+      "frame_num": 405,
+      "latency_ms": 21.48747444152832,
+      "fps": 46.53874063800277,
+      "detections": 11,
+      "timestamp": 31.90114
+    },
+    {
+      "frame_num": 406,
+      "latency_ms": 20.993709564208984,
+      "fps": 47.6333159197765,
+      "detections": 12,
+      "timestamp": 31.972242
+    },
+    {
+      "frame_num": 407,
+      "latency_ms": 21.996021270751953,
+      "fps": 45.46276745648074,
+      "detections": 12,
+      "timestamp": 32.046372
+    },
+    {
+      "frame_num": 408,
+      "latency_ms": 21.126985549926758,
+      "fps": 47.33282926884317,
+      "detections": 11,
+      "timestamp": 32.112541
+    },
+    {
+      "frame_num": 409,
+      "latency_ms": 20.96080780029297,
+      "fps": 47.708084990217934,
+      "detections": 12,
+      "timestamp": 32.184481
+    },
+    {
+      "frame_num": 410,
+      "latency_ms": 20.190715789794922,
+      "fps": 49.52771414401436,
+      "detections": 12,
+      "timestamp": 32.254865
+    },
+    {
+      "frame_num": 411,
+      "latency_ms": 21.013975143432617,
+      "fps": 47.587379026310714,
+      "detections": 11,
+      "timestamp": 32.321866
+    },
+    {
+      "frame_num": 412,
+      "latency_ms": 20.55215835571289,
+      "fps": 48.65669009999768,
+      "detections": 10,
+      "timestamp": 32.390771
+    },
+    {
+      "frame_num": 413,
+      "latency_ms": 23.695707321166992,
+      "fps": 42.20173664563776,
+      "detections": 10,
+      "timestamp": 32.458653
+    },
+    {
+      "frame_num": 414,
+      "latency_ms": 21.11649513244629,
+      "fps": 47.356343641680496,
+      "detections": 12,
+      "timestamp": 32.528883
+    },
+    {
+      "frame_num": 415,
+      "latency_ms": 21.126508712768555,
+      "fps": 47.33389759736376,
+      "detections": 13,
+      "timestamp": 32.603712
+    },
+    {
+      "frame_num": 416,
+      "latency_ms": 20.935535430908203,
+      "fps": 47.76567589112857,
+      "detections": 12,
+      "timestamp": 32.675929
+    },
+    {
+      "frame_num": 417,
+      "latency_ms": 21.27361297607422,
+      "fps": 47.0065898596853,
+      "detections": 12,
+      "timestamp": 32.748625
+    },
+    {
+      "frame_num": 418,
+      "latency_ms": 21.366119384765625,
+      "fps": 46.80307088019996,
+      "detections": 12,
+      "timestamp": 32.819347
+    },
+    {
+      "frame_num": 419,
+      "latency_ms": 21.465063095092773,
+      "fps": 46.58733103042285,
+      "detections": 12,
+      "timestamp": 32.890487
+    },
+    {
+      "frame_num": 420,
+      "latency_ms": 21.20232582092285,
+      "fps": 47.164636957572895,
+      "detections": 11,
+      "timestamp": 32.95993
+    },
+    {
+      "frame_num": 421,
+      "latency_ms": 20.333528518676758,
+      "fps": 49.17985577768658,
+      "detections": 12,
+      "timestamp": 33.027809
+    },
+    {
+      "frame_num": 422,
+      "latency_ms": 21.1334228515625,
+      "fps": 47.31841155234657,
+      "detections": 12,
+      "timestamp": 33.095914
+    },
+    {
+      "frame_num": 423,
+      "latency_ms": 20.029783248901367,
+      "fps": 49.92565259311281,
+      "detections": 12,
+      "timestamp": 33.166856
+    },
+    {
+      "frame_num": 424,
+      "latency_ms": 20.934343338012695,
+      "fps": 47.768395877227945,
+      "detections": 13,
+      "timestamp": 33.237898
+    },
+    {
+      "frame_num": 425,
+      "latency_ms": 20.926713943481445,
+      "fps": 47.7858111264284,
+      "detections": 12,
+      "timestamp": 33.306345
+    },
+    {
+      "frame_num": 426,
+      "latency_ms": 20.19333839416504,
+      "fps": 49.52128174551637,
+      "detections": 12,
+      "timestamp": 33.374644
+    },
+    {
+      "frame_num": 427,
+      "latency_ms": 21.077394485473633,
+      "fps": 47.44419433289972,
+      "detections": 13,
+      "timestamp": 33.449042
+    },
+    {
+      "frame_num": 428,
+      "latency_ms": 21.042585372924805,
+      "fps": 47.52267757395846,
+      "detections": 13,
+      "timestamp": 33.521604
+    },
+    {
+      "frame_num": 429,
+      "latency_ms": 20.88761329650879,
+      "fps": 47.8752639568994,
+      "detections": 12,
+      "timestamp": 33.59003
+    },
+    {
+      "frame_num": 430,
+      "latency_ms": 19.671201705932617,
+      "fps": 50.83573514974487,
+      "detections": 12,
+      "timestamp": 33.659577
+    },
+    {
+      "frame_num": 431,
+      "latency_ms": 20.323514938354492,
+      "fps": 49.20408713911993,
+      "detections": 12,
+      "timestamp": 33.728173
+    },
+    {
+      "frame_num": 432,
+      "latency_ms": 20.32613754272461,
+      "fps": 49.19773852253267,
+      "detections": 13,
+      "timestamp": 33.801567
+    },
+    {
+      "frame_num": 433,
+      "latency_ms": 22.09019660949707,
+      "fps": 45.268949737191456,
+      "detections": 13,
+      "timestamp": 33.874471
+    },
+    {
+      "frame_num": 434,
+      "latency_ms": 21.257400512695312,
+      "fps": 47.042440556303276,
+      "detections": 14,
+      "timestamp": 33.950905
+    },
+    {
+      "frame_num": 435,
+      "latency_ms": 21.617889404296875,
+      "fps": 46.257984824422095,
+      "detections": 14,
+      "timestamp": 34.027407
+    },
+    {
+      "frame_num": 436,
+      "latency_ms": 21.098613739013672,
+      "fps": 47.39647885732366,
+      "detections": 14,
+      "timestamp": 34.101752
+    },
+    {
+      "frame_num": 437,
+      "latency_ms": 21.238088607788086,
+      "fps": 47.08521649322511,
+      "detections": 14,
+      "timestamp": 34.176056
+    },
+    {
+      "frame_num": 438,
+      "latency_ms": 21.236658096313477,
+      "fps": 47.08838817599048,
+      "detections": 14,
+      "timestamp": 34.251512
+    },
+    {
+      "frame_num": 439,
+      "latency_ms": 21.231412887573242,
+      "fps": 47.10002133608831,
+      "detections": 14,
+      "timestamp": 34.325161
+    },
+    {
+      "frame_num": 440,
+      "latency_ms": 20.734786987304688,
+      "fps": 48.22812988685494,
+      "detections": 14,
+      "timestamp": 34.399883
+    },
+    {
+      "frame_num": 441,
+      "latency_ms": 24.080991744995117,
+      "fps": 41.52652891498273,
+      "detections": 16,
+      "timestamp": 34.489414
+    },
+    {
+      "frame_num": 442,
+      "latency_ms": 21.045923233032227,
+      "fps": 47.51514052994687,
+      "detections": 14,
+      "timestamp": 34.56402
+    },
+    {
+      "frame_num": 443,
+      "latency_ms": 22.043228149414062,
+      "fps": 45.36540624729601,
+      "detections": 15,
+      "timestamp": 34.641328
+    },
+    {
+      "frame_num": 444,
+      "latency_ms": 20.624160766601562,
+      "fps": 48.48682141866272,
+      "detections": 15,
+      "timestamp": 34.719351
+    },
+    {
+      "frame_num": 445,
+      "latency_ms": 21.96359634399414,
+      "fps": 45.529884283884414,
+      "detections": 15,
+      "timestamp": 34.798192
+    },
+    {
+      "frame_num": 446,
+      "latency_ms": 21.605730056762695,
+      "fps": 46.28401805321062,
+      "detections": 16,
+      "timestamp": 34.882188
+    },
+    {
+      "frame_num": 447,
+      "latency_ms": 20.224809646606445,
+      "fps": 49.44422308408681,
+      "detections": 15,
+      "timestamp": 34.962355
+    },
+    {
+      "frame_num": 448,
+      "latency_ms": 20.63131332397461,
+      "fps": 48.470011787274366,
+      "detections": 15,
+      "timestamp": 35.041692
+    },
+    {
+      "frame_num": 449,
+      "latency_ms": 21.433591842651367,
+      "fps": 46.65573588137799,
+      "detections": 16,
+      "timestamp": 35.122162
+    },
+    {
+      "frame_num": 450,
+      "latency_ms": 20.861387252807617,
+      "fps": 47.93545069086504,
+      "detections": 15,
+      "timestamp": 35.19972
+    },
+    {
+      "frame_num": 451,
+      "latency_ms": 21.519184112548828,
+      "fps": 46.47016330962352,
+      "detections": 15,
+      "timestamp": 35.27993
+    },
+    {
+      "frame_num": 452,
+      "latency_ms": 22.099971771240234,
+      "fps": 45.248926575614384,
+      "detections": 15,
+      "timestamp": 35.358451
+    },
+    {
+      "frame_num": 453,
+      "latency_ms": 21.880626678466797,
+      "fps": 45.702530128358795,
+      "detections": 15,
+      "timestamp": 35.44371
+    },
+    {
+      "frame_num": 454,
+      "latency_ms": 24.089574813842773,
+      "fps": 41.51173309316204,
+      "detections": 14,
+      "timestamp": 35.522204
+    },
+    {
+      "frame_num": 455,
+      "latency_ms": 22.168874740600586,
+      "fps": 45.108288611896796,
+      "detections": 14,
+      "timestamp": 35.598198
+    },
+    {
+      "frame_num": 456,
+      "latency_ms": 21.044492721557617,
+      "fps": 47.51837039890333,
+      "detections": 14,
+      "timestamp": 35.673513
+    },
+    {
+      "frame_num": 457,
+      "latency_ms": 21.291732788085938,
+      "fps": 46.96658604317836,
+      "detections": 14,
+      "timestamp": 35.7489
+    },
+    {
+      "frame_num": 458,
+      "latency_ms": 21.033287048339844,
+      "fps": 47.543686238948084,
+      "detections": 15,
+      "timestamp": 35.828699
+    },
+    {
+      "frame_num": 459,
+      "latency_ms": 21.042823791503906,
+      "fps": 47.522139134375706,
+      "detections": 15,
+      "timestamp": 35.906895
+    },
+    {
+      "frame_num": 460,
+      "latency_ms": 20.97940444946289,
+      "fps": 47.66579539514058,
+      "detections": 14,
+      "timestamp": 35.983213
+    },
+    {
+      "frame_num": 461,
+      "latency_ms": 22.09782600402832,
+      "fps": 45.253320386254515,
+      "detections": 14,
+      "timestamp": 36.06113
+    },
+    {
+      "frame_num": 462,
+      "latency_ms": 21.358489990234375,
+      "fps": 46.81978924808001,
+      "detections": 14,
+      "timestamp": 36.137348
+    },
+    {
+      "frame_num": 463,
+      "latency_ms": 20.923614501953125,
+      "fps": 47.79288969917958,
+      "detections": 15,
+      "timestamp": 36.217212
+    },
+    {
+      "frame_num": 464,
+      "latency_ms": 20.26987075805664,
+      "fps": 49.33430567644499,
+      "detections": 15,
+      "timestamp": 36.295396
+    },
+    {
+      "frame_num": 465,
+      "latency_ms": 21.083831787109375,
+      "fps": 47.42970870273204,
+      "detections": 14,
+      "timestamp": 36.37091
+    },
+    {
+      "frame_num": 466,
+      "latency_ms": 20.354747772216797,
+      "fps": 49.12858715768267,
+      "detections": 12,
+      "timestamp": 36.445019
+    },
+    {
+      "frame_num": 467,
+      "latency_ms": 24.25837516784668,
+      "fps": 41.22287635016266,
+      "detections": 12,
+      "timestamp": 36.518654
+    },
+    {
+      "frame_num": 468,
+      "latency_ms": 21.075010299682617,
+      "fps": 47.44956162678884,
+      "detections": 12,
+      "timestamp": 36.588608
+    },
+    {
+      "frame_num": 469,
+      "latency_ms": 21.747350692749023,
+      "fps": 45.98261250890753,
+      "detections": 14,
+      "timestamp": 36.665389
+    },
+    {
+      "frame_num": 470,
+      "latency_ms": 22.064924240112305,
+      "fps": 45.320799161507125,
+      "detections": 14,
+      "timestamp": 36.741591
+    },
+    {
+      "frame_num": 471,
+      "latency_ms": 21.276473999023438,
+      "fps": 47.0002689376961,
+      "detections": 13,
+      "timestamp": 36.813939
+    },
+    {
+      "frame_num": 472,
+      "latency_ms": 21.573305130004883,
+      "fps": 46.35358346687296,
+      "detections": 13,
+      "timestamp": 36.886667
+    },
+    {
+      "frame_num": 473,
+      "latency_ms": 21.12126350402832,
+      "fps": 47.345652394766844,
+      "detections": 13,
+      "timestamp": 36.959048
+    },
+    {
+      "frame_num": 474,
+      "latency_ms": 20.25580406188965,
+      "fps": 49.36856601419508,
+      "detections": 12,
+      "timestamp": 37.03019
+    },
+    {
+      "frame_num": 475,
+      "latency_ms": 20.900249481201172,
+      "fps": 47.84631881545025,
+      "detections": 13,
+      "timestamp": 37.103614
+    },
+    {
+      "frame_num": 476,
+      "latency_ms": 20.902633666992188,
+      "fps": 47.84086139246281,
+      "detections": 12,
+      "timestamp": 37.174003
+    },
+    {
+      "frame_num": 477,
+      "latency_ms": 20.33209800720215,
+      "fps": 49.18331593944582,
+      "detections": 13,
+      "timestamp": 37.246552
+    },
+    {
+      "frame_num": 478,
+      "latency_ms": 21.121501922607422,
+      "fps": 47.3451179591376,
+      "detections": 13,
+      "timestamp": 37.31978
+    },
+    {
+      "frame_num": 479,
+      "latency_ms": 20.719528198242188,
+      "fps": 48.26364724293473,
+      "detections": 13,
+      "timestamp": 37.392914
+    },
+    {
+      "frame_num": 480,
+      "latency_ms": 20.888328552246094,
+      "fps": 47.87362461763229,
+      "detections": 13,
+      "timestamp": 37.469785
+    },
+    {
+      "frame_num": 481,
+      "latency_ms": 21.931171417236328,
+      "fps": 45.597199573848194,
+      "detections": 13,
+      "timestamp": 37.544523
+    },
+    {
+      "frame_num": 482,
+      "latency_ms": 21.034955978393555,
+      "fps": 47.53991408525735,
+      "detections": 13,
+      "timestamp": 37.617621
+    },
+    {
+      "frame_num": 483,
+      "latency_ms": 20.961761474609375,
+      "fps": 47.70591446769791,
+      "detections": 12,
+      "timestamp": 37.688048
+    },
+    {
+      "frame_num": 484,
+      "latency_ms": 20.739316940307617,
+      "fps": 48.21759573269569,
+      "detections": 14,
+      "timestamp": 37.763869
+    },
+    {
+      "frame_num": 485,
+      "latency_ms": 21.3778018951416,
+      "fps": 46.77749400546479,
+      "detections": 13,
+      "timestamp": 37.836366
+    },
+    {
+      "frame_num": 486,
+      "latency_ms": 21.67224884033203,
+      "fps": 46.14195819581958,
+      "detections": 14,
+      "timestamp": 37.912516
+    },
+    {
+      "frame_num": 487,
+      "latency_ms": 20.398616790771484,
+      "fps": 49.02293181233783,
+      "detections": 14,
+      "timestamp": 37.988982
+    },
+    {
+      "frame_num": 488,
+      "latency_ms": 22.319555282592773,
+      "fps": 44.80376008118357,
+      "detections": 13,
+      "timestamp": 38.062889
+    },
+    {
+      "frame_num": 489,
+      "latency_ms": 21.022319793701172,
+      "fps": 47.568489577426455,
+      "detections": 13,
+      "timestamp": 38.135624
+    },
+    {
+      "frame_num": 490,
+      "latency_ms": 22.22466468811035,
+      "fps": 44.995054550135706,
+      "detections": 13,
+      "timestamp": 38.209033
+    },
+    {
+      "frame_num": 491,
+      "latency_ms": 20.31230926513672,
+      "fps": 49.231231513216585,
+      "detections": 13,
+      "timestamp": 38.283058
+    },
+    {
+      "frame_num": 492,
+      "latency_ms": 20.86639404296875,
+      "fps": 47.923948811700186,
+      "detections": 13,
+      "timestamp": 38.355866
+    },
+    {
+      "frame_num": 493,
+      "latency_ms": 20.47872543334961,
+      "fps": 48.83116399282837,
+      "detections": 13,
+      "timestamp": 38.432397
+    },
+    {
+      "frame_num": 494,
+      "latency_ms": 24.451732635498047,
+      "fps": 40.896897365393244,
+      "detections": 12,
+      "timestamp": 38.506879
+    },
+    {
+      "frame_num": 495,
+      "latency_ms": 20.51854133605957,
+      "fps": 48.736407896724415,
+      "detections": 13,
+      "timestamp": 38.580052
+    },
+    {
+      "frame_num": 496,
+      "latency_ms": 21.383285522460938,
+      "fps": 46.765498171438765,
+      "detections": 13,
+      "timestamp": 38.654875
+    },
+    {
+      "frame_num": 497,
+      "latency_ms": 21.40951156616211,
+      "fps": 46.70821176418183,
+      "detections": 13,
+      "timestamp": 38.727132
+    },
+    {
+      "frame_num": 498,
+      "latency_ms": 19.71745491027832,
+      "fps": 50.71648468579582,
+      "detections": 13,
+      "timestamp": 38.79862
+    },
+    {
+      "frame_num": 499,
+      "latency_ms": 21.13795280456543,
+      "fps": 47.30827101591491,
+      "detections": 13,
+      "timestamp": 38.870251
+    },
+    {
+      "frame_num": 500,
+      "latency_ms": 20.69854736328125,
+      "fps": 48.31256911168448,
+      "detections": 12,
+      "timestamp": 38.937471
+    },
+    {
+      "frame_num": 501,
+      "latency_ms": 20.268678665161133,
+      "fps": 49.33720725065578,
+      "detections": 12,
+      "timestamp": 39.007484
+    },
+    {
+      "frame_num": 502,
+      "latency_ms": 21.129131317138672,
+      "fps": 47.32802238721762,
+      "detections": 12,
+      "timestamp": 39.076837
+    },
+    {
+      "frame_num": 503,
+      "latency_ms": 20.358800888061523,
+      "fps": 49.11880643159115,
+      "detections": 12,
+      "timestamp": 39.14444
+    },
+    {
+      "frame_num": 504,
+      "latency_ms": 21.279335021972656,
+      "fps": 46.99394971541254,
+      "detections": 12,
+      "timestamp": 39.215588
+    },
+    {
+      "frame_num": 505,
+      "latency_ms": 20.12777328491211,
+      "fps": 49.68259458435005,
+      "detections": 13,
+      "timestamp": 39.290336
+    },
+    {
+      "frame_num": 506,
+      "latency_ms": 20.61748504638672,
+      "fps": 48.50252093066284,
+      "detections": 13,
+      "timestamp": 39.363877
+    },
+    {
+      "frame_num": 507,
+      "latency_ms": 19.498348236083984,
+      "fps": 51.28639553936074,
+      "detections": 14,
+      "timestamp": 39.441682
+    },
+    {
+      "frame_num": 508,
+      "latency_ms": 24.347305297851562,
+      "fps": 41.07230708969839,
+      "detections": 13,
+      "timestamp": 39.517167
+    },
+    {
+      "frame_num": 509,
+      "latency_ms": 21.09074592590332,
+      "fps": 47.414159912277725,
+      "detections": 13,
+      "timestamp": 39.588717
+    },
+    {
+      "frame_num": 510,
+      "latency_ms": 20.39027214050293,
+      "fps": 49.04299428223987,
+      "detections": 13,
+      "timestamp": 39.659951
+    },
+    {
+      "frame_num": 511,
+      "latency_ms": 20.356416702270508,
+      "fps": 49.12455932818777,
+      "detections": 12,
+      "timestamp": 39.730067
+    },
+    {
+      "frame_num": 512,
+      "latency_ms": 20.87688446044922,
+      "fps": 47.89986752546709,
+      "detections": 12,
+      "timestamp": 39.799785
+    },
+    {
+      "frame_num": 513,
+      "latency_ms": 20.65753936767578,
+      "fps": 48.408476062970315,
+      "detections": 12,
+      "timestamp": 39.869
+    },
+    {
+      "frame_num": 514,
+      "latency_ms": 20.99776268005371,
+      "fps": 47.62412144746852,
+      "detections": 13,
+      "timestamp": 39.941563
+    },
+    {
+      "frame_num": 515,
+      "latency_ms": 21.645307540893555,
+      "fps": 46.19938978047518,
+      "detections": 14,
+      "timestamp": 40.019526
+    },
+    {
+      "frame_num": 516,
+      "latency_ms": 21.385669708251953,
+      "fps": 46.76028451024549,
+      "detections": 13,
+      "timestamp": 40.093386
+    },
+    {
+      "frame_num": 517,
+      "latency_ms": 21.050691604614258,
+      "fps": 47.504377470467645,
+      "detections": 13,
+      "timestamp": 40.164539
+    },
+    {
+      "frame_num": 518,
+      "latency_ms": 20.05147933959961,
+      "fps": 49.87163206582483,
+      "detections": 14,
+      "timestamp": 40.239826
+    },
+    {
+      "frame_num": 519,
+      "latency_ms": 21.140098571777344,
+      "fps": 47.3034691207651,
+      "detections": 14,
+      "timestamp": 40.316271
+    },
+    {
+      "frame_num": 520,
+      "latency_ms": 20.79606056213379,
+      "fps": 48.08603038119805,
+      "detections": 14,
+      "timestamp": 40.393076
+    },
+    {
+      "frame_num": 521,
+      "latency_ms": 20.63608169555664,
+      "fps": 48.45881184000739,
+      "detections": 13,
+      "timestamp": 40.469836
+    },
+    {
+      "frame_num": 522,
+      "latency_ms": 23.563623428344727,
+      "fps": 42.43829490150051,
+      "detections": 13,
+      "timestamp": 40.546876
+    },
+    {
+      "frame_num": 523,
+      "latency_ms": 20.995616912841797,
+      "fps": 47.62898866707547,
+      "detections": 13,
+      "timestamp": 40.619661
+    },
+    {
+      "frame_num": 524,
+      "latency_ms": 20.700454711914062,
+      "fps": 48.30811757117848,
+      "detections": 12,
+      "timestamp": 40.688922
+    },
+    {
+      "frame_num": 525,
+      "latency_ms": 21.043777465820312,
+      "fps": 47.5199854980513,
+      "detections": 13,
+      "timestamp": 40.76072
+    },
+    {
+      "frame_num": 526,
+      "latency_ms": 21.70586585998535,
+      "fps": 46.07049571072374,
+      "detections": 13,
+      "timestamp": 40.835762
+    },
+    {
+      "frame_num": 527,
+      "latency_ms": 20.21956443786621,
+      "fps": 49.457049536005286,
+      "detections": 14,
+      "timestamp": 40.910705
+    },
+    {
+      "frame_num": 528,
+      "latency_ms": 21.361351013183594,
+      "fps": 46.81351846064556,
+      "detections": 14,
+      "timestamp": 40.985736
+    },
+    {
+      "frame_num": 529,
+      "latency_ms": 21.335601806640625,
+      "fps": 46.870016091543,
+      "detections": 15,
+      "timestamp": 41.066001
+    },
+    {
+      "frame_num": 530,
+      "latency_ms": 20.874500274658203,
+      "fps": 47.90533841971812,
+      "detections": 15,
+      "timestamp": 41.143902
+    },
+    {
+      "frame_num": 531,
+      "latency_ms": 20.493268966674805,
+      "fps": 48.79650980164039,
+      "detections": 14,
+      "timestamp": 41.218301
+    },
+    {
+      "frame_num": 532,
+      "latency_ms": 20.579099655151367,
+      "fps": 48.5929907895499,
+      "detections": 15,
+      "timestamp": 41.297704
+    },
+    {
+      "frame_num": 533,
+      "latency_ms": 21.084308624267578,
+      "fps": 47.428636044960086,
+      "detections": 14,
+      "timestamp": 41.373531
+    },
+    {
+      "frame_num": 534,
+      "latency_ms": 22.051572799682617,
+      "fps": 45.34823928814696,
+      "detections": 15,
+      "timestamp": 41.460001
+    },
+    {
+      "frame_num": 535,
+      "latency_ms": 24.320602416992188,
+      "fps": 41.11740255666222,
+      "detections": 16,
+      "timestamp": 41.547895
+    },
+    {
+      "frame_num": 536,
+      "latency_ms": 20.799875259399414,
+      "fps": 48.07721140289543,
+      "detections": 14,
+      "timestamp": 41.624943
+    },
+    {
+      "frame_num": 537,
+      "latency_ms": 20.664215087890625,
+      "fps": 48.39283736385453,
+      "detections": 13,
+      "timestamp": 41.698059
+    },
+    {
+      "frame_num": 538,
+      "latency_ms": 21.091699600219727,
+      "fps": 47.41201605154581,
+      "detections": 13,
+      "timestamp": 41.770389
+    },
+    {
+      "frame_num": 539,
+      "latency_ms": 21.207094192504883,
+      "fps": 47.15403208580198,
+      "detections": 13,
+      "timestamp": 41.843988
+    },
+    {
+      "frame_num": 540,
+      "latency_ms": 21.509647369384766,
+      "fps": 46.49076680928418,
+      "detections": 13,
+      "timestamp": 41.918255
+    },
+    {
+      "frame_num": 541,
+      "latency_ms": 21.8508243560791,
+      "fps": 45.76486377374548,
+      "detections": 14,
+      "timestamp": 41.994501
+    },
+    {
+      "frame_num": 542,
+      "latency_ms": 20.74599266052246,
+      "fps": 48.20208010113199,
+      "detections": 14,
+      "timestamp": 42.071617
+    },
+    {
+      "frame_num": 543,
+      "latency_ms": 21.626949310302734,
+      "fps": 46.23860654834087,
+      "detections": 14,
+      "timestamp": 42.151107
+    },
+    {
+      "frame_num": 544,
+      "latency_ms": 20.74122428894043,
+      "fps": 48.21316167595839,
+      "detections": 13,
+      "timestamp": 42.226489
+    },
+    {
+      "frame_num": 545,
+      "latency_ms": 20.15089988708496,
+      "fps": 49.62557531442634,
+      "detections": 13,
+      "timestamp": 42.302645
+    },
+    {
+      "frame_num": 546,
+      "latency_ms": 20.798683166503906,
+      "fps": 48.079966986106655,
+      "detections": 13,
+      "timestamp": 42.377833
+    },
+    {
+      "frame_num": 547,
+      "latency_ms": 21.034717559814453,
+      "fps": 47.54045292770839,
+      "detections": 12,
+      "timestamp": 42.453271
+    },
+    {
+      "frame_num": 548,
+      "latency_ms": 23.194313049316406,
+      "fps": 43.11401669339254,
+      "detections": 12,
+      "timestamp": 42.526905
+    },
+    {
+      "frame_num": 549,
+      "latency_ms": 20.342588424682617,
+      "fps": 49.15795272083729,
+      "detections": 13,
+      "timestamp": 42.600639
+    },
+    {
+      "frame_num": 550,
+      "latency_ms": 20.29585838317871,
+      "fps": 49.2711360672877,
+      "detections": 13,
+      "timestamp": 42.674072
+    },
+    {
+      "frame_num": 551,
+      "latency_ms": 21.213531494140625,
+      "fps": 47.13972307139004,
+      "detections": 13,
+      "timestamp": 42.748888
+    },
+    {
+      "frame_num": 552,
+      "latency_ms": 20.873546600341797,
+      "fps": 47.9075271273558,
+      "detections": 13,
+      "timestamp": 42.821885
+    },
+    {
+      "frame_num": 553,
+      "latency_ms": 20.885944366455078,
+      "fps": 47.879089518504145,
+      "detections": 13,
+      "timestamp": 42.895076
+    },
+    {
+      "frame_num": 554,
+      "latency_ms": 21.511554718017578,
+      "fps": 46.486644647884205,
+      "detections": 14,
+      "timestamp": 42.971377
+    },
+    {
+      "frame_num": 555,
+      "latency_ms": 21.523475646972656,
+      "fps": 46.46089769152377,
+      "detections": 14,
+      "timestamp": 43.048782
+    },
+    {
+      "frame_num": 556,
+      "latency_ms": 21.27552032470703,
+      "fps": 47.002375722802455,
+      "detections": 14,
+      "timestamp": 43.124727
+    },
+    {
+      "frame_num": 557,
+      "latency_ms": 20.685434341430664,
+      "fps": 48.34319567547631,
+      "detections": 14,
+      "timestamp": 43.200689
+    },
+    {
+      "frame_num": 558,
+      "latency_ms": 20.809173583984375,
+      "fps": 48.055728689275895,
+      "detections": 15,
+      "timestamp": 43.280735
+    },
+    {
+      "frame_num": 559,
+      "latency_ms": 21.646738052368164,
+      "fps": 46.19633672199399,
+      "detections": 15,
+      "timestamp": 43.358095
+    },
+    {
+      "frame_num": 560,
+      "latency_ms": 20.6911563873291,
+      "fps": 48.32982658293484,
+      "detections": 16,
+      "timestamp": 43.440655
+    },
+    {
+      "frame_num": 561,
+      "latency_ms": 24.98483657836914,
+      "fps": 40.02427619901903,
+      "detections": 16,
+      "timestamp": 43.529357
+    },
+    {
+      "frame_num": 562,
+      "latency_ms": 20.845890045166016,
+      "fps": 47.97108676258664,
+      "detections": 16,
+      "timestamp": 43.613402
+    },
+    {
+      "frame_num": 563,
+      "latency_ms": 21.365880966186523,
+      "fps": 46.80359314846845,
+      "detections": 15,
+      "timestamp": 43.695595
+    },
+    {
+      "frame_num": 564,
+      "latency_ms": 20.85423469543457,
+      "fps": 47.951891527283955,
+      "detections": 15,
+      "timestamp": 43.775018
+    },
+    {
+      "frame_num": 565,
+      "latency_ms": 20.933151245117188,
+      "fps": 47.77111617312073,
+      "detections": 14,
+      "timestamp": 43.850734
+    },
+    {
+      "frame_num": 566,
+      "latency_ms": 21.512269973754883,
+      "fps": 46.4850990258121,
+      "detections": 14,
+      "timestamp": 43.927136
+    },
+    {
+      "frame_num": 567,
+      "latency_ms": 21.054506301879883,
+      "fps": 47.495770533014756,
+      "detections": 14,
+      "timestamp": 44.003385
+    },
+    {
+      "frame_num": 568,
+      "latency_ms": 21.2709903717041,
+      "fps": 47.01238553190535,
+      "detections": 13,
+      "timestamp": 44.076952
+    },
+    {
+      "frame_num": 569,
+      "latency_ms": 20.61605453491211,
+      "fps": 48.5058864346016,
+      "detections": 13,
+      "timestamp": 44.149869
+    },
+    {
+      "frame_num": 570,
+      "latency_ms": 20.63894271850586,
+      "fps": 48.45209435575168,
+      "detections": 13,
+      "timestamp": 44.226523
+    },
+    {
+      "frame_num": 571,
+      "latency_ms": 22.021770477294922,
+      "fps": 45.40960959660481,
+      "detections": 14,
+      "timestamp": 44.304371
+    },
+    {
+      "frame_num": 572,
+      "latency_ms": 21.1181640625,
+      "fps": 47.35260115606936,
+      "detections": 13,
+      "timestamp": 44.377311
+    },
+    {
+      "frame_num": 573,
+      "latency_ms": 20.319700241088867,
+      "fps": 49.213324415971464,
+      "detections": 13,
+      "timestamp": 44.454065
+    },
+    {
+      "frame_num": 574,
+      "latency_ms": 23.731708526611328,
+      "fps": 42.13771624907071,
+      "detections": 13,
+      "timestamp": 44.530417
+    },
+    {
+      "frame_num": 575,
+      "latency_ms": 22.08709716796875,
+      "fps": 45.27530224525043,
+      "detections": 13,
+      "timestamp": 44.60473
+    },
+    {
+      "frame_num": 576,
+      "latency_ms": 21.26908302307129,
+      "fps": 47.01660146397785,
+      "detections": 13,
+      "timestamp": 44.678271
+    },
+    {
+      "frame_num": 577,
+      "latency_ms": 20.653486251831055,
+      "fps": 48.41797591974788,
+      "detections": 13,
+      "timestamp": 44.750567
+    },
+    {
+      "frame_num": 578,
+      "latency_ms": 21.14272117614746,
+      "fps": 47.29760146145085,
+      "detections": 13,
+      "timestamp": 44.824609
+    },
+    {
+      "frame_num": 579,
+      "latency_ms": 21.656513214111328,
+      "fps": 46.17548495056917,
+      "detections": 13,
+      "timestamp": 44.897064
+    },
+    {
+      "frame_num": 580,
+      "latency_ms": 20.847082138061523,
+      "fps": 47.96834364528414,
+      "detections": 12,
+      "timestamp": 44.966863
+    },
+    {
+      "frame_num": 581,
+      "latency_ms": 20.981788635253906,
+      "fps": 47.66037907367847,
+      "detections": 13,
+      "timestamp": 45.041549
+    },
+    {
+      "frame_num": 582,
+      "latency_ms": 21.079301834106445,
+      "fps": 47.43990137197019,
+      "detections": 13,
+      "timestamp": 45.11596
+    },
+    {
+      "frame_num": 583,
+      "latency_ms": 21.121501922607422,
+      "fps": 47.3451179591376,
+      "detections": 12,
+      "timestamp": 45.185542
+    },
+    {
+      "frame_num": 584,
+      "latency_ms": 21.561145782470703,
+      "fps": 46.37972443992304,
+      "detections": 13,
+      "timestamp": 45.260262
+    },
+    {
+      "frame_num": 585,
+      "latency_ms": 20.66802978515625,
+      "fps": 48.38390550018457,
+      "detections": 14,
+      "timestamp": 45.335879
+    },
+    {
+      "frame_num": 586,
+      "latency_ms": 21.726369857788086,
+      "fps": 46.027017239676496,
+      "detections": 14,
+      "timestamp": 45.41369
+    },
+    {
+      "frame_num": 587,
+      "latency_ms": 19.79231834411621,
+      "fps": 50.52465217129434,
+      "detections": 13,
+      "timestamp": 45.489342
+    },
+    {
+      "frame_num": 588,
+      "latency_ms": 24.0936279296875,
+      "fps": 41.504749841671945,
+      "detections": 13,
+      "timestamp": 45.564866
+    },
+    {
+      "frame_num": 589,
+      "latency_ms": 20.964622497558594,
+      "fps": 47.69940408497475,
+      "detections": 12,
+      "timestamp": 45.63752
+    },
+    {
+      "frame_num": 590,
+      "latency_ms": 20.104169845581055,
+      "fps": 49.74092477734426,
+      "detections": 13,
+      "timestamp": 45.711025
+    },
+    {
+      "frame_num": 591,
+      "latency_ms": 22.9949951171875,
+      "fps": 43.48772395487724,
+      "detections": 13,
+      "timestamp": 45.787925
+    },
+    {
+      "frame_num": 592,
+      "latency_ms": 21.451711654663086,
+      "fps": 46.61632675743262,
+      "detections": 12,
+      "timestamp": 45.860563
+    },
+    {
+      "frame_num": 593,
+      "latency_ms": 20.29871940612793,
+      "fps": 49.264191498608156,
+      "detections": 12,
+      "timestamp": 45.931665
+    },
+    {
+      "frame_num": 594,
+      "latency_ms": 20.209074020385742,
+      "fps": 49.48272241426094,
+      "detections": 12,
+      "timestamp": 46.00248
+    },
+    {
+      "frame_num": 595,
+      "latency_ms": 20.649194717407227,
+      "fps": 48.42803865649066,
+      "detections": 12,
+      "timestamp": 46.073899
+    },
+    {
+      "frame_num": 596,
+      "latency_ms": 21.207571029663086,
+      "fps": 47.15297186091219,
+      "detections": 13,
+      "timestamp": 46.146991
+    },
+    {
+      "frame_num": 597,
+      "latency_ms": 21.442890167236328,
+      "fps": 46.635504458627054,
+      "detections": 13,
+      "timestamp": 46.220312
+    },
+    {
+      "frame_num": 598,
+      "latency_ms": 21.753787994384766,
+      "fps": 45.969005501852216,
+      "detections": 13,
+      "timestamp": 46.294543
+    },
+    {
+      "frame_num": 599,
+      "latency_ms": 21.343708038330078,
+      "fps": 46.852215097964745,
+      "detections": 14,
+      "timestamp": 46.37014
+    },
+    {
+      "frame_num": 600,
+      "latency_ms": 21.20041847229004,
+      "fps": 47.16888024201257,
+      "detections": 13,
+      "timestamp": 46.443178
+    },
+    {
+      "frame_num": 601,
+      "latency_ms": 23.13089370727539,
+      "fps": 43.232224947947806,
+      "detections": 14,
+      "timestamp": 46.528921
+    },
+    {
+      "frame_num": 602,
+      "latency_ms": 21.03281021118164,
+      "fps": 47.544764107098324,
+      "detections": 12,
+      "timestamp": 46.5995
+    },
+    {
+      "frame_num": 603,
+      "latency_ms": 20.26200294494629,
+      "fps": 49.35346237571336,
+      "detections": 11,
+      "timestamp": 46.666887
+    },
+    {
+      "frame_num": 604,
+      "latency_ms": 20.235776901245117,
+      "fps": 49.41742562592047,
+      "detections": 13,
+      "timestamp": 46.739911
+    },
+    {
+      "frame_num": 605,
+      "latency_ms": 20.571470260620117,
+      "fps": 48.61101259807842,
+      "detections": 12,
+      "timestamp": 46.809364
+    },
+    {
+      "frame_num": 606,
+      "latency_ms": 20.328998565673828,
+      "fps": 49.19081462716675,
+      "detections": 11,
+      "timestamp": 46.876695
+    },
+    {
+      "frame_num": 607,
+      "latency_ms": 20.673036575317383,
+      "fps": 48.372187431523834,
+      "detections": 12,
+      "timestamp": 46.948705
+    },
+    {
+      "frame_num": 608,
+      "latency_ms": 20.135879516601562,
+      "fps": 49.66259353983139,
+      "detections": 12,
+      "timestamp": 47.01949
+    },
+    {
+      "frame_num": 609,
+      "latency_ms": 21.258831024169922,
+      "fps": 47.03927506000045,
+      "detections": 13,
+      "timestamp": 47.092731
+    },
+    {
+      "frame_num": 610,
+      "latency_ms": 21.228313446044922,
+      "fps": 47.10689817830589,
+      "detections": 12,
+      "timestamp": 47.162215
+    },
+    {
+      "frame_num": 611,
+      "latency_ms": 21.046161651611328,
+      "fps": 47.51460226114145,
+      "detections": 14,
+      "timestamp": 47.238343
+    },
+    {
+      "frame_num": 612,
+      "latency_ms": 21.009206771850586,
+      "fps": 47.59817973422304,
+      "detections": 14,
+      "timestamp": 47.315947
+    },
+    {
+      "frame_num": 613,
+      "latency_ms": 21.009445190429688,
+      "fps": 47.59763958238765,
+      "detections": 13,
+      "timestamp": 47.387923
+    },
+    {
+      "frame_num": 614,
+      "latency_ms": 20.96700668334961,
+      "fps": 47.69398012326306,
+      "detections": 13,
+      "timestamp": 47.463918
+    },
+    {
+      "frame_num": 615,
+      "latency_ms": 23.946285247802734,
+      "fps": 41.76013062785002,
+      "detections": 11,
+      "timestamp": 47.533862
+    },
+    {
+      "frame_num": 616,
+      "latency_ms": 20.84827423095703,
+      "fps": 47.965600841681535,
+      "detections": 14,
+      "timestamp": 47.610599
+    },
+    {
+      "frame_num": 617,
+      "latency_ms": 21.172046661376953,
+      "fps": 47.23208936735659,
+      "detections": 12,
+      "timestamp": 47.681689
+    },
+    {
+      "frame_num": 618,
+      "latency_ms": 21.244287490844727,
+      "fps": 47.07147747040009,
+      "detections": 14,
+      "timestamp": 47.758352
+    },
+    {
+      "frame_num": 619,
+      "latency_ms": 21.184682846069336,
+      "fps": 47.20391649316302,
+      "detections": 12,
+      "timestamp": 47.828956
+    },
+    {
+      "frame_num": 620,
+      "latency_ms": 21.190404891967773,
+      "fps": 47.19117001766447,
+      "detections": 13,
+      "timestamp": 47.901762
+    },
+    {
+      "frame_num": 621,
+      "latency_ms": 23.43606948852539,
+      "fps": 42.66927099228875,
+      "detections": 13,
+      "timestamp": 47.977834
+    },
+    {
+      "frame_num": 622,
+      "latency_ms": 21.528959274291992,
+      "fps": 46.4490636662643,
+      "detections": 15,
+      "timestamp": 48.059568
+    },
+    {
+      "frame_num": 623,
+      "latency_ms": 21.000146865844727,
+      "fps": 47.61871459225031,
+      "detections": 14,
+      "timestamp": 48.136567
+    },
+    {
+      "frame_num": 624,
+      "latency_ms": 20.631074905395508,
+      "fps": 48.47057192053899,
+      "detections": 13,
+      "timestamp": 48.209127
+    },
+    {
+      "frame_num": 625,
+      "latency_ms": 21.09050750732422,
+      "fps": 47.41469590775492,
+      "detections": 15,
+      "timestamp": 48.287985
+    },
+    {
+      "frame_num": 626,
+      "latency_ms": 21.29197120666504,
+      "fps": 46.9660601310117,
+      "detections": 14,
+      "timestamp": 48.363361
+    },
+    {
+      "frame_num": 627,
+      "latency_ms": 21.123170852661133,
+      "fps": 47.3413772475366,
+      "detections": 14,
+      "timestamp": 48.439724
+    },
+    {
+      "frame_num": 628,
+      "latency_ms": 21.230459213256836,
+      "fps": 47.10213707368019,
+      "detections": 11,
+      "timestamp": 48.511909
+    },
+    {
+      "frame_num": 629,
+      "latency_ms": 21.38972282409668,
+      "fps": 46.75142395363094,
+      "detections": 13,
+      "timestamp": 48.584672
+    },
+    {
+      "frame_num": 630,
+      "latency_ms": 21.35014533996582,
+      "fps": 46.83808864420597,
+      "detections": 14,
+      "timestamp": 48.661473
+    },
+    {
+      "frame_num": 631,
+      "latency_ms": 21.408557891845703,
+      "fps": 46.710292447156824,
+      "detections": 13,
+      "timestamp": 48.734879
+    },
+    {
+      "frame_num": 632,
+      "latency_ms": 21.570920944213867,
+      "fps": 46.358706825089804,
+      "detections": 12,
+      "timestamp": 48.80428
+    },
+    {
+      "frame_num": 633,
+      "latency_ms": 21.961450576782227,
+      "fps": 45.53433283032797,
+      "detections": 14,
+      "timestamp": 48.879765
+    },
+    {
+      "frame_num": 634,
+      "latency_ms": 21.695613861083984,
+      "fps": 46.092265764082725,
+      "detections": 15,
+      "timestamp": 48.958335
+    },
+    {
+      "frame_num": 635,
+      "latency_ms": 21.37470245361328,
+      "fps": 46.7842769821086,
+      "detections": 14,
+      "timestamp": 49.035339
+    },
+    {
+      "frame_num": 636,
+      "latency_ms": 21.001100540161133,
+      "fps": 47.616552193903615,
+      "detections": 16,
+      "timestamp": 49.116962
+    },
+    {
+      "frame_num": 637,
+      "latency_ms": 21.09503746032715,
+      "fps": 47.40451406548446,
+      "detections": 14,
+      "timestamp": 49.192275
+    },
+    {
+      "frame_num": 638,
+      "latency_ms": 21.08168601989746,
+      "fps": 47.43453626318944,
+      "detections": 14,
+      "timestamp": 49.267174
+    },
+    {
+      "frame_num": 639,
+      "latency_ms": 21.976947784423828,
+      "fps": 45.50222395799432,
+      "detections": 14,
+      "timestamp": 49.343487
+    },
+    {
+      "frame_num": 640,
+      "latency_ms": 21.021604537963867,
+      "fps": 47.57010808542491,
+      "detections": 14,
+      "timestamp": 49.419375
+    },
+    {
+      "frame_num": 641,
+      "latency_ms": 20.693302154541016,
+      "fps": 48.32481507938337,
+      "detections": 16,
+      "timestamp": 49.506882
+    },
+    {
+      "frame_num": 642,
+      "latency_ms": 23.674488067626953,
+      "fps": 42.23956172329755,
+      "detections": 17,
+      "timestamp": 49.595621
+    },
+    {
+      "frame_num": 643,
+      "latency_ms": 21.10767364501953,
+      "fps": 47.37613518275877,
+      "detections": 17,
+      "timestamp": 49.680005
+    },
+    {
+      "frame_num": 644,
+      "latency_ms": 20.8437442779541,
+      "fps": 47.97602516442665,
+      "detections": 17,
+      "timestamp": 49.764253
+    },
+    {
+      "frame_num": 645,
+      "latency_ms": 21.3470458984375,
+      "fps": 46.84488920657613,
+      "detections": 17,
+      "timestamp": 49.848748
+    },
+    {
+      "frame_num": 646,
+      "latency_ms": 21.004915237426758,
+      "fps": 47.60790456407986,
+      "detections": 14,
+      "timestamp": 49.924031
+    },
+    {
+      "frame_num": 647,
+      "latency_ms": 21.77882194519043,
+      "fps": 45.91616582920074,
+      "detections": 15,
+      "timestamp": 50.00234
+    },
+    {
+      "frame_num": 648,
+      "latency_ms": 21.649599075317383,
+      "fps": 46.19023181542867,
+      "detections": 14,
+      "timestamp": 50.078895
+    },
+    {
+      "frame_num": 649,
+      "latency_ms": 22.008419036865234,
+      "fps": 45.43715740439822,
+      "detections": 15,
+      "timestamp": 50.157803
+    },
+    {
+      "frame_num": 650,
+      "latency_ms": 21.054983139038086,
+      "fps": 47.4946948851219,
+      "detections": 15,
+      "timestamp": 50.239721
+    },
+    {
+      "frame_num": 651,
+      "latency_ms": 20.905733108520508,
+      "fps": 47.83376860352398,
+      "detections": 15,
+      "timestamp": 50.321354
+    },
+    {
+      "frame_num": 652,
+      "latency_ms": 21.257400512695312,
+      "fps": 47.042440556303276,
+      "detections": 14,
+      "timestamp": 50.398502
+    },
+    {
+      "frame_num": 653,
+      "latency_ms": 20.54882049560547,
+      "fps": 48.66459367893442,
+      "detections": 14,
+      "timestamp": 50.474314
+    },
+    {
+      "frame_num": 654,
+      "latency_ms": 24.17159080505371,
+      "fps": 41.370880719647275,
+      "detections": 13,
+      "timestamp": 50.552085
+    },
+    {
+      "frame_num": 655,
+      "latency_ms": 20.792245864868164,
+      "fps": 48.094852595488994,
+      "detections": 12,
+      "timestamp": 50.622873
+    },
+    {
+      "frame_num": 656,
+      "latency_ms": 21.489620208740234,
+      "fps": 46.534093682739034,
+      "detections": 12,
+      "timestamp": 50.693844
+    },
+    {
+      "frame_num": 657,
+      "latency_ms": 23.879051208496094,
+      "fps": 41.87771077119693,
+      "detections": 13,
+      "timestamp": 50.769623
+    },
+    {
+      "frame_num": 658,
+      "latency_ms": 21.274566650390625,
+      "fps": 47.00448269679039,
+      "detections": 12,
+      "timestamp": 50.83956
+    },
+    {
+      "frame_num": 659,
+      "latency_ms": 22.257566452026367,
+      "fps": 44.928541588559796,
+      "detections": 13,
+      "timestamp": 50.914217
+    },
+    {
+      "frame_num": 660,
+      "latency_ms": 20.65110206604004,
+      "fps": 48.42356581271575,
+      "detections": 13,
+      "timestamp": 50.986787
+    },
+    {
+      "frame_num": 661,
+      "latency_ms": 20.917654037475586,
+      "fps": 47.80650823502593,
+      "detections": 15,
+      "timestamp": 51.069208
+    },
+    {
+      "frame_num": 662,
+      "latency_ms": 21.124839782714844,
+      "fps": 47.33763712699201,
+      "detections": 17,
+      "timestamp": 51.156296
+    },
+    {
+      "frame_num": 663,
+      "latency_ms": 20.968914031982422,
+      "fps": 47.689641841955655,
+      "detections": 15,
+      "timestamp": 51.236735
+    },
+    {
+      "frame_num": 664,
+      "latency_ms": 20.935773849487305,
+      "fps": 47.76513193107925,
+      "detections": 16,
+      "timestamp": 51.319711
+    },
+    {
+      "frame_num": 665,
+      "latency_ms": 20.572185516357422,
+      "fps": 48.60932248568713,
+      "detections": 14,
+      "timestamp": 51.397733
+    },
+    {
+      "frame_num": 666,
+      "latency_ms": 20.93338966369629,
+      "fps": 47.77057208915616,
+      "detections": 14,
+      "timestamp": 51.475472
+    },
+    {
+      "frame_num": 667,
+      "latency_ms": 24.222373962402344,
+      "fps": 41.284145045080514,
+      "detections": 14,
+      "timestamp": 51.561731
+    },
+    {
+      "frame_num": 668,
+      "latency_ms": 20.79629898071289,
+      "fps": 48.085479100268266,
+      "detections": 13,
+      "timestamp": 51.633579
+    },
+    {
+      "frame_num": 669,
+      "latency_ms": 21.03281021118164,
+      "fps": 47.544764107098324,
+      "detections": 13,
+      "timestamp": 51.706773
+    },
+    {
+      "frame_num": 670,
+      "latency_ms": 20.195484161376953,
+      "fps": 49.51602011663873,
+      "detections": 13,
+      "timestamp": 51.779058
+    },
+    {
+      "frame_num": 671,
+      "latency_ms": 21.080970764160156,
+      "fps": 47.43614566840081,
+      "detections": 16,
+      "timestamp": 51.862785
+    },
+    {
+      "frame_num": 672,
+      "latency_ms": 20.8590030670166,
+      "fps": 47.94092971687869,
+      "detections": 13,
+      "timestamp": 51.938857
+    },
+    {
+      "frame_num": 673,
+      "latency_ms": 21.152496337890625,
+      "fps": 47.27574391343553,
+      "detections": 14,
+      "timestamp": 52.015624
+    },
+    {
+      "frame_num": 674,
+      "latency_ms": 21.26455307006836,
+      "fps": 47.026617333781815,
+      "detections": 14,
+      "timestamp": 52.09348
+    },
+    {
+      "frame_num": 675,
+      "latency_ms": 21.106243133544922,
+      "fps": 47.379346180783045,
+      "detections": 13,
+      "timestamp": 52.166563
+    },
+    {
+      "frame_num": 676,
+      "latency_ms": 21.143674850463867,
+      "fps": 47.2954681280516,
+      "detections": 14,
+      "timestamp": 52.241886
+    },
+    {
+      "frame_num": 677,
+      "latency_ms": 21.24500274658203,
+      "fps": 47.06989271445886,
+      "detections": 16,
+      "timestamp": 52.324971
+    },
+    {
+      "frame_num": 678,
+      "latency_ms": 21.92378044128418,
+      "fps": 45.61257136642923,
+      "detections": 14,
+      "timestamp": 52.403336
+    },
+    {
+      "frame_num": 679,
+      "latency_ms": 21.056413650512695,
+      "fps": 47.49146823374888,
+      "detections": 15,
+      "timestamp": 52.485702
+    },
+    {
+      "frame_num": 680,
+      "latency_ms": 23.99730682373047,
+      "fps": 41.67134284465286,
+      "detections": 15,
+      "timestamp": 52.572675
+    },
+    {
+      "frame_num": 681,
+      "latency_ms": 22.195816040039062,
+      "fps": 45.05353613474263,
+      "detections": 16,
+      "timestamp": 52.658173
+    },
+    {
+      "frame_num": 682,
+      "latency_ms": 21.935701370239258,
+      "fps": 45.587783272648224,
+      "detections": 16,
+      "timestamp": 52.743788
+    },
+    {
+      "frame_num": 683,
+      "latency_ms": 21.270751953125,
+      "fps": 47.012912482066,
+      "detections": 17,
+      "timestamp": 52.831688
+    },
+    {
+      "frame_num": 684,
+      "latency_ms": 21.53158187866211,
+      "fps": 46.4434060458421,
+      "detections": 16,
+      "timestamp": 52.916157
+    },
+    {
+      "frame_num": 685,
+      "latency_ms": 20.848751068115234,
+      "fps": 47.96450380806441,
+      "detections": 16,
+      "timestamp": 53.001048
+    },
+    {
+      "frame_num": 686,
+      "latency_ms": 21.0726261138916,
+      "fps": 47.45493013520394,
+      "detections": 16,
+      "timestamp": 53.084493
+    },
+    {
+      "frame_num": 687,
+      "latency_ms": 20.55191993713379,
+      "fps": 48.65725455621165,
+      "detections": 17,
+      "timestamp": 53.16858
+    },
+    {
+      "frame_num": 688,
+      "latency_ms": 20.197153091430664,
+      "fps": 49.51192851156257,
+      "detections": 17,
+      "timestamp": 53.252797
+    },
+    {
+      "frame_num": 689,
+      "latency_ms": 20.993471145629883,
+      "fps": 47.63385688165082,
+      "detections": 14,
+      "timestamp": 53.330118
+    },
+    {
+      "frame_num": 690,
+      "latency_ms": 21.486520767211914,
+      "fps": 46.54080624937584,
+      "detections": 16,
+      "timestamp": 53.4132
+    },
+    {
+      "frame_num": 691,
+      "latency_ms": 22.15719223022461,
+      "fps": 45.13207222329825,
+      "detections": 16,
+      "timestamp": 53.499712
+    },
+    {
+      "frame_num": 692,
+      "latency_ms": 24.997711181640625,
+      "fps": 40.00366244468182,
+      "detections": 16,
+      "timestamp": 53.584722
+    },
+    {
+      "frame_num": 693,
+      "latency_ms": 21.594524383544922,
+      "fps": 46.308035418552784,
+      "detections": 12,
+      "timestamp": 53.655245
+    },
+    {
+      "frame_num": 694,
+      "latency_ms": 21.312952041625977,
+      "fps": 46.91982593715392,
+      "detections": 14,
+      "timestamp": 53.731708
+    },
+    {
+      "frame_num": 695,
+      "latency_ms": 21.221637725830078,
+      "fps": 47.12171666104932,
+      "detections": 14,
+      "timestamp": 53.807751
+    },
+    {
+      "frame_num": 696,
+      "latency_ms": 21.208524703979492,
+      "fps": 47.150851554156596,
+      "detections": 13,
+      "timestamp": 53.88056
+    },
+    {
+      "frame_num": 697,
+      "latency_ms": 21.65675163269043,
+      "fps": 46.174976605933836,
+      "detections": 16,
+      "timestamp": 53.962581
+    },
+    {
+      "frame_num": 698,
+      "latency_ms": 22.032976150512695,
+      "fps": 45.38651488426953,
+      "detections": 14,
+      "timestamp": 54.045645
+    },
+    {
+      "frame_num": 699,
+      "latency_ms": 21.44169807434082,
+      "fps": 46.63809725017513,
+      "detections": 15,
+      "timestamp": 54.128058
+    },
+    {
+      "frame_num": 700,
+      "latency_ms": 20.45130729675293,
+      "fps": 48.89662971123469,
+      "detections": 15,
+      "timestamp": 54.206691
+    },
+    {
+      "frame_num": 701,
+      "latency_ms": 21.097898483276367,
+      "fps": 47.39808568102971,
+      "detections": 17,
+      "timestamp": 54.291624
+    },
+    {
+      "frame_num": 702,
+      "latency_ms": 21.317481994628906,
+      "fps": 46.90985550038026,
+      "detections": 16,
+      "timestamp": 54.371478
+    },
+    {
+      "frame_num": 703,
+      "latency_ms": 21.865367889404297,
+      "fps": 45.73442372696543,
+      "detections": 15,
+      "timestamp": 54.448934
+    },
+    {
+      "frame_num": 704,
+      "latency_ms": 20.03026008605957,
+      "fps": 49.924464071036624,
+      "detections": 16,
+      "timestamp": 54.532885
+    },
+    {
+      "frame_num": 705,
+      "latency_ms": 23.519039154052734,
+      "fps": 42.51874379092918,
+      "detections": 16,
+      "timestamp": 54.620687
+    }
+  ],
+  "metadata": {
+    "start_time": "2026-01-19T18:43:43.887880",
+    "total_frames": 705
+  }
+}
