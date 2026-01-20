@@ -164,7 +164,8 @@ crowd-detection/
 
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/yolo-vs-rtdetr-benchmark.git
+git clone https://github.com/Shazy021/yolo-vs-rtdetr-benchmark.git
+
 cd yolo-vs-rtdetr-benchmark
 
 # Create virtual environment
