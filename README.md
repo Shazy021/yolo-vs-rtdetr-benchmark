@@ -149,7 +149,7 @@ crowd-detection/
 │   └── detections_over_time.png
 ├── output/                     # Processed videos
 ├── main.py                     # CLI entry point
-├── visualize_metrics_grid.py   # Plotting utilities
+├── visualize_metrics.py        # Plotting utilities
 ├── config.yaml                 # Model configurations
 ├── requirements.txt
 ├── Dockerfile
@@ -193,7 +193,7 @@ docker-compose run --rm crowd-detection \
     --save-metrics metrics/yolo_onnx.json
 
 # Generate visualizations
-python visualize_metrics_grid.py --glob "metrics/*.json" --skip-warmup 5
+python visualize_metrics.py --glob "metrics/*.json" --skip-warmup 5
 
 ```
 ## 💻 CLI Usage
@@ -246,7 +246,7 @@ python main.py --source data/crowd.mp4 --model rtdetr --backend tensorrt --save-
 ### Step 2: Generate Visualizations
 
 ```bash
-python visualize_metrics_grid.py \
+python visualize_metrics.py \
     --glob "metrics/*.json" \
     --skip-warmup 5 \
     --output plots/
