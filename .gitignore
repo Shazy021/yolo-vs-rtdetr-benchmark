@@ -67,7 +67,6 @@ coverage/
 node_modules/
 jspm_packages/
 
-weights/
 *.pt
 *.pth
 *.onnx
@@ -79,7 +78,6 @@ weights/
 *.pkl
 *.joblib
 
-data/
 raw_data/
 outputs/*.mp4
 outputs/*.avi
