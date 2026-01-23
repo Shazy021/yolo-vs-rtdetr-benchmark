@@ -1,4 +1,5 @@
 from .base_detector import BaseDetector
+from .factory import DetectorFactory
 from .onnx_detector import ONNXDetector
 from .rtdetr_detector import RTDETRDetector
 from .trt_detector import TRTDetector
@@ -10,4 +11,5 @@ __all__ = [
     "RTDETRDetector",
     "TRTDetector",
     "YOLODetector",
+    "DetectorFactory",
 ]

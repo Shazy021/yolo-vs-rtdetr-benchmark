@@ -57,6 +57,11 @@ export:
     workspace_gb: 4         # GPU workspace size in GB
     int8: false             # INT8 quantization (requires calibration)
 
+  # Automation BEHAVIOR (What to do automatically)
+automation:
+  auto_download: true       # Download missing PyTorch models from Ultralytics
+  auto_export: true         # Export missing ONNX/TensorRT files from PyTorch
+
 # Metrics and logging
 metrics:
   enabled: true
@@ -70,8 +75,3 @@ metrics:
 comparison:
   fair_mode: true           # Use same input size for both models
   reference_size: [640, 640]
-
-# Auto-download settings
-auto_download:
-  enabled: true
-  base_url: "https://github.com/ultralytics/assets/releases/download/v8.2.0"
