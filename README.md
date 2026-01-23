@@ -124,11 +124,14 @@ crowd-detection/
 │   └── test_video.mp4
 ├── src/
 │   ├── detectors/              # Model implementations
+|   │   ├── factory.py
 │   │   ├── yolo_detector.py
 │   │   ├── rtdetr_detector.py
 │   │   ├── onnx_detector.py
 │   │   └── trt_detector.py
 │   ├── utils/
+│   │   ├── cli.py              # CLI argument parsing
+│   │   ├── model_manager.py    # Automated model downloading/exporting
 │   │   ├── metrics.py          # Performance tracking
 │   │   └── video_processor.py
 │   └── export/
