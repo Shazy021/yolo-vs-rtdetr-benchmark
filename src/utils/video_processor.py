@@ -1,8 +1,11 @@
-from typing import Optional, Dict, Any, Tuple
-import cv2
+import threading
 import time
-import numpy as np
 from pathlib import Path
+from queue import Queue
+from typing import Any, Dict, Optional, Tuple
+
+import cv2
+import numpy as np
 
 
 def get_optimal_size(width: int, height: int, max_size: int = None) -> Tuple[int, int]:
@@ -77,12 +80,12 @@ def get_video_optimal_size(video_path: str, max_size: int = None) -> Dict[str, A
     optimal_h, optimal_w = get_optimal_size(original_width, original_height, max_size)
 
     return {
-        'original_width': original_width,
-        'original_height': original_height,
-        'optimal_width': optimal_w,
-        'optimal_height': optimal_h,
-        'fps': fps,
-        'total_frames': total_frames
+        "original_width": original_width,
+        "original_height": original_height,
+        "optimal_width": optimal_w,
+        "optimal_height": optimal_h,
+        "fps": fps,
+        "total_frames": total_frames,
     }
 
 
@@ -97,56 +100,76 @@ class VideoProcessor:
     - Real-time performance metrics display
     """
 
-    # Color scheme for confidence levels
-    CONFIDENCE_COLORS = {
-        'high': (0, 255, 0),      # Green (conf >= 0.7)
-        'medium': (0, 165, 255),  # Orange (0.5 <= conf < 0.7)
-        'low': (0, 100, 255)      # Red (conf < 0.5)
+    DEFAULT_COLORS = {
+        "high": (0, 255, 0),  # Green
+        "medium": (0, 165, 255),  # Orange
+        "low": (0, 100, 255),  # Red
+        "panel_bg": (40, 40, 40),  # Dark grey
+        "panel_border": (100, 100, 100),  # Light gray
+        "text_white": (255, 255, 255),
+        "text_cyan": (255, 255, 0),
     }
 
-    @staticmethod
-    def get_best_codec() -> Tuple[str, int]:
+    def __init__(
+        self,
+        colors: Dict[str, Tuple[int, int, int]] = None,
+        panel_width: int = 350,
+        panel_height: int = 100,
+        corner_length_ratio: float = 0.05,  # FIXED: was 'conner_lenth_ratio'
+    ):
         """
-        Get best available video codec for current platform.
+        Initialize Video Processor with visual settings.
 
-        Tries H.264 variants first (best compression), falls back to MPEG-4.
-        Performs actual test write to verify codec availability.
+        Args:
+            colors: Dict overriding default colors.
+            panel_width: Width of stats panel.
+            panel_height: Height of stats panel.
+            corner_length_ratio: Ratio of bbox side for accent corners.
+        """
+        self.colors = {**self.DEFAULT_COLORS, **(colors or {})}
+        self.panel_width = panel_width
+        self.panel_height = panel_height
+        self.corner_length_ratio = corner_length_ratio
+
+    def create_video_writer(self, output_path: str, fps: int, frame_size: Tuple[int, int]) -> cv2.VideoWriter:
+        """
+        Create video writer with best available codec.
+
+        Args:
+            output_path: Path to output video file
+            fps: Frames per second
+            frame_size: (width, height)
 
         Returns:
-            Tuple of (codec_name, fourcc_code)
+            Initialized VideoWriter object
+
+        Raises:
+            RuntimeError: If no codec works
         """
-        # Try H.264 codecs (best compression)
+        fourcc = None
+
+        # Priority list
         codecs_to_try = [
-            ('H264', cv2.VideoWriter_fourcc(*'H264')),
-            ('X264', cv2.VideoWriter_fourcc(*'X264')),
-            ('mp4v', cv2.VideoWriter_fourcc(*'mp4v')),  # MPEG-4 (fallback)
+            ("H264", cv2.VideoWriter_fourcc(*"H264")),
+            ("X264", cv2.VideoWriter_fourcc(*"X264")),
+            ("mp4v", cv2.VideoWriter_fourcc(*"mp4v")),  # MPEG-4 (fallback)
         ]
 
         # Test each codec
-        for codec_name, fourcc in codecs_to_try:
-            test_writer = cv2.VideoWriter(
-                'test_codec.mp4',
-                fourcc,
-                30,
-                (640, 480)
-            )
-            if test_writer.isOpened():
-                test_writer.release()
-                Path('test_codec.mp4').unlink(missing_ok=True)
-                print(f"   Using codec: {codec_name}")
-                return codec_name, fourcc
+        for codec_name, codec_fourcc in codecs_to_try:
+            try:
+                writer = cv2.VideoWriter(output_path, codec_fourcc, fps, frame_size)
+                if writer.isOpened():
+                    print(f"   Using codec: {codec_name}")
+                    return writer
+            except Exception:
+                # Some backends raise exceptions immediately, some don't
+                pass
 
-        # Fallback to mp4v
-        print("   Warning: Using fallback codec mp4v")
-        return 'mp4v', cv2.VideoWriter_fourcc(*'mp4v')
+        raise RuntimeError("Failed to initialize any video codec.")
 
-    @staticmethod
     def draw_beautiful_bbox(
-        frame: np.ndarray,
-        bbox: list,
-        conf: float,
-        label: str = "Person",
-        thickness: int = 1
+        self, frame: np.ndarray, bbox: list, conf: float, label: str = "Person", thickness: int = 1
     ) -> np.ndarray:
         """
         Draw beautiful bounding box with color-coded confidence.
@@ -171,17 +194,22 @@ class VideoProcessor:
 
         # Choose color based on confidence
         if conf >= 0.7:
-            color = VideoProcessor.CONFIDENCE_COLORS['high']
+            color = self.colors["high"]
         elif conf >= 0.5:
-            color = VideoProcessor.CONFIDENCE_COLORS['medium']
+            color = self.colors["medium"]
         else:
-            color = VideoProcessor.CONFIDENCE_COLORS['low']
+            color = self.colors["low"]
 
         # Draw main bounding box
         cv2.rectangle(frame, (x1, y1), (x2, y2), color, thickness)
 
         # Draw corner accents (stylish effect)
-        corner_length = min(20, (x2 - x1) // 5, (y2 - y1) // 2)
+        # Calculate dynamic corner length based on box size
+        box_w = x2 - x1
+        box_h = y2 - y1
+        # FIXED: 'corner_lenght' -> 'corner_length'
+        corner_length = min(20, int(box_w * self.corner_length_ratio), int(box_h * self.corner_length_ratio))
+
         accent_thickness = thickness
 
         # Top-left corner
@@ -207,49 +235,50 @@ class VideoProcessor:
         font_thickness = 1
 
         # Get text size
-        (text_w, text_h), baseline = cv2.getTextSize(
-            label_text, font, font_scale, font_thickness
-        )
+        (text_w, text_h), baseline = cv2.getTextSize(label_text, font, font_scale, font_thickness)
 
         # Draw label background (semi-transparent)
         label_bg_y1 = max(0, y1 - text_h - 10)
         label_bg_y2 = y1
 
-        # Create overlay for transparency
-        overlay = frame.copy()
-        cv2.rectangle(
-            overlay,
-            (x1, label_bg_y1),
-            (x1 + text_w + 10, label_bg_y2),
-            color,
-            -1
-        )
+        # Overlay logic (semi-transparent)
+        # Instead of full frame copy, we only manipulate ROI to save memory
+        roi_x1 = x1
+        roi_y1 = label_bg_y1
+        roi_x2 = x1 + text_w + 10
+        roi_y2 = label_bg_y2
 
-        # Blend overlay (transparency effect)
-        alpha = 0.7
-        cv2.addWeighted(overlay, alpha, frame, 1 - alpha, 0, frame)
+        # Clip ROI to frame bounds
+        roi_x1 = max(0, roi_x1)
+        roi_y1 = max(0, roi_y1)
+        roi_x2 = min(frame.shape[1], roi_x2)
+        roi_y2 = min(frame.shape[0], roi_y2)
 
-        # Draw label text
-        cv2.putText(
-            frame,
-            label_text,
-            (x1 + 5, y1 - 5),
-            font,
-            font_scale,
-            (255, 255, 255),  # White text
-            font_thickness,
-            cv2.LINE_AA
-        )
+        if roi_x2 > roi_x1 and roi_y2 > roi_y1:
+            overlay = frame[roi_y1:roi_y2, roi_x1:roi_x2].copy()
+            cv2.rectangle(overlay, (0, 0), (roi_x2 - roi_x1, roi_y2 - roi_y1), color, -1)
+
+            # Alpha blend only ROI
+            alpha = 0.7
+            frame[roi_y1:roi_y2, roi_x1:roi_x2] = cv2.addWeighted(
+                overlay, alpha, frame[roi_y1:roi_y2, roi_x1:roi_x2], 1 - alpha, 0
+            )
+
+            cv2.putText(
+                frame,
+                label_text,
+                (x1 + 5, y1 - 5),
+                font,
+                font_scale,
+                self.colors["text_white"],
+                font_thickness,
+                cv2.LINE_AA,
+            )
 
         return frame
 
-    @staticmethod
     def draw_stats_panel(
-        frame: np.ndarray,
-        fps: float,
-        num_detections: int,
-        frame_num: int,
-        total_frames: int
+        self, frame: np.ndarray, fps: float, num_detections: int, frame_num: int, total_frames: int
     ) -> np.ndarray:
         """
         Draw beautiful semi-transparent statistics panel.
@@ -270,37 +299,34 @@ class VideoProcessor:
             Frame with stats panel overlay
         """
         # Panel dimensions
-        panel_height = 100
-        panel_width = 350
         panel_x = 10
         panel_y = 10
 
-        # Create semi-transparent overlay
-        overlay = frame.copy()
+        # Define ROI for panel
+        roi_x1 = panel_x
+        roi_y1 = panel_y
+        roi_x2 = panel_x + self.panel_width
+        roi_y2 = panel_y + self.panel_height
 
-        # Draw panel background
-        cv2.rectangle(
-            overlay,
-            (panel_x, panel_y),
-            (panel_x + panel_width, panel_y + panel_height),
-            (40, 40, 40),  # Dark gray
-            -1
-        )
+        # Clip
+        roi_x2 = min(frame.shape[1], roi_x2)
+        roi_y2 = min(frame.shape[0], roi_y2)
 
-        # Blend for transparency
+        overlay = frame[roi_y1:roi_y2, roi_x1:roi_x2].copy()
+
+        # Background
+        cv2.rectangle(overlay, (0, 0), (roi_x2 - roi_x1, roi_y2 - roi_y1), self.colors["panel_bg"], -1)
+
+        # Blend
         alpha = 0.6
-        cv2.addWeighted(overlay, alpha, frame, 1 - alpha, 0, frame)
-
-        # Draw panel border
-        cv2.rectangle(
-            frame,
-            (panel_x, panel_y),
-            (panel_x + panel_width, panel_y + panel_height),
-            (100, 100, 100),  # Light gray border
-            2
+        frame[roi_y1:roi_y2, roi_x1:roi_x2] = cv2.addWeighted(
+            overlay, alpha, frame[roi_y1:roi_y2, roi_x1:roi_x2], 1 - alpha, 0
         )
 
-        # Prepare text
+        # Border
+        cv2.rectangle(frame, (roi_x1, roi_y1), (roi_x2, roi_y2), self.colors["panel_border"], 2)
+
+        # Text
         font = cv2.FONT_HERSHEY_SIMPLEX
         font_scale = 0.6
         font_thickness = 2
@@ -308,29 +334,22 @@ class VideoProcessor:
         text_x = panel_x + 15
         text_y = panel_y + 30
 
-        # FPS (color-coded by performance)
+        # FPS
         fps_color = (0, 255, 0) if fps >= 30 else (0, 165, 255) if fps >= 15 else (0, 0, 255)
         cv2.putText(
-            frame,
-            f"FPS: {fps:.1f}",
-            (text_x, text_y),
-            font,
-            font_scale,
-            fps_color,
-            font_thickness,
-            cv2.LINE_AA
+            frame, f"FPS: {fps:.1f}", (text_x, text_y), font, font_scale, fps_color, font_thickness, cv2.LINE_AA
         )
 
-        # Detections count
+        # Detections
         cv2.putText(
             frame,
             f"People: {num_detections}",
             (text_x, text_y + line_spacing),
             font,
             font_scale,
-            (255, 255, 255),  # White
+            self.colors["text_white"],
             font_thickness,
-            cv2.LINE_AA
+            cv2.LINE_AA,
         )
 
         # Progress
@@ -341,9 +360,9 @@ class VideoProcessor:
             (text_x, text_y + 2 * line_spacing),
             font,
             font_scale,
-            (255, 255, 0),  # Cyan
+            self.colors["text_cyan"],
             font_thickness,
-            cv2.LINE_AA
+            cv2.LINE_AA,
         )
 
         return frame
@@ -356,7 +375,8 @@ def process_video(
     max_frames: Optional[int] = None,
     show_preview: bool = False,
     metrics_tracker=None,
-    display_info: bool = True
+    display_info: bool = True,
+    viz_config: Dict[str, Any] = None,
 ) -> Dict[str, Any]:
     """
     Process video file with beautiful person detection visualization.
@@ -375,6 +395,7 @@ def process_video(
         show_preview: Display preview window during processing
         metrics_tracker: Optional MetricsTracker instance
         display_info: Show statistics overlay on frames
+        viz_config: Optional dict to customize visualization colors/sizes (passed to VideoProcessor).
 
     Returns:
         Dictionary with processing statistics:
@@ -389,6 +410,9 @@ def process_video(
     Raises:
         ValueError: If video cannot be opened or created
     """
+    # Initialize Processor with config
+    processor = VideoProcessor(colors=viz_config.get("colors") if viz_config else None)
+
     # Open input video
     print(source_path)
     cap = cv2.VideoCapture(source_path)
@@ -413,20 +437,44 @@ def process_video(
     # Create output directory
     Path(output_path).parent.mkdir(parents=True, exist_ok=True)
 
-    # Get best available codec for compression
-    codec_name, fourcc = VideoProcessor.get_best_codec()
+    # Setup Threaded Writer
+    frame_queue = Queue(maxsize=10)
 
-    # Initialize video writer with optimized settings
-    out = cv2.VideoWriter(output_path, fourcc, fps, (width, height))
+    # Flag to capture errors from the writer thread
+    writer_error = [None]
 
-    if not out.isOpened():
-        raise ValueError(f"Cannot create output video: {output_path}")
+    def _writer_worker():
+        """Worker function running in a separate thread for writing video."""
+        try:
+            # Initialize writer INSIDE the thread (critical for OpenCV stability)
+            out = processor.create_video_writer(output_path, fps, (width, height))
 
-    # Processing loop
+            while True:
+                # Wait for frame from queue. .get() blocks until an item is available.
+                frame = frame_queue.get()
+
+                # If None is received, it's the stop signal
+                if frame is None:
+                    break
+
+                # Write frame to disk
+                out.write(frame)
+                # Notify the queue that the task is done
+                frame_queue.task_done()
+
+            out.release()
+
+        except Exception as e:
+            writer_error[0] = e
+
+    # Start the writer thread
+    writer_thread = threading.Thread(target=_writer_worker, daemon=True)
+    writer_thread.start()
+
+    # Main Processing Loop
     frame_count = 0
     start_time = time.time()
-
-    print(f"🚀 Processing video with {codec_name} codec...")
+    print(f"🚀 Processing video with threaded I/O...")
 
     try:
         while cap.isOpened():
@@ -434,82 +482,87 @@ def process_video(
             if not ret:
                 break
 
-            # Run inference
+            # Run Inference (Main Thread)
             inference_start = time.time()
             detections = detector.predict(frame)
             inference_time = (time.time() - inference_start) * 1000  # ms
 
-            # Draw beautiful bounding boxes
-            annotated_frame = frame.copy()
+            # Draw Visualization
+            annotated_frame = frame
             for det in detections:
-                annotated_frame = VideoProcessor.draw_beautiful_bbox(
-                    annotated_frame,
-                    det['bbox'],
-                    det['conf'],
-                    label="Person"
+                annotated_frame = processor.draw_beautiful_bbox(
+                    annotated_frame, det["bbox"], det["conf"], label="Person"
                 )
 
-            # Add statistics panel
             if display_info:
                 current_fps = 1000 / inference_time if inference_time > 0 else 0
-                annotated_frame = VideoProcessor.draw_stats_panel(
+                annotated_frame = processor.draw_stats_panel(
                     annotated_frame,
                     current_fps,
                     len(detections),
                     frame_count + 1,
-                    total_frames if total_frames > 0 else max_frames or 1
+                    total_frames if total_frames > 0 else max_frames or 1,
                 )
 
-            # Write frame
-            out.write(annotated_frame)
+            # Push to Queue (Threaded I/O)
+            frame_queue.put(annotated_frame)
 
             # Collect metrics
             if metrics_tracker:
                 metrics_tracker.add_frame(inference_time, len(detections))
 
-            # Preview
             if show_preview:
-                cv2.imshow('Detection Preview', annotated_frame)
-                if cv2.waitKey(1) & 0xFF == ord('q'):
+                cv2.imshow("Detection Preview", annotated_frame)
+                if cv2.waitKey(1) & 0xFF == ord("q"):
                     print("   Preview interrupted by user")
                     break
 
             frame_count += 1
 
-            # Progress
+            # Progress update
             if frame_count % 30 == 0:
                 progress = (frame_count / total_frames) * 100 if total_frames > 0 else 0
                 current_fps = 1000 / inference_time if inference_time > 0 else 0
-                print(f"   Frame {frame_count}/{total_frames} ({progress:.1f}%) - "
-                      f"{current_fps:.1f} FPS - {len(detections)} people")
+                print(
+                    f"   Frame {frame_count}/{total_frames} ({progress:.1f}%) - "
+                    f"{current_fps:.1f} FPS - {len(detections)} people"
+                )
 
-            # Stop at max_frames
             if max_frames and frame_count >= max_frames:
                 print(f"   Reached max_frames limit: {max_frames}")
                 break
 
     finally:
         cap.release()
-        out.release()
+
+        # Signal the writer thread to stop
+        frame_queue.put(None)
+
+        # Wait for the writer thread to finish (with timeout)
+        writer_thread.join(timeout=5.0)
+
         if show_preview:
             cv2.destroyAllWindows()
 
-    # Calculate stats
+        # Check for errors raised in the writer thread
+        if writer_error[0] is not None:
+            raise RuntimeError(f"Video Writer thread failed: {writer_error[0]}")
+
+    # Final Statistics
     total_time = time.time() - start_time
     avg_fps = frame_count / total_time if total_time > 0 else 0
 
-    # Get output file size
     output_size_mb = Path(output_path).stat().st_size / (1024 * 1024)
     compression_ratio = (1 - output_size_mb / input_size_mb) * 100 if input_size_mb > 0 else 0
 
     stats = {
-        'frame_count': frame_count,
-        'total_time': total_time,
-        'avg_fps': avg_fps,
-        'output_path': output_path,
-        'input_size_mb': input_size_mb,
-        'output_size_mb': output_size_mb,
-        'compression_ratio': compression_ratio
+        "frame_count": frame_count,
+        "total_time": total_time,
+        "avg_fps": avg_fps,
+        "output_path": output_path,
+        "input_size_mb": input_size_mb,
+        "output_size_mb": output_size_mb,
+        "compression_ratio": compression_ratio,
     }
 
     print(f"\n✅ Processing complete!")
