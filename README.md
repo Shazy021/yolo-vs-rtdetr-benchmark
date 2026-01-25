@@ -24,19 +24,19 @@ I benchmark these models across **three inference backends** (PyTorch, ONNX Runt
 
 | Model | Backend | Avg Latency (ms) | Avg FPS | P95 Latency (ms) | Detections/Frame |
 |-------|---------|------------------|---------|------------------|------------------|
-| **YOLO** | ONNX Runtime | **22.31** | **44.82** | 23.65 | 13.09 |
-| **YOLO** | TensorRT | 23.61 | 42.35 | 29.11 | 15.12 |
-| **YOLO** | PyTorch | 38.81 | 25.77 | 40.17 | 15.12 |
-| **RT-DETR** | TensorRT | **29.40** | **34.01** | 42.00 | 24.47 |
-| **RT-DETR** | ONNX Runtime | 33.72 | 29.65 | 36.00 | 23.05 |
-| **RT-DETR** | PyTorch | 70.32 | 14.22 | 69.08 | 24.48 |
+| **YOLO** | TensorRT | **19.67** | **50.84** | 19.99 | 15.11 |
+| **RT-DETR** | TensorRT | **24.15** | **41.40** | 25.00 | 24.48 |
+| **YOLO** | ONNX Runtime | 26.04 | 38.40 | 28.00 | 13.09 |
+| **YOLO** | PyTorch | 40.90 | 24.45 | 40.00 | 15.12 |
+| **RT-DETR** | ONNX Runtime | 39.35 | 25.41 | 43.96 | 23.05 |
+| **RT-DETR** | PyTorch | 74.25 | 13.47 | 72.03 | 24.48 |
 
 ### 🔑 Main Insights
 
-1. **YOLO + ONNX Runtime** achieves the **fastest inference** (22.31 ms, 44.82 FPS)
-2. **RT-DETR detects ~60% more objects** per frame (24.47 vs 15.12 avg detections)
-3. **Backend optimization matters**: ONNX provides **2.5x speedup** vs PyTorch for RT-DETR
-4. **TensorRT delivers consistent performance** with lower P95 latency variance
+1. **YOLO + TensorRT** achieves the **fastest inference** (19.67 ms, 50.84 FPS), significantly outperforming other configurations.
+2. **RT-DETR detects ~62% more objects** per frame (24.48 vs 15.11 avg detections) compared to YOLOv8.
+3. **Backend optimization is critical**: TensorRT provides a **3.07x speedup** for RT-DETR and **2.08x speedup** for YOLO over native PyTorch.
+4. **ONNX Runtime** offers a solid middle ground, providing significant speedups over PyTorch without the complexity of engine compilation.
 
 ---
 
@@ -46,48 +46,64 @@ I benchmark these models across **three inference backends** (PyTorch, ONNX Runt
 
 ![YOLOv8 Architecture](https://blog.roboflow.com/content/images/size/w1000/2024/04/image-1799.webp)
 
-- **Strengths**: Ultra-low latency, simple architecture, mature ecosystem
-- **Trade-offs**: Fewer detections per frame, may miss small/occluded objects
+- **Strengths**: Ultra-low latency, simple architecture, mature ecosystem.
+- **Trade-offs**: Fewer detections per frame, may miss small/occluded objects compared to Transformer-based models.
 
 ### RT-DETR (Transformer-Based)
 
 ![RT-DETR](https://blog.deepschool.ru/wp-content/uploads/2024/08/untitled-78-1024x348.png)
 
-- **Strengths**: Higher recall, better detection density, transformer attention
-- **Trade-offs**: Higher computational cost, more memory intensive
+- **Strengths**: Higher recall, better detection density, transformer attention mechanisms.
+- **Trade-offs**: Higher computational cost, more memory intensive, benefits greatly from TensorRT optimization.
 
 ---
 
 ## 📈 Detailed Results
 
-### Latency Distribution
 
-![Latency Distribution](plots/latency_distribution.png)
+### Summary Comparsion
+![Summary Comparsion](plots/summary_comparison.png)
 
-*Distribution shows YOLO's tighter latency variance vs RT-DETR*
+*A comprehensive overview of average latency, FPS, standard deviation, and total detections across all models and backends*
 
-### Throughput Over Time
+### Latency Over Time
 
 ![Latency Over Time](plots/latency_over_time.png)
 
-*Time-series analysis reveals stable frame-to-frame performance with smal jitter*
+*Time-series analysis reveals stable frame-to-frame performance after the initial warmup phase*
 
 ### FPS Over Time
 
 ![FPS Over Time](plots/fps_over_time.png)
 
-*ONNX backends show the most consistent throughput across both architectures*
+### Latency Distribution
+
+![Latency Distribution](plots/latency_distribution.png)
+
+*Outliers removed via IQR method for visualization clarity*
+
+### Worst Case Latency
+
+![Worst Case Latency](plots/worst_case_latency.png)
+
+*Warmup phase*
+
+### Percentile Comparison
+![Percentile Comparison](plots/percentile_comparison.png)
+
+*Detailed percentile analysis (P50, P95, P99) highlights tail latency behavior*
 
 ### Detection Count Over Time
 
 ![Detection Count Over Time](plots/detections_over_time.png)
 
-*RT-DETR maintains higher and more consistent detection counts in crowded scenes*
+*RT-DETR maintains higher and more consistent detection counts in crowded scenes compared to YOLO*
 
-### Percentile Comparison
-![Percentile Comparison](plots/percentile_comparison.png)
+### Latency vs. Detection Density
 
-*Detailed percentile analysis showing P50, P95, and P99 latencies*
+![Latency vs Detections](plots/latency_vs_detections.png)
+
+*Scatter plot showing how inference latency correlates with the number of objects detected in a frame*
 
 ---
 
@@ -259,16 +275,15 @@ python visualize_metrics.py \
 
 ## 🎥 Demo Results
 
-### YOLO ONNX Runtime
+| Config | Latency | FPS | Demo |
+|--------|---------|-----|------|
+| **YOLO TensorRT** | 19.67ms | 50.84 | ![Demo](demos/yolo_tensorrt.gif) |
+| **YOLO ONNX** | 26.04ms | 38.40 | ![Demo](demos/yolo_onnx.gif) |
+| **YOLO PyTorch** | 40.90ms | 24.45 | ![Demo](demos/yolo_torch.gif) | Native framework |
+| **RT-DETR TensorRT** | 24.15ms | 41.40 | ![Demo](demos/rtdetr_tensorrt.gif)|
+| **RT-DETR ONNX** | 39.35ms | 25.41 | ![Demo](demos/rtdetr_onnx.gif) |
+| **RT-DETR PyTorch** | 74.25ms | 13.47 | ![Demo](demos/rtdetr_torch.gif) |
 
-| Config | Latency | FPS | Demo | Description |
-|--------|---------|-----|------|-------------|
-| **YOLO ONNX Demo** | 22.31ms | 44.82 | ![Demo](demos/yolo_onnx.gif) | Lightweight detection |
-| **YOLO TensorRT** | 23.61ms | 42.35 | ![Demo](demos/yolo_tensorrt.gif) | Optimized GPU kernels |
-| **YOLO PyTorch** | 38.81ms | 25.77 | ![Demo](demos/yolo_torch.gif) | Native framework |
-| **RT-DETR ONNX** | 33.72ms | 29.65 | ![Demo](demos/rtdetr_onnx.gif) | Higher detection density |
-| **RT-DETR TensorRT** | 29.4ms | 34.01 | ![Demo](demos/rtdetr_tensorrt.gif) | Best RT-DETR performance |
-| **RT-DETR PyTorch** | 70.32ms | 14.22 | ![Demo](demos/rtdetr_torch.gif) | Maximum detections |
 
 ---
 
@@ -276,29 +291,32 @@ python visualize_metrics.py \
 
 ### Backend Optimization Impact
 
-**ONNX Runtime Speedup:**
-- YOLO: **1.74x faster** than PyTorch (38.81ms → 22.31ms)
-- RT-DETR: **2.09x faster** than PyTorch (70.32ms → 33.72ms)
+**TensorRT Speedup:**
+- YOLOv8: **2.08x faster** than PyTorch (40.90ms → 19.67ms).
+- RT-DETR: **3.07x faster** than PyTorch (74.25ms → 24.15ms).
 
-**TensorRT Performance:**
-- YOLO: Comparable to ONNX, better P95 stability
-- RT-DETR: **1.64x faster** than PyTorch, **12% faster** than ONNX
+**ONNX Runtime Speedup:**
+- YOLOv8: **1.57x faster** than PyTorch (40.90ms → 26.04ms).
+- RT-DETR: **1.89x faster** than PyTorch (74.25ms → 39.35ms).
+
+**Stability:**
+- ONNX Runtime shows significantly lower standard deviation compared to native PyTorch execution, resulting in smoother real-time performance.
 
 ### Detection Quality Trade-offs
 
-RT-DETR achieves **62% more detections** than YOLO (24.47 vs 15.12 avg):
-- Better recall for crowded scenes
-- Transformer attention captures spatial relationships
-- Cost: ~31% higher latency (29.40ms vs 22.31ms with best backends)
+RT-DETR achieves **~62% more detections** than YOLOv8 (24.48 vs 15.11 avg detections):
+- Better recall for crowded scenes.
+- Transformer attention captures spatial relationships.
+- Cost: Higher base latency, though significantly optimized by TensorRT.
 
 ### Production Deployment Recommendations
 
 | Use Case | Recommended Configuration | Rationale |
 |----------|--------------------------|-----------|
-| **Real-time edge devices** | YOLO + ONNX | Lowest latency (22ms), minimal memory |
-| **Cloud-based API** | RT-DETR + TensorRT | Balanced speed (29ms) + high recall |
-| **High-accuracy surveillance** | RT-DETR + ONNX | Best detection density, deployable |
-| **Embedded systems** | YOLO + TensorRT | Optimized GPU utilization, stable |
+| **low latency Edge** | YOLOv8 + TensorRT | Lowest latency (19.67ms), highest FPS (50.84) |
+| **High Recall / Crowded Scenes** | RT-DETR + TensorRT | Balanced speed (24.15ms) + detection density (24.48/frame) |
+| **CPU / General Deployment** | YOLOv8 + ONNX | Significant speedup over PyTorch without specialized GPU engine |
+| **Research / Prototyping** | PyTorch (Native) | Easiest to debug and modify models |
 
 
 ---

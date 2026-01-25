@@ -16,7 +16,7 @@ class ModelExporter:
     def export_to_onnx(
         model_path: str,
         output_dir: str = "weights",
-        opset: int = 20,
+        opset: int = 17,
         simplify: bool = True,
         dynamic: bool = False,
         imgsz: int = 640,

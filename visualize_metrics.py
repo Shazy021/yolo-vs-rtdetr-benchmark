@@ -262,7 +262,7 @@ class MetricsVisualizer:
         """Plot percentile comparison."""
         fig, ax = plt.subplots(figsize=(12, 6))
 
-        percentiles = ["min", "p50", "p95", "p99", "max"]
+        percentiles = ["min", "p50", "p95", "p99"]
         x = np.arange(len(percentiles))
         width = 0.8 / len(metrics_list)
 
@@ -278,7 +278,6 @@ class MetricsVisualizer:
                 summary.get("median_latency_ms", 0),
                 summary.get("p95_latency_ms", 0),
                 summary.get("p99_latency_ms", 0),
-                summary.get("max_latency_ms", 0),
             ]
 
             offset = (idx - len(metrics_list) / 2) * width + width / 2
@@ -297,7 +296,7 @@ class MetricsVisualizer:
         ax.set_title(title, fontsize=14, fontweight="bold")
 
         ax.set_xticks(x)
-        ax.set_xticklabels(["Min", "P50 (Median)", "P95", "P99", "Max"])
+        ax.set_xticklabels(["Min", "P50 (Median)", "P95", "P99"])
         ax.legend(loc="best", fontsize=10)
         ax.grid(True, axis="y", alpha=0.3)
 
@@ -308,134 +307,178 @@ class MetricsVisualizer:
 
         print(f"✅ Saved: {output_path}")
 
+    def _plot_bar_subplots(
+        self, ax, x, metrics_list, data_key: str, ylabel: str, title: str, limit_lines: List[Tuple[float, str]] = None
+    ):
+        """
+        Helper function to reduce repetition in plot_summary_comparison.
+        """
+        bars = ax.bar(
+            x, [m["summary"].get(data_key, 0) for m in metrics_list], color=self.colors[: len(metrics_list)], alpha=0.8
+        )
+
+        ax.set_ylabel(ylabel, fontsize=10)
+        ax.set_title(title, fontsize=11, fontweight="bold")
+        ax.set_xticks(x)
+
+        # Rotate x labels if they are long
+        ax.set_xticklabels([m["name"] for m in metrics_list], rotation=45, ha="right", fontsize=9)
+        ax.grid(True, axis="y", alpha=0.3)
+
+        # Add limit lines (e.g., 30 FPS)
+        if limit_lines:
+            for y_val, style in limit_lines:
+                ax.axhline(y=y_val, color=style[0], linestyle="--", alpha=0.5, linewidth=1)
+
+        # Add text labels on bars
+        for bar in bars:
+            height = bar.get_height()
+            ax.text(
+                bar.get_x() + bar.get_width() / 2.0,
+                height,
+                f"{height:.1f}",
+                ha="center",
+                va="bottom",
+                fontsize=8,
+            )
+
     def plot_summary_comparison(self, metrics_list: List[Dict], output_name: str = "summary_comparison.png"):
-        """Plot comprehensive summary."""
+        """
+        Plot comprehensive summary.
+        """
         fig = plt.figure(figsize=(16, 10))
         gs = GridSpec(2, 3, figure=fig, hspace=0.3, wspace=0.3)
 
-        names = [m["name"] for m in metrics_list]
-        x = np.arange(len(names))
+        x = np.arange(len(metrics_list))
 
         # 1. Average Latency
-        ax1 = fig.add_subplot(gs[0, 0])
-        avg_latencies = [m["summary"].get("avg_latency_ms", 0) for m in metrics_list]
-        bars1 = ax1.bar(x, avg_latencies, color=self.colors[: len(names)], alpha=0.8)
-        ax1.set_ylabel("Latency (ms)", fontsize=10)
-        ax1.set_title("Average Latency", fontsize=11, fontweight="bold")
-        ax1.set_xticks(x)
-        ax1.set_xticklabels(names, rotation=45, ha="right", fontsize=9)
-        ax1.grid(True, axis="y", alpha=0.3)
-        for bar, val in zip(bars1, avg_latencies):
-            ax1.text(
-                bar.get_x() + bar.get_width() / 2.0,
-                bar.get_height(),
-                f"{val:.1f}",
-                ha="center",
-                va="bottom",
-                fontsize=8,
-            )
+        self._plot_bar_subplots(
+            fig.add_subplot(gs[0, 0]), x, metrics_list, "avg_latency_ms", "Latency (ms)", "Average Latency"
+        )
 
         # 2. Average FPS
-        ax2 = fig.add_subplot(gs[0, 1])
-        avg_fps = [m["summary"].get("avg_fps", 0) for m in metrics_list]
-        bars2 = ax2.bar(x, avg_fps, color=self.colors[: len(names)], alpha=0.8)
-        ax2.set_ylabel("FPS", fontsize=10)
-        ax2.set_title("Average FPS", fontsize=11, fontweight="bold")
-        ax2.set_xticks(x)
-        ax2.set_xticklabels(names, rotation=45, ha="right", fontsize=9)
-        ax2.axhline(y=30, color="green", linestyle="--", alpha=0.5)
-        ax2.grid(True, axis="y", alpha=0.3)
-        for bar, val in zip(bars2, avg_fps):
-            ax2.text(
-                bar.get_x() + bar.get_width() / 2.0,
-                bar.get_height(),
-                f"{val:.1f}",
-                ha="center",
-                va="bottom",
-                fontsize=8,
-            )
+        self._plot_bar_subplots(
+            fig.add_subplot(gs[0, 1]),
+            x,
+            metrics_list,
+            "avg_fps",
+            "FPS",
+            "Average FPS",
+            limit_lines=[(30, "green"), (60, "blue")],
+        )
 
         # 3. Standard Deviation
-        ax3 = fig.add_subplot(gs[0, 2])
-        std_devs = [m["summary"].get("std_latency_ms", 0) for m in metrics_list]
-        bars3 = ax3.bar(x, std_devs, color=self.colors[: len(names)], alpha=0.8)
-        ax3.set_ylabel("Std Dev (ms)", fontsize=10)
-        ax3.set_title("Latency Std Deviation", fontsize=11, fontweight="bold")
-        ax3.set_xticks(x)
-        ax3.set_xticklabels(names, rotation=45, ha="right", fontsize=9)
-        ax3.grid(True, axis="y", alpha=0.3)
-        for bar, val in zip(bars3, std_devs):
-            ax3.text(
-                bar.get_x() + bar.get_width() / 2.0,
-                bar.get_height(),
-                f"{val:.1f}",
-                ha="center",
-                va="bottom",
-                fontsize=8,
-            )
+        self._plot_bar_subplots(
+            fig.add_subplot(gs[0, 2]), x, metrics_list, "std_latency_ms", "Std Dev (ms)", "Latency Std Deviation"
+        )
 
         # 4. P95 Latency
-        ax4 = fig.add_subplot(gs[1, 0])
-        p95_vals = [m["summary"].get("p95_latency_ms", 0) for m in metrics_list]
-        bars4 = ax4.bar(x, p95_vals, color=self.colors[: len(names)], alpha=0.8)
-        ax4.set_ylabel("Latency (ms)", fontsize=10)
-        ax4.set_title("P95 Latency", fontsize=11, fontweight="bold")
-        ax4.set_xticks(x)
-        ax4.set_xticklabels(names, rotation=45, ha="right", fontsize=9)
-        ax4.grid(True, axis="y", alpha=0.3)
-        for bar, val in zip(bars4, p95_vals):
-            ax4.text(
-                bar.get_x() + bar.get_width() / 2.0,
-                bar.get_height(),
-                f"{val:.1f}",
-                ha="center",
-                va="bottom",
-                fontsize=8,
-            )
+        self._plot_bar_subplots(
+            fig.add_subplot(gs[1, 0]), x, metrics_list, "p95_latency_ms", "Latency (ms)", "P95 Latency"
+        )
 
         # 5. P99 Latency
-        ax5 = fig.add_subplot(gs[1, 1])
-        p99_vals = [m["summary"].get("p99_latency_ms", 0) for m in metrics_list]
-        bars5 = ax5.bar(x, p99_vals, color=self.colors[: len(names)], alpha=0.8)
-        ax5.set_ylabel("Latency (ms)", fontsize=10)
-        ax5.set_title("P99 Latency", fontsize=11, fontweight="bold")
-        ax5.set_xticks(x)
-        ax5.set_xticklabels(names, rotation=45, ha="right", fontsize=9)
-        ax5.grid(True, axis="y", alpha=0.3)
-        for bar, val in zip(bars5, p99_vals):
-            ax5.text(
-                bar.get_x() + bar.get_width() / 2.0,
-                bar.get_height(),
-                f"{val:.1f}",
-                ha="center",
-                va="bottom",
-                fontsize=8,
-            )
+        self._plot_bar_subplots(
+            fig.add_subplot(gs[1, 1]), x, metrics_list, "p99_latency_ms", "Latency (ms)", "P99 Latency"
+        )
 
         # 6. Total Detections
         ax6 = fig.add_subplot(gs[1, 2])
-        total_dets = [m["summary"].get("total_detections", 0) for m in metrics_list]
-        bars6 = ax6.bar(x, total_dets, color=self.colors[: len(names)], alpha=0.8)
-        ax6.set_ylabel("Count", fontsize=10)
-        ax6.set_title("Total Detections", fontsize=11, fontweight="bold")
-        ax6.set_xticks(x)
-        ax6.set_xticklabels(names, rotation=45, ha="right", fontsize=9)
-        ax6.grid(True, axis="y", alpha=0.3)
-        for bar, val in zip(bars6, total_dets):
-            ax6.text(
-                bar.get_x() + bar.get_width() / 2.0,
-                bar.get_height(),
-                f"{int(val)}",
-                ha="center",
-                va="bottom",
-                fontsize=8,
-            )
+        self._plot_bar_subplots(ax6, x, metrics_list, "total_detections", "Count", "Total Detections")
+        # Format numbers as integers for counts
+        for text in ax6.texts:
+            text.set_text(f"{int(float(text.get_text()))}")
 
         title = "Performance Metrics Comparison"
         if self.skip_warmup > 0:
             title += f" (warmup {self.skip_warmup} frames excluded)"
         fig.suptitle(title, fontsize=16, fontweight="bold", y=0.995)
 
+        output_path = self.output_dir / output_name
+        plt.savefig(output_path, dpi=150, bbox_inches="tight")
+        plt.close()
+
+        print(f"✅ Saved: {output_path}")
+
+    def plot_latency_vs_detections(self, metrics_list: List[Dict], output_name: str = "latency_vs_detections.png"):
+        """
+        Scatter plot: Latency vs Number of Detections.
+
+        Shows how model performance degrades (or stays stable)
+        as the number of objects in the frame increases.
+        """
+        fig, ax = plt.subplots(figsize=(12, 7))
+
+        for idx, metrics in enumerate(metrics_list):
+            name = metrics["name"]
+            frames = metrics.get("frames", [])
+
+            if not frames:
+                continue
+
+            detections = [f["detections"] for f in frames]
+            latencies = [f["latency_ms"] for f in frames]
+
+            # Downsample if too many points for scatter
+            if len(detections) > 2000:
+                stride = len(detections) // 2000
+                detections = detections[::stride]
+                latencies = latencies[::stride]
+
+            ax.scatter(
+                detections,
+                latencies,
+                label=name,
+                color=self.colors[idx % len(self.colors)],
+                alpha=0.6,
+                s=20,  # Size of dots
+                edgecolors="black",
+                linewidth=0.5,
+            )
+
+        ax.set_xlabel("Number of Detections in Frame", fontsize=12)
+        ax.set_ylabel("Inference Latency (ms)", fontsize=12)
+        ax.set_title("Latency vs. Detection Density", fontsize=14, fontweight="bold")
+        ax.legend(loc="best", fontsize=10)
+        ax.grid(True, alpha=0.3)
+
+        plt.tight_layout()
+        output_path = self.output_dir / output_name
+        plt.savefig(output_path, dpi=150, bbox_inches="tight")
+        plt.close()
+
+        print(f"✅ Saved: {output_path}")
+
+    def plot_worst_case_latency(self, metrics_list: List[Dict], output_name: str = "worst_case_latency.png"):
+        """
+        Plot Worst Case (Max) Latency using vertical bars.
+        """
+        fig, ax = plt.subplots(figsize=(10, 6))
+
+        names = [m["name"] for m in metrics_list]
+        x = np.arange(len(names))
+
+        max_latencies = [m["summary"].get("max_latency_ms", 0) for m in metrics_list]
+
+        bars = ax.bar(x, max_latencies, color=self.colors[: len(names)], alpha=0.8)
+
+        ax.set_ylabel("Latency (ms)", fontsize=10)
+        ax.set_title("Worst Case Latency (Max)", fontsize=11, fontweight="bold")
+        ax.set_xticks(x)
+        ax.set_xticklabels(names, rotation=45, ha="right", fontsize=9)
+        ax.grid(True, axis="y", alpha=0.3)
+
+        for bar, val in zip(bars, max_latencies):
+            ax.text(
+                bar.get_x() + bar.get_width() / 2.0,
+                bar.get_height(),
+                f"{val:.1f}",
+                ha="center",
+                va="bottom",
+                fontsize=8,
+            )
+
+        plt.tight_layout()
         output_path = self.output_dir / output_name
         plt.savefig(output_path, dpi=150, bbox_inches="tight")
         plt.close()
@@ -512,6 +555,8 @@ class MetricsVisualizer:
             self.plot_latency_distribution(metrics_list)
             self.plot_percentile_comparison(metrics_list)
             self.plot_detection_over_time(metrics_list)
+            self.plot_latency_vs_detections(metrics_list)
+            self.plot_worst_case_latency(metrics_list)
 
             print(f"\n{'='*60}")
             print(f"✅ All plots generated successfully!")

@@ -48,12 +48,12 @@ export:
   output_dir: "weights"
 
   onnx:
-    opset: 20
+    opset: 17
     simplify: true
     dynamic: false
 
   tensorrt:
-    fp16: true              # Use FP16 precision (2x faster)
+    fp16: false              # FP16 precision (2x faster)
     workspace_gb: 4         # GPU workspace size in GB
     int8: false             # INT8 quantization (requires calibration)
 
