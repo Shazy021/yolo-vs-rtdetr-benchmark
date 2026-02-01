@@ -120,9 +120,17 @@ I benchmark these models across **three inference backends** (PyTorch, ONNX Runt
 - **Backends**: 
   - PyTorch (native JIT)
   - ONNX Runtime 1.24.0 ([custom for blackwell support](https://huggingface.co/ussoewwin/onnxruntime-gpu-1.24.0))(CUDAExecutionProvider)
-  - TensorRT 10.9.0.34
+  - TensorRT 10.9.0.34: Loaded from Docker image or manual installation.
 - **OS**: Windows 10 x64
 - **Python**: 3.12
+
+### TensorRT Installation
+1.  **Docker (Recommended)**:
+    The provided `Dockerfile` is based on `nvcr.io/nvidia/tensorrt`, which includes all dependencies (CUDA, cuDNN, TensorRT) pre-configured. No manual installation required.
+
+2.  **Local Installation**:
+    `pip install tensorrt` is unstable. Please download the official `.whl` file from [NVIDIA developer](https://developer.nvidia.com/tensorrt) that matches your CUDA version.
+    - `tensorrt` is **commented out** in `requirements.txt` to prevent accidental build failures on non-CUDA systems or incompatible driver versions.
 
 ### Dataset & Methodology
 - **Video**: 705 frames @ 1080p (crowd surveillance scenario)

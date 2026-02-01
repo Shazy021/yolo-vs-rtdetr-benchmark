@@ -11,8 +11,10 @@ pillow>=9.0.0
 onnxruntime-gpu>=1.15.0,<2.0.0
 onnx>=1.14.0
 
-# TensorRT (optional - requires NVIDIA base image)
-# tensorrt>=8.5.0
+# TensorRT (MANUAL INSTALLATION)
+# Included in Docker image (nvcr.io/nvidia/tensorrt).
+# For local installation, please install via NVIDIA .whl package.
+# tensorrt>=10.9.0.34 
 
 # Utilities
 numpy>=1.21.0,<2.0.0
