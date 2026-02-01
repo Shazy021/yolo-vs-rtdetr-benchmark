@@ -1,15 +1,11 @@
 from .base_detector import BaseDetector
 from .factory import DetectorFactory
 from .onnx_detector import ONNXDetector
-from .rtdetr_detector import RTDETRDetector
-from .trt_detector import TRTDetector
-from .yolo_detector import YOLODetector
+from .ultralytics_detector import UltralyticsDetector
 
 __all__ = [
     "BaseDetector",
     "ONNXDetector",
-    "RTDETRDetector",
-    "TRTDetector",
-    "YOLODetector",
     "DetectorFactory",
+    "UltralyticsDetector"
 ]
