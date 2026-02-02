@@ -1,3 +1,4 @@
+import logging
 import threading
 import time
 from pathlib import Path
@@ -8,96 +9,9 @@ import cv2
 import numpy as np
 
 
-def get_optimal_size(width: int, height: int, max_size: int = None) -> Tuple[int, int]:
-    """
-    Calculate optimal input size for inference (multiple of 32).
-
-    Most detection models require input dimensions divisible by 32
-    for proper feature map computation.
-
-    Args:
-        width: Original video width
-        height: Original video height
-        max_size: Maximum dimension limit (optional, prevents upscaling)
-
-    Returns:
-        Tuple of (height, width) rounded to nearest multiple of 32,
-        minimum 320 pixels per dimension
-    """
-    # Apply max_size constraint if specified (no upscaling)
-    if max_size is not None:
-        scale = min(max_size / width, max_size / height, 1.0)
-        width = int(width * scale)
-        height = int(height * scale)
-
-    # Round to nearest multiple of 32
-    optimal_w = (width // 32) * 32
-    optimal_h = (height // 32) * 32
-
-    # Enforce minimum size of 320
-    optimal_w = max(320, optimal_w)
-    optimal_h = max(320, optimal_h)
-
-    return optimal_h, optimal_w
-
-
-def get_video_optimal_size(video_path: str, max_size: int = None) -> Dict[str, Any]:
-    """
-    Analyze video and calculate optimal inference dimensions.
-
-    Reads video metadata and computes model-friendly dimensions
-    (multiples of 32) while preserving aspect ratio.
-
-    Args:
-        video_path: Path to video file
-        max_size: Maximum dimension for inference (optional)
-
-    Returns:
-        Dictionary containing:
-            - original_width: Original video width
-            - original_height: Original video height
-            - optimal_width: Computed optimal width (multiple of 32)
-            - optimal_height: Computed optimal height (multiple of 32)
-            - fps: Video frames per second
-            - total_frames: Total frame count
-
-    Raises:
-        ValueError: If video cannot be opened
-    """
-    cap = cv2.VideoCapture(video_path)
-
-    if not cap.isOpened():
-        raise ValueError(f"Cannot open video file: {video_path}")
-
-    original_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-    original_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-    fps = int(cap.get(cv2.CAP_PROP_FPS))
-    total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
-
-    cap.release()
-
-    # Calculate optimal size
-    optimal_h, optimal_w = get_optimal_size(original_width, original_height, max_size)
-
-    return {
-        "original_width": original_width,
-        "original_height": original_height,
-        "optimal_width": optimal_w,
-        "optimal_height": optimal_h,
-        "fps": fps,
-        "total_frames": total_frames,
-    }
-
-
 class VideoProcessor:
     """
     Enhanced video processor with beautiful visualization and compression.
-
-    Features:
-    - Optimized H.264 encoding for smaller file sizes
-    - Semi-transparent overlay panels
-    - Color-coded bounding boxes by confidence
-    - Real-time performance metrics display
     """
 
     DEFAULT_COLORS = {
@@ -115,7 +29,7 @@ class VideoProcessor:
         colors: Dict[str, Tuple[int, int, int]] = None,
         panel_width: int = 350,
         panel_height: int = 100,
-        corner_length_ratio: float = 0.05,  # FIXED: was 'conner_lenth_ratio'
+        corner_length_ratio: float = 0.05,
     ):
         """
         Initialize Video Processor with visual settings.
@@ -150,9 +64,9 @@ class VideoProcessor:
 
         # Priority list
         codecs_to_try = [
+            ("mp4v", cv2.VideoWriter_fourcc(*"mp4v")),
             ("H264", cv2.VideoWriter_fourcc(*"H264")),
             ("X264", cv2.VideoWriter_fourcc(*"X264")),
-            ("mp4v", cv2.VideoWriter_fourcc(*"mp4v")),  # MPEG-4 (fallback)
         ]
 
         # Test each codec
@@ -160,7 +74,7 @@ class VideoProcessor:
             try:
                 writer = cv2.VideoWriter(output_path, codec_fourcc, fps, frame_size)
                 if writer.isOpened():
-                    print(f"   Using codec: {codec_name}")
+                    logging.info(f"Using codec: {codec_name}")
                     return writer
             except Exception:
                 # Some backends raise exceptions immediately, some don't
@@ -207,7 +121,7 @@ class VideoProcessor:
         # Calculate dynamic corner length based on box size
         box_w = x2 - x1
         box_h = y2 - y1
-        # FIXED: 'corner_lenght' -> 'corner_length'
+        # Fixed typo: corner_length_ratio
         corner_length = min(20, int(box_w * self.corner_length_ratio), int(box_h * self.corner_length_ratio))
 
         accent_thickness = thickness
@@ -242,7 +156,6 @@ class VideoProcessor:
         label_bg_y2 = y1
 
         # Overlay logic (semi-transparent)
-        # Instead of full frame copy, we only manipulate ROI to save memory
         roi_x1 = x1
         roi_y1 = label_bg_y1
         roi_x2 = x1 + text_w + 10
@@ -414,7 +327,7 @@ def process_video(
     processor = VideoProcessor(colors=viz_config.get("colors") if viz_config else None)
 
     # Open input video
-    print(source_path)
+    logging.info(f"Input video: {source_path}")
     cap = cv2.VideoCapture(source_path)
 
     if not cap.isOpened():
@@ -428,11 +341,11 @@ def process_video(
 
     input_size_mb = Path(source_path).stat().st_size / (1024 * 1024)
 
-    print(f"📹 Input video info:")
-    print(f"   Resolution: {width}x{height}")
-    print(f"   FPS: {fps}")
-    print(f"   Total frames: {total_frames}")
-    print(f"   File size: {input_size_mb:.2f} MB")
+    logging.info(f"Input video info:")
+    logging.info(f"   Resolution: {width}x{height}")
+    logging.info(f"   FPS: {fps}")
+    logging.info(f"   Total frames: {total_frames}")
+    logging.info(f"   File size: {input_size_mb:.2f} MB")
 
     # Create output directory
     Path(output_path).parent.mkdir(parents=True, exist_ok=True)
@@ -474,7 +387,7 @@ def process_video(
     # Main Processing Loop
     frame_count = 0
     start_time = time.time()
-    print(f"🚀 Processing video with threaded I/O...")
+    logging.info("Processing video with threaded I/O...")
 
     try:
         while cap.isOpened():
@@ -514,7 +427,7 @@ def process_video(
             if show_preview:
                 cv2.imshow("Detection Preview", annotated_frame)
                 if cv2.waitKey(1) & 0xFF == ord("q"):
-                    print("   Preview interrupted by user")
+                    logging.info("Preview interrupted by user")
                     break
 
             frame_count += 1
@@ -523,13 +436,13 @@ def process_video(
             if frame_count % 30 == 0:
                 progress = (frame_count / total_frames) * 100 if total_frames > 0 else 0
                 current_fps = 1000 / inference_time if inference_time > 0 else 0
-                print(
-                    f"   Frame {frame_count}/{total_frames} ({progress:.1f}%) - "
+                logging.info(
+                    f"Frame {frame_count}/{total_frames} ({progress:.1f}%) - "
                     f"{current_fps:.1f} FPS - {len(detections)} people"
                 )
 
             if max_frames and frame_count >= max_frames:
-                print(f"   Reached max_frames limit: {max_frames}")
+                logging.info(f"Reached max_frames limit: {max_frames}")
                 break
 
     finally:
@@ -565,15 +478,15 @@ def process_video(
         "compression_ratio": compression_ratio,
     }
 
-    print(f"\n✅ Processing complete!")
-    print(f"   Frames processed: {frame_count}")
-    print(f"   Total time: {total_time:.2f}s")
-    print(f"   Average FPS: {avg_fps:.2f}")
-    print(f"   Output size: {output_size_mb:.2f} MB")
+    logging.info("Processing complete!")
+    logging.info(f"   Frames processed: {frame_count}")
+    logging.info(f"   Total time: {total_time:.2f}s")
+    logging.info(f"   Average FPS: {avg_fps:.2f}")
+    logging.info(f"   Output size: {output_size_mb:.2f} MB")
     if compression_ratio > 0:
-        print(f"   Compression: {abs(compression_ratio):.1f}% {'smaller' if compression_ratio > 0 else 'larger'}")
+        logging.info(f"   Compression: {abs(compression_ratio):.1f}% smaller")
     else:
-        print(f"   Size change: {abs(compression_ratio):.1f}% larger")
-    print(f"   Saved: {output_path}")
+        logging.info(f"   Size change: {abs(compression_ratio):.1f}% larger")
+    logging.info(f"   Saved: {output_path}")
 
     return stats

@@ -1,7 +1,10 @@
+import logging
 from pathlib import Path
 from typing import Any, Optional
 
 import yaml
+
+from .utils import get_video_optimal_size
 
 
 class Config:
@@ -108,9 +111,6 @@ class Config:
             size = self.get("inference.input_size.fixed_size", [640, 640])
             return tuple(size)
         elif mode == "adaptive" and video_path:
-            # Import here to avoid circular dependency
-            from utils import get_video_optimal_size
-
             try:
                 info = get_video_optimal_size(video_path)
                 return (info["optimal_height"], info["optimal_width"])
@@ -172,27 +172,27 @@ class Config:
         with open(output_path, "w") as f:
             yaml.dump(self.data, f, default_flow_style=False, sort_keys=False)
 
-        print(f"💾 Config saved to: {output_path}")
+        logging.info(f"Config saved to: {output_path}")
 
     def print_summary(self):
-        """Print configuration summary."""
-        print("\n" + "=" * 60)
-        print("⚙️  Configuration Summary")
-        print("=" * 60)
-        print(f"Config file: {self.config_path}")
-        print(f"\nInference:")
-        print(f"  Confidence threshold: {self.get('inference.conf_threshold')}")
-        print(f"  NMS threshold: {self.get('inference.nms_threshold')}")
-        print(f"  Input size mode: {self.get('inference.input_size.mode')}")
-        print(f"  GPU enabled: {self.get('inference.device.use_gpu')}")
-        print(f"\nVideo:")
-        print(f"  Show preview: {self.get('video.show_preview')}")
-        print(f"  Display info: {self.get('video.display_info')}")
-        print(f"  Max frames: {self.get('video.max_frames') or 'all'}")
-        print(f"\nMetrics:")
-        print(f"  Enabled: {self.get('metrics.enabled')}")
-        print(f"  Save to file: {self.get('metrics.save_to_file')}")
-        print("=" * 60 + "\n")
+        """Print configuration summary using logging."""
+        logging.info("=" * 60)
+        logging.info("Configuration Summary")
+        logging.info("=" * 60)
+        logging.info(f"Config file: {self.config_path}")
+        logging.info(f"\nInference:")
+        logging.info(f"  Confidence threshold: {self.get('inference.conf_threshold')}")
+        logging.info(f"  NMS threshold: {self.get('inference.nms_threshold')}")
+        logging.info(f"  Input size mode: {self.get('inference.input_size.mode')}")
+        logging.info(f"  GPU enabled: {self.get('inference.device.use_gpu')}")
+        logging.info(f"\nVideo:")
+        logging.info(f"  Show preview: {self.get('video.show_preview')}")
+        logging.info(f"  Display info: {self.get('video.display_info')}")
+        logging.info(f"  Max frames: {self.get('video.max_frames') or 'all'}")
+        logging.info(f"\nMetrics:")
+        logging.info(f"  Enabled: {self.get('metrics.enabled')}")
+        logging.info(f"  Save to file: {self.get('metrics.save_to_file')}")
+        logging.info("=" * 60 + "\n")
 
     def __repr__(self) -> str:
         """String representation."""

@@ -1,4 +1,5 @@
 import json
+import logging
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List
@@ -147,35 +148,35 @@ class MetricsTracker:
         with open(filepath, "w") as f:
             json.dump(data, f, indent=2)
 
-        print(f"📊 Metrics saved to: {filepath}")
+        logging.info(f"📊 Metrics saved to: {filepath}")
 
     def print_summary(self):
         """Print formatted metrics summary to console."""
         summary = self.get_summary()
 
         if not summary:
-            print(f"⚠️  No metrics collected for {self.name}")
+            logging.warning(f"⚠️  No metrics collected for {self.name}")
             return
 
-        print(f"\n{'='*60}")
-        print(f"📊 Metrics Summary: {self.name}")
-        print(f"{'='*60}")
-        print(f"Frames processed: {summary['frame_count']}")
-        print(f"\nLatency Statistics (ms):")
-        print(f"  Mean: {summary['avg_latency_ms']:.2f}")
-        print(f"  Median: {summary['median_latency_ms']:.2f}")
-        print(f"  Std Dev: {summary['std_latency_ms']:.2f}")
-        print(f"  Min: {summary['min_latency_ms']:.2f}")
-        print(f"  Max: {summary['max_latency_ms']:.2f}")
-        print(f"  P95: {summary['p95_latency_ms']:.2f}")
-        print(f"  P99: {summary['p99_latency_ms']:.2f}")
-        print(f"\nPerformance:")
-        print(f"  Average FPS: {summary['avg_fps']:.2f}")
-        print(f"  Total time: {summary['processing_time']:.2f}s")
-        print(f"\nDetections:")
-        print(f"  Avg per frame: {summary['avg_detections']:.1f}")
-        print(f"  Total: {summary['total_detections']}")
-        print(f"{'='*60}")
+        logging.info(f"\n{'='*60}")
+        logging.info(f"📊 Metrics Summary: {self.name}")
+        logging.info(f"{'='*60}")
+        logging.info(f"Frames processed: {summary['frame_count']}")
+        logging.info(f"\nLatency Statistics (ms):")
+        logging.info(f"  Mean: {summary['avg_latency_ms']:.2f}")
+        logging.info(f"  Median: {summary['median_latency_ms']:.2f}")
+        logging.info(f"  Std Dev: {summary['std_latency_ms']:.2f}")
+        logging.info(f"  Min: {summary['min_latency_ms']:.2f}")
+        logging.info(f"  Max: {summary['max_latency_ms']:.2f}")
+        logging.info(f"  P95: {summary['p95_latency_ms']:.2f}")
+        logging.info(f"  P99: {summary['p99_latency_ms']:.2f}")
+        logging.info(f"\nPerformance:")
+        logging.info(f"  Average FPS: {summary['avg_fps']:.2f}")
+        logging.info(f"  Total time: {summary['processing_time']:.2f}s")
+        logging.info(f"\nDetections:")
+        logging.info(f"  Avg per frame: {summary['avg_detections']:.1f}")
+        logging.info(f"  Total: {summary['total_detections']}")
+        logging.info(f"{'='*60}")
 
     def get_latency_percentiles(self, percentiles: List[float] = None) -> Dict[float, float]:
         """

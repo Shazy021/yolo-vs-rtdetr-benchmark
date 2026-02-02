@@ -1,3 +1,4 @@
+import logging
 from typing import Any, Dict, List, Tuple
 
 import cv2
@@ -9,7 +10,7 @@ try:
     ONNX_AVAILABLE = True
 except ImportError:
     ONNX_AVAILABLE = False
-    print("⚠️  onnxruntime not installed. Run: pip install onnxruntime-gpu")
+    logging.warning("onnxruntime not installed. Run: pip install onnxruntime-gpu")
 
 from .base_detector import BaseDetector
 
@@ -77,7 +78,7 @@ class ONNXDetector(BaseDetector):
         # Parse or use custom input size
         if input_size is not None:
             self.input_h, self.input_w = input_size
-            print(f"   Using custom input size: {self.input_w}x{self.input_h}")
+            logging.info(f"   Using custom input size: {self.input_w}x{self.input_h}")
         else:
             self.input_h, self.input_w = self._parse_input_shape(self.input_shape_info)
 
@@ -86,12 +87,12 @@ class ONNXDetector(BaseDetector):
         self.device = "GPU (CUDA)" if "CUDAExecutionProvider" in self.session.get_providers() else "CPU"
 
         # Print initialization summary
-        print(f"✅ Loaded ONNX model: {onnx_path}")
-        print(f"   Model type: {self.model_type.upper()}")
-        print(f"   Device: {self.device}")
-        print(f"   Input shape: {self.input_shape_info}")
-        print(f"   Parsed size: {self.input_h}x{self.input_w}")
-        print(f"   Output shapes: {self.output_shapes}")
+        logging.info(f"Loaded ONNX model: {onnx_path}")
+        logging.info(f"   Model type: {self.model_type.upper()}")
+        logging.info(f"   Device: {self.device}")
+        logging.info(f"   Input shape: {self.input_shape_info}")
+        logging.info(f"   Parsed size: {self.input_h}x{self.input_w}")
+        logging.info(f"   Output shapes: {self.output_shapes}")
 
     def _parse_input_shape(self, shape_info) -> Tuple[int, int]:
         """

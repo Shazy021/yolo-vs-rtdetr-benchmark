@@ -1,15 +1,11 @@
+import logging
 from typing import Any, Dict, List, Tuple
-import numpy as np
 
-try:
-    from ultralytics import YOLO, RTDETR
-    ULTRALYTICS_AVIABLE = True
-except ImportError:
-    ULTRALYTICS_AVIABLE = False
-    YOLO = None
-    RTDETR = None
+import numpy as np
+from ultralytics import RTDETR, YOLO
 
 from .base_detector import BaseDetector
+
 
 class UltralyticsDetector(BaseDetector):
     """
@@ -28,10 +24,10 @@ class UltralyticsDetector(BaseDetector):
     def __init__(
         self,
         model_path: str,
-        conf_threshold = 0.25,
+        conf_threshold=0.25,
         img_size: Tuple[int, int] = (640, 640),
         device: str = "cuda",
-        model_type: str = "yolo"
+        model_type: str = "yolo",
     ):
         """
         Initialize the Ultralytics detector.
@@ -49,21 +45,14 @@ class UltralyticsDetector(BaseDetector):
         self.img_size = img_size
         self.device = device
 
-        if not ULTRALYTICS_AVIABLE:
-            raise ImportError("Ultralytics library is not installed. Run: pip install ultralytics")
-        
         if self.model_type == "rtdetr":
-            print(f"🔄 Loading RT-DETR model: {model_path}")
+            logging.info(f"🔄 Loading RT-DETR model: {model_path}")
             self.model = RTDETR(model_path)
         else:
-            print(f"🔄 Loading YOLO model: {model_path}")
+            logging.info(f"🔄 Loading YOLO model: {model_path}")
             self.model = YOLO(model_path)
 
-
-    def predict(
-        self,
-        frame: np.ndarray    
-    ) -> List[Dict[str, Any]]:
+    def predict(self, frame: np.ndarray) -> List[Dict[str, Any]]:
         """
         Run inference on a single frame.
 
@@ -77,11 +66,7 @@ class UltralyticsDetector(BaseDetector):
             List of detections filtered by person class.
         """
         results = self.model(
-            frame,
-            verbose=False,
-            classes=[self.person_class_id],
-            imgsz=self.img_size,
-            device=self.device
+            frame, verbose=False, classes=[self.person_class_id], imgsz=self.img_size, device=self.device
         )
 
         detections = []
@@ -97,10 +82,6 @@ class UltralyticsDetector(BaseDetector):
                     # Get class ID
                     cls = int(box.cls[0].cpu().numpy())
 
-                    detections.append({
-                        "bbox": xyxy.tolist(),
-                        "conf": conf,
-                        "class_id": cls
-                    })
+                    detections.append({"bbox": xyxy.tolist(), "conf": conf, "class_id": cls})
 
         return self.filter_person_class(detections)

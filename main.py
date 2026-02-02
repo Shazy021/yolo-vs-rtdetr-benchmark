@@ -5,15 +5,26 @@ Supports multiple models (YOLO, RT-DETR) and backends (PyTorch, ONNX, TensorRT).
 Uses config.yaml for default settings, with CLI argument overrides.
 """
 
+import logging
 import sys
 from pathlib import Path
 
 from src.detectors import DetectorFactory
-from src.utils import MetricsTracker, ModelManager, get_video_optimal_size, load_config, parse_args, process_video
+from src.utils import (
+    MetricsTracker,
+    ModelManager,
+    get_video_optimal_size,
+    load_config,
+    parse_args,
+    process_video,
+    setup_logging,
+)
 
 
 def main():
     """Main execution function."""
+    setup_logging(verbose=True)
+
     # 1. Parse CLI Arguments
     args = parse_args()
 
@@ -21,7 +32,7 @@ def main():
     try:
         config = load_config(args.config)
     except Exception as e:
-        print(f"❌ Config error: {e}")
+        logging.error(f"Config error: {e}")
         sys.exit(1)
 
     config.merge_cli_args(args)
@@ -38,7 +49,7 @@ def main():
         try:
             weights_path = config.get_model_path(model, backend)
         except KeyError as e:
-            print(f"❌ Error: {e}")
+            logging.error(f"Error: {e}")
             sys.exit(1)
 
     # 4. Ensure Model Exists (Automation Logic)
@@ -47,7 +58,7 @@ def main():
     try:
         manager.ensure_model(weights_path, model, backend)
     except Exception as e:
-        print(f"❌ Model preparation failed: {e}")
+        logging.error(f"Model preparation failed: {e}")
         sys.exit(1)
 
     # 5. Determine Input Size
@@ -67,7 +78,7 @@ def main():
     nms_threshold = config.get("inference.nms_threshold", 0.45)
     use_gpu = config.get("inference.device.use_gpu", True)
 
-    print(f"\n🔧 Initializing {backend.upper()} detector...")
+    logging.info(f"Initializing {backend.upper()} detector...")
 
     try:
         detector = DetectorFactory.create(
@@ -80,7 +91,7 @@ def main():
             use_gpu=use_gpu,
         )
     except Exception as e:
-        print(f"❌ Failed to create detector: {e}")
+        logging.error(f"Failed to create detector: {e}")
         sys.exit(1)
 
     # 7. Setup Metrics
@@ -97,7 +108,7 @@ def main():
         output_path = str(output_dir / output_filename)
 
     # 9. Process Video
-    print(f"\n🎬 Processing video...")
+    logging.info("Processing video...")
     try:
         stats = process_video(
             detector=detector,
@@ -119,13 +130,13 @@ def main():
                 metrics_path = metrics_dir / f"{model}_{backend}_metrics.json"
                 metrics_tracker.save_to_file(str(metrics_path))
 
-        print(f"\n✅ SUCCESS! Output saved to: {output_path}")
+        logging.info(f"SUCCESS! Output saved to: {output_path}")
 
     except KeyboardInterrupt:
-        print("\n⚠️  Processing interrupted")
+        logging.warning("Processing interrupted")
         sys.exit(0)
     except Exception as e:
-        print(f"\n❌ Processing failed: {e}")
+        logging.error(f"Processing failed: {e}")
         import traceback
 
         traceback.print_exc()
