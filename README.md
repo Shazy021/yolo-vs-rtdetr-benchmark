@@ -44,7 +44,7 @@ I benchmark these models across **three inference backends** (PyTorch, ONNX Runt
 
 ### YOLOv8 (Anchor-Free CNN)
 
-![YOLOv8 Architecture](https://blog.roboflow.com/content/images/size/w1000/2024/04/image-1799.webp)
+![YOLO Architecture](https://storage.ghost.io/c/2c/8d/2c8d8c0d-1c15-4b6d-825e-02b78d61d40a/content/images/size/w1000/2020/08/image.png)
 
 - **Strengths**: Ultra-low latency, simple architecture, mature ecosystem.
 - **Trade-offs**: Fewer detections per frame, may miss small/occluded objects compared to Transformer-based models.
@@ -120,6 +120,7 @@ I benchmark these models across **three inference backends** (PyTorch, ONNX Runt
 - **Backends**: 
   - PyTorch (native JIT)
   - ONNX Runtime 1.24.0 ([custom for blackwell support](https://huggingface.co/ussoewwin/onnxruntime-gpu-1.24.0))(CUDAExecutionProvider)
+  > Update: You can now use official ONNX Runtime with blackwell's support. [oficial with blackwell support](https://onnxruntime.ai/docs/install/#nightly-for-cuda-13x)(CUDAExecutionProvider)
   - TensorRT 10.9.0.34: Loaded from Docker image or manual installation.
 - **OS**: Windows 10 x64
 - **Python**: 3.12
